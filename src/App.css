@@ -1,38 +1,150 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Germania+One&display=swap");
+
+body {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.blackBody {
+  /* background: rgba(0, 0, 0, 0.9); */
+  background: linear-gradient(#000000, #00301a);
+  /* margin-top: 70px; */
+  padding-top: 20px;
+  height: 100%;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.9);
+  color: #f1f1f1;
+  height: 100%;
+  width: 100%;
+
+  /* opacity: 0.8; */
+  font-size: 20px;
+  text-align: center;
+  z-index: -1;
+}
+
+.login {
+  opacity: 1;
+  height: 100vh;
+}
+
+.profileTopCard {
+  opacity: 1;
+  color: black;
+}
+
+.logo-font {
+  font-family: "Germania One", cursive;
+  color: white !important;
+  text-shadow: black;
+}
+
+#club-nav {
+  /* background-color: #00db71; */
+  height: 60px;
+  /* background-color: #57d699; */
+  background-color: #066138;
+
+  /* background: linear-gradient(#57d699, #00301a); */
+  /* color: black; */
+  color: #ffffff;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+}
+
+#club-nav a {
+  /* color: black; */
+  color: #f1f1f1;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.green-bg {
+  /* background-color: #57d699; */
+  background-color: #066138;
+  padding: 10px;
+  /* width: 200px; */
+}
+
+.bold-hover:hover {
+  color: rgb(219, 200, 200);
+}
+
+.green-bg div {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.match-text {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#searchbar {
+  background-color: #b6fddb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#searchbarItem {
+  background-color: #d2fdb6;
 }
+
+#homeCarousel {
+  height: 20%;
+}
+
+/* #homeCarousel .carousel-pic {
+  height: 20%;
+} */
+
+#homeCarousel .carousel-pic img {
+  width: 100%;
+  height: 75vh;
+  object-fit: cover;
+  object-position: 0% 25%;
+}
+
+#homeCarousel .carousel-pic a {
+  color: white;
+  text-decoration: none;
+}
+
+#homeCarousel .carousel-pic a:hover {
+  color: rgb(219, 200, 200);
+}
+
+#card-section {
+  color: white;
+  text-align: center;
+}
+
+#card-section a {
+  color: white;
+  text-decoration: none;
+}
+
+#card-section a:hover {
+  color: rgb(219, 200, 200);
+}
+
+.card-img {
+  transition: transform 0.3s ease;
+}
+
+.card-img:hover {
+  transform: translateY(5px);
+}
+
+.ticket-button {
+  background-color: #066138;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.ticket-wrapper {
+  margin-top: 10px;
+}
+
+/* .crest:hover {
+  transform: scale(1.2);
+  z-index: 4;
+} */
