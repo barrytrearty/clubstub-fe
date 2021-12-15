@@ -1,0 +1,98 @@
+[
+  {
+    "time": "20.00",
+    "date": "03-12-2021",
+    "venue": "Clones",
+    "description": "Ulster GAA Semi-final",
+    "image": "https://res.cloudinary.com/btrearty/image/upload/v1638882013/matches/tackle_q5i9mi.jpg",
+    "type": "Championship",
+    "entryFee": 10,
+    "homeTeam": "61b1eb3a8cd77a2eab8ea9fa",
+    "awayTeam": "61b1eb3a8cd77a2eab8ea9fb",
+    "__v": 0
+  },
+  {
+    "time": "20.00",
+    "date": "03-12-2021",
+    "venue": "Gaelic Park",
+    "description": "Ulster GAA Semi-final",
+    "image": "https://res.cloudinary.com/btrearty/image/upload/v1638882013/matches/protect_lk2yjy.jpg",
+    "type": "Championship",
+    "entryFee": 10,
+    "homeTeam": "61b1eb3a8cd77a2eab8ea9fc",
+    "awayTeam": "61b1eb3a8cd77a2eab8ea9fd",
+    "__v": 0
+  },
+  {
+    "time": "20.00",
+    "date": "03-12-2021",
+    "venue": "Pearse Stadium",
+    "description": "Connacht GAA Semi-final",
+    "image": "https://res.cloudinary.com/btrearty/image/upload/v1638882013/matches/kick_v5oqeq.jpg",
+    "type": "Championship",
+    "entryFee": 10,
+    "homeTeam": "61b1eb3a8cd77a2eab8ea9fe",
+    "awayTeam": "61b1eb3a8cd77a2eab8ea9ff",
+    "__v": 0
+  },
+  {
+    "time": "20.00",
+    "date": "03-12-2021",
+    "venue": "Templemore",
+    "description": "Connacht GAA Semi-final",
+    "image": "https://res.cloudinary.com/btrearty/image/upload/v1638881993/matches/block_ps8wbq.jpg",
+    "type": "Championship",
+    "entryFee": 10,
+    "homeTeam": "61b1eb3a8cd77a2eab8eaa00",
+    "awayTeam": "61b1eb3a8cd77a2eab8eaa01",
+    "__v": 0
+  },
+  {
+    "time": "20.00",
+    "date": "03-12-2021",
+    "venue": "Ballyhanlin",
+    "description": "Leinster GAA Semi-final",
+    "image": "https://res.cloudinary.com/btrearty/image/upload/v1638302144/matches/bg_s7fxsb.png",
+    "type": "Championship",
+    "entryFee": 10,
+    "homeTeam": "61b1eb3a8cd77a2eab8eaa02",
+    "awayTeam": "61b1eb3a8cd77a2eab8eaa03",
+    "__v": 0
+  },
+  {
+    "time": "20.00",
+    "date": "03-12-2021",
+    "venue": "Croke Park",
+    "description": "Leinster GAA Semi-final",
+    "image": "https://res.cloudinary.com/btrearty/image/upload/v1638882013/matches/handpass_rzcxvv.jpg",
+    "type": "Championship",
+    "entryFee": 10,
+    "homeTeam": "61b1eb3a8cd77a2eab8eaa04",
+    "awayTeam": "61b1eb3a8cd77a2eab8eaa05",
+    "__v": 0
+  },
+  {
+    "time": "20.00",
+    "date": "03-12-2021",
+    "venue": "Temple Stadium",
+    "description": "Munster GAA Semi-final",
+    "image": "https://res.cloudinary.com/btrearty/image/upload/v1639050927/matches/celebrate_jbfy1h.jpg",
+    "type": "Championship",
+    "entryFee": 10,
+    "homeTeam": "61b1eb3a8cd77a2eab8eaa06",
+    "awayTeam": "61b1eb3a8cd77a2eab8eaa07",
+    "__v": 0
+  },
+  {
+    "time": "20.00",
+    "date": "03-12-2021",
+    "venue": "Thomond Park",
+    "description": "Munster GAA Semi-final",
+    "image": "https://res.cloudinary.com/btrearty/image/upload/v1639050927/matches/move_qengv8.jpg",
+    "type": "Championship",
+    "entryFee": 10,
+    "homeTeam": "61b1eb3a8cd77a2eab8eaa08",
+    "awayTeam": "61b1eb3a8cd77a2eab8eaa08",
+    "__v": 0
+  }
+]

@@ -12,18 +12,6 @@ body {
   height: 100%;
 }
 
-.overlay {
-  background: rgba(0, 0, 0, 0.9);
-  color: #f1f1f1;
-  height: 100%;
-  width: 100%;
-
-  /* opacity: 0.8; */
-  font-size: 20px;
-  text-align: center;
-  z-index: -1;
-}
-
 .login {
   opacity: 1;
   height: 100vh;
@@ -45,12 +33,9 @@ body {
   height: 60px;
   /* background-color: #57d699; */
   background-color: #066138;
-
-  /* background: linear-gradient(#57d699, #00301a); */
-  /* color: black; */
   color: #ffffff;
   position: fixed;
-  z-index: 100;
+  z-index: 3;
   width: 100%;
 }
 
@@ -65,7 +50,14 @@ body {
   /* background-color: #57d699; */
   background-color: #066138;
   padding: 10px;
-  /* width: 200px; */
+}
+
+.bold-hover {
+  color: rgb(219, 200, 200);
+  color: #f1f1f1;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .bold-hover:hover {
@@ -78,6 +70,10 @@ body {
 
 .match-text {
   color: white;
+}
+
+.white-text {
+  color: black;
 }
 
 #searchbar {
@@ -115,6 +111,9 @@ body {
 #card-section {
   color: white;
   text-align: center;
+  margin-top: 90vh;
+  /* padding-bottom: vh; */
+  /* height: 25vh; */
 }
 
 #card-section a {
@@ -126,8 +125,16 @@ body {
   color: rgb(219, 200, 200);
 }
 
+.card-section-card {
+  margin-bottom: 2vh;
+}
+
 .card-img {
   transition: transform 0.3s ease;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 1vh;
 }
 
 .card-img:hover {
@@ -144,7 +151,115 @@ body {
   margin-top: 10px;
 }
 
-/* .crest:hover {
-  transform: scale(1.2);
-  z-index: 4;
+.itemContainer {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+}
+
+#county-card {
+  width: 100%;
+  background-color: white;
+  text-align: center;
+  padding-top: 5%;
+  margin-bottom: 5%;
+  /* background: linear-gradient(#000000, #81928b); */
+}
+
+#event-card {
+  width: 100%;
+  background-color: white;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.profileImage {
+  width: 80%;
+  height: auto;
+  object-fit: cover;
+}
+
+.profileImageUser {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.eventImage {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 20px;
+}
+
+.crestRow {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-bottom: 2vh;
+}
+
+/* .crestHolder {
+  justify-content: space-around;
 } */
+
+.heading-county {
+  color: white;
+  text-align: center;
+  font-weight: 600;
+}
+
+.crestImage {
+  width: 5vh;
+  margin: 1vh;
+  margin-top: 2vh;
+}
+
+.crestImage:hover {
+  transition-delay: 0s;
+  transition: 10ms all;
+  transform: scale(1.2);
+}
+
+.full-height {
+  height: 100vh;
+}
+
+.username {
+  padding-top: 20px;
+  font-size: 23px;
+}
+
+footer {
+  background-color: #066138;
+}
+
+.match-image {
+  width: 100%;
+  margin-top: 60px;
+  height: 70vh;
+  object-fit: cover;
+}
+
+.match-detail {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.match-team-image {
+  width: 100px;
+  /* margin-top: 60px; */
+  height: 100px;
+  margin: 10px;
+  /* object-fit: cover; */
+}
+
+#match-details-holder {
+  width: 50vw;
+  margin: auto;
+}

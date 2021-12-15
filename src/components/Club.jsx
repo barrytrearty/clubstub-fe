@@ -65,56 +65,44 @@ const Club = ({ match }) => {
           </Spinner>
         </div>
       ) : (
-        <Container fluid className="profileTopCard topmargin px-0">
-          <Row>
-            <Col xs={3}>
-              {" "}
-              <Card className="mt-5" style={{ borderRadius: "8px" }}>
-                <img className="profileImage" src={club.crest} alt="" />
-                <Card.Title className="mb-0 font-weight-bold">
-                  {club.name}
-                </Card.Title>
-                <Card.Text className="mb-0">Donegal</Card.Text>
-                <Card.Text className="mb-0">Followers</Card.Text>
-                <Button
-                  className="mr-2 messagebutton px-3 py-1 mb-3"
-                  variant="success"
+        <Container>
+          <div className="profileTopCard topmargin px-0">
+            <Row>
+              <Col xs={12} sm={9}>
+                <Card
+                  style={{
+                    width: "100%",
+                    marginTop: "1rem",
+                    borderRadius: "8px",
+                  }}
+                  className="mt-5"
                 >
-                  Message
-                </Button>
-              </Card>
-            </Col>
-            <Col xs={9}>
-              <Card
-                style={{
-                  width: "100%",
-                  marginTop: "1rem",
-                  borderRadius: "8px",
-                }}
-                className="mt-5"
-              >
-                <Card.Body className="py-4 px-4">
-                  <Card.Title class="sectionheader pb-3">
-                    Upcoming Events
-                  </Card.Title>
-                  <Card.Text class="sectiontext mb-0">None to show</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-
-          {/* <Row>
-            {club.followers.map((follower) => (
-              <Col>
-                <Link to={`/profile/${follower._id}`}>
-                  <Card className="mt-5" style={{ borderRadius: "8px" }}>
-                    <Image src={follower.picture} alt="" roundedCircle />
-                    <Card.Text className="mb-0">{follower.username}</Card.Text>
-                  </Card>
-                </Link>
+                  <Card.Body className="py-4 px-4">
+                    <Card.Title class="sectionheader pb-3">
+                      Upcoming Events
+                    </Card.Title>
+                    <Card.Text class="sectiontext mb-0">None to show</Card.Text>
+                  </Card.Body>
+                </Card>
               </Col>
-            ))}
-          </Row> */}
+              <Col xs={10} sm={3}>
+                {" "}
+                <div
+                  id="county-card"
+                  className="mt-5"
+                  style={{ borderRadius: "8px" }}
+                >
+                  <img className="profileImage" src={club.crest} alt="" />
+                  <div className="mb-0 font-weight-bold">{club.name}</div>
+                  <div className="mb-0">Donegal</div>
+                  <div className="mb-0">Followers</div>
+                  <div className="ticket-wrapper">
+                    <div className="messagebutton ticket-button">Message</div>
+                  </div>
+                </div>
+              </Col>
+            </Row>
+          </div>
         </Container>
       )}
       <CarouselUser array={followers} />

@@ -13,7 +13,7 @@ import {
   ListGroupItem,
 } from "react-bootstrap";
 import Swiper from "swiper/swiper-bundle.esm.js";
-import "swiper/swiper-bundle.css";
+// import "swiper/swiper-bundle.css";
 import "./carousel.css";
 import { Link, withRouter } from "react-router-dom";
 
@@ -35,16 +35,17 @@ const CarouselClub = ({ array }) => {
   });
 
   return (
-    <div class="swiper">
-      <div class="swiper-wrapper">
+    <div class="swiper swiperCarousel">
+      <div class="swiper-wrapper swiper-wrapper-club">
         {array.map((club) => (
-          <div class="swiper-slide">
-            <a
+          <div class="swiper-slide swiper-slideCarousel">
+            {/* <a
               href={`http://localhost:3000/club/${club._id}`}
               className="crest"
-            >
+            > */}
+            <Link to={`/club/${club._id}`} replace className="crest">
               <img src={club.crest} alt="" />
-            </a>
+            </Link>
           </div>
         ))}
       </div>

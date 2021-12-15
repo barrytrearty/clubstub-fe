@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Button,
   Col,
@@ -11,26 +11,15 @@ import {
 import { useDispatch } from "react-redux";
 // import './Login.css'
 import { Link, withRouter } from "react-router-dom";
-import { setUserInfo } from "../redux/actions/actions.js";
+// import { setUserInfo } from "../redux/actions/actions.js";
 import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
-// import bgImage from "../data/bg.PNG";
-
-//const user = useSelector((state) => state.userInfo);
-
-// Const dispatch= useDispatch()
-// dispatch(setuserinfo(fetchedPerson))
-// { user:”userinfo”, accessToken:”token” }
-// Const history= useHistory()
-// History.push(‘/main/userID”)
-
-//   onClick={this.handleSubmit}
 
 const Login = ({ history }) => {
-  // const user = useSelector((state) => state.userInfo)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const login = async () => {
     const obj = { email, password };
@@ -38,24 +27,16 @@ const Login = ({ history }) => {
       let response = await fetch(`http://localhost:5000/users/login`, {
         method: "POST",
         body: JSON.stringify(obj),
-        // body: obj,
-        // credentials: "include",
-        // withCredentials: true,
         headers: { "Content-Type": "application/json" },
-        // Set-Cookie: true
       });
       console.log(obj);
-      // console.log(response);
-      // console.log(response.headers.get("set-cookie"));
 
-      // console.log(JSON.stringify(obj));
       console.log(response);
       let tokenObj = await response.json();
       console.log(tokenObj);
       if (response.ok) {
-        // dispatch(setUserInfo(data.user));
-        // dispatch(setChats(data.user.chats));
         localStorage.setItem("accessToken", tokenObj.tokens.accessToken);
+        setLoggedIn(true);
         history.push(`/me`);
       } else {
         console.log("Not groovy");
@@ -69,12 +50,11 @@ const Login = ({ history }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     login();
-
-    // console.log("hello world");
-    // const userObject = { username, password };
-    // dispatch(setUserInfo(userObject));
-    // console.log(userObject);
   };
+
+  // useEffect(() => {
+  //   dispatch(setUserInfo({ email: email, username: email }));
+  // }, [loggedIn]);
 
   return (
     <Container className="login">
@@ -99,6 +79,7 @@ const Login = ({ history }) => {
               />
               <div className="text-muted mt-3">Password</div>
               <FormControl
+                type="password"
                 className="w-100"
                 aria-label="Example text with button addon"
                 aria-describedby="basic-addon1"

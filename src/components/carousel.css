@@ -1,7 +1,9 @@
-.swiper {
+.swiperCarousel {
   width: 100%;
   /* height: 100%; */
   background: rgb(255, 255, 255);
+  /* position: absolute;
+  bottom: 0; */
 }
 
 /* .swpier-wrapper {
@@ -9,7 +11,7 @@
    background: rgb(0, 0, 0); 
 } */
 
-.swiper-slide {
+.swiper-slideCarousel {
   margin-top: 10px;
   text-align: center;
   font-size: 18px;
@@ -28,7 +30,13 @@
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
+  /* overflow: hidden; */
 }
+
+.crest {
+  max-width: 70px;
+}
+
 .swiper-slide:hover .crest {
   transition-delay: 0s;
   transition: 10ms all;
@@ -36,12 +44,32 @@
   z-index: 4;
 }
 
-img {
+.crest img {
   max-width: 100%;
   height: auto;
   margin-bottom: 10px;
 }
 
+/* .county-crest {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+} */
+
 #user-carousel {
   background: none;
+}
+
+.swiper-wrapper-club {
+  background-color: rgba(0, 0, 0, 0.815);
+  position: absolute;
+  bottom: 0;
+}
+
+.follower-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 20px;
 }

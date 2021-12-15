@@ -1,6 +1,7 @@
 [
   {
     "name": "Donegal",
+    "province": "Ulster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -8,6 +9,7 @@
   },
   {
     "name": "Down",
+    "province": "Ulster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -15,6 +17,7 @@
   },
   {
     "name": "Dublin",
+    "province": "Leinster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -22,6 +25,7 @@
   },
   {
     "name": "Derry",
+    "province": "Ulster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -29,6 +33,7 @@
   },
   {
     "name": "Carlow",
+    "province": "Leinster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -36,6 +41,7 @@
   },
   {
     "name": "Cavan",
+    "province": "Ulster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -43,6 +49,7 @@
   },
   {
     "name": "Armagh",
+    "province": "Ulster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -50,6 +57,7 @@
   },
   {
     "name": "Antrim",
+    "province": "Ulster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -57,6 +65,7 @@
   },
   {
     "name": "Cork",
+    "province": "Munster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -64,6 +73,7 @@
   },
   {
     "name": "Clare",
+    "province": "Munster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -71,6 +81,7 @@
   },
   {
     "name": "Fermanagh",
+    "province": "Ulster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -78,6 +89,7 @@
   },
   {
     "name": "Monaghan",
+    "province": "Ulster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -85,6 +97,7 @@
   },
   {
     "name": "Tyrone",
+    "province": "Ulster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -92,6 +105,7 @@
   },
   {
     "name": "Kerry",
+    "province": "Munster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -99,6 +113,7 @@
   },
   {
     "name": "Limerick",
+    "province": "Munster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -106,6 +121,7 @@
   },
   {
     "name": "Tipperary",
+    "province": "Munster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -113,6 +129,7 @@
   },
   {
     "name": "Waterford",
+    "province": "Munster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -120,6 +137,7 @@
   },
   {
     "name": "Kildare",
+    "province": "Leinster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -127,6 +145,7 @@
   },
   {
     "name": "Kilkenny",
+    "province": "Leinster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -134,6 +153,7 @@
   },
   {
     "name": "Laois",
+    "province": "Leinster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -141,6 +161,7 @@
   },
   {
     "name": "Longford",
+    "province": "Leinster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -148,6 +169,7 @@
   },
   {
     "name": "Louth",
+    "province": "Leinster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -155,6 +177,7 @@
   },
   {
     "name": "Meath",
+    "province": "Leinster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -162,6 +185,7 @@
   },
   {
     "name": "Offaly",
+    "province": "Leinster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -169,6 +193,7 @@
   },
   {
     "name": "Westmeath",
+    "province": "Leinster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -176,6 +201,7 @@
   },
   {
     "name": "Wexford",
+    "province": "Leinster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -183,6 +209,7 @@
   },
   {
     "name": "Wicklow",
+    "province": "Leinster",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -190,6 +217,7 @@
   },
   {
     "name": "Galway",
+    "province": "Connacht",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -197,6 +225,7 @@
   },
   {
     "name": "Mayo",
+    "province": "Connacht",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -204,6 +233,7 @@
   },
   {
     "name": "Leitrim",
+    "province": "Connacht",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -211,6 +241,7 @@
   },
   {
     "name": "Roscommon",
+    "province": "Connacht",
     "clubs": [],
     "followers": [],
     "admin": [],
@@ -218,6 +249,7 @@
   },
   {
     "name": "Sligo",
+    "province": "Connacht",
     "clubs": [],
     "followers": [],
     "admin": [],

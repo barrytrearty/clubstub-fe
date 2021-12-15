@@ -11,10 +11,21 @@ import {
 } from "react-bootstrap";
 import { BsSearch } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logUserOut } from "../redux/actions/actions";
+import { withRouter } from "react-router";
 
-const Navbar1 = () => {
+const Navbar1 = ({ history }) => {
+  const userName = useSelector((state) => state.userInfo.username);
+  const dispatch = useDispatch();
+
+  const logOut = () => {
+    dispatch(logUserOut());
+    history.push("/home");
+  };
+
   return (
-    <Navbar collapseOnSelect expand="md" id="club-nav">
+    <Navbar collapseOnSelect id="club-nav">
       <Container fluid>
         <Link to="/home">
           <Navbar.Brand className="logo-font">
@@ -25,9 +36,9 @@ const Navbar1 = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Link to="/county/id">
+            <Link to="/competitions">
               <Nav.Item className="green-bg">
-                <div className="bold-hover">COUNTIES</div>
+                <div className="bold-hover">COMPETITIONS</div>
               </Nav.Item>
             </Link>
             <Link to="/club/id">
@@ -35,53 +46,44 @@ const Navbar1 = () => {
                 <div className="bold-hover">CLUBS</div>
               </Nav.Item>
             </Link>
-            <Link to="/matchess/id">
+            <Link to="/orders">
               <Nav.Item className="green-bg">
                 <div className="bold-hover">MATCHES</div>
               </Nav.Item>
             </Link>
           </Nav>
-          <Nav className="ml-auto">
-            <Link to="/login">
+
+          {userName ? (
+            <Nav className="ml-auto">
+              <Link to="/me">
+                <Nav.Item className="green-bg">
+                  <div className="bold-hover">{userName}</div>
+                </Nav.Item>
+              </Link>
               <Nav.Item className="green-bg">
-                <div className="bold-hover">SIGN UP</div>
+                <div className="bold-hover" onClick={logOut}>
+                  LOGOUT
+                </div>
               </Nav.Item>
-            </Link>
-            <Link to="/login">
-              <Nav.Item className="green-bg">
-                <div className="bold-hover">LOGIN</div>
-              </Nav.Item>
-            </Link>
-            {/* <Link to="/club/id">
-              <Nav.Item className="m-2">
-                <span className="green-bg">Clubs</span>
-              </Nav.Item>
-            </Link>
-            <Link to="/matchess/id">
-              <Nav.Item className="m-2">
-            
-                <span className="green-bg">Matches</span>
-              </Nav.Item>
-            </Link>
-          </Nav>
-          <Nav className="ml-auto">
-            <Link to="/login">
-              <Nav.Item className="m-2">
-           
-                <span className="green-bg">Sign Up</span>
-              </Nav.Item>
-            </Link>
-            <Link to="/login">
-              <Nav.Item className="m-2">
-                
-                <span className="green-bg">Login</span>
-              </Nav.Item>
-            </Link> */}
-          </Nav>
+            </Nav>
+          ) : (
+            <Nav className="ml-auto">
+              <Link to="/login">
+                <Nav.Item className="green-bg">
+                  <div className="bold-hover">SIGN UP</div>
+                </Nav.Item>
+              </Link>
+              <Link to="/login">
+                <Nav.Item className="green-bg">
+                  <div className="bold-hover">LOGIN</div>
+                </Nav.Item>
+              </Link>
+            </Nav>
+          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
 };
 
-export default Navbar1;
+export default withRouter(Navbar1);

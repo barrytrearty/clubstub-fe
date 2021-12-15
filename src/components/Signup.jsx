@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Button,
   Col,
@@ -19,7 +19,8 @@ const Signup = ({ history }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const signup = async () => {
     const obj = { email, password, username };
@@ -36,6 +37,7 @@ const Signup = ({ history }) => {
       console.log(tokenObj);
       if (response.ok) {
         localStorage.setItem("accessToken", tokenObj.tokens.accessToken);
+        setLoggedIn(true);
         history.push(`/me`);
       } else {
         console.log("Not groovy");
@@ -45,6 +47,10 @@ const Signup = ({ history }) => {
       console.log(error);
     }
   };
+
+  // useEffect(() => {
+  //   dispatch(setUserInfo({ email: email, username: email }));
+  // }, [loggedIn]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -82,6 +88,7 @@ const Signup = ({ history }) => {
               />
               <div className="text-muted mt-3">Password</div>
               <FormControl
+                type="password"
                 className="w-100"
                 aria-label="Example text with button addon"
                 aria-describedby="basic-addon1"

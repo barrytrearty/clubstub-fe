@@ -13,7 +13,7 @@ import {
   ListGroupItem,
 } from "react-bootstrap";
 import Swiper from "swiper/swiper-bundle.esm.js";
-import "swiper/swiper-bundle.css";
+// import "swiper/swiper-bundle.css";
 import "./carousel.css";
 import { Link, withRouter } from "react-router-dom";
 
@@ -35,12 +35,14 @@ const CarouselCounty = ({ array }) => {
   });
 
   return (
-    <div class="swiper">
+    <div class="swiper swiperCarousel">
       <div class="swiper-wrapper">
         {array.map((county) => (
-          <div class="swiper-slide">
+          <div class="swiper-slide swiper-slideCarousel">
+            {/* <h3>{county.name}</h3> */}
             <Link to={`county/${county.name}`} className="crest">
-              <img src={county.crest} alt="" />
+              <img src={county.crest} alt="" className="county-crest" />
+              {/* <h5>{county.name}</h5> */}
             </Link>
           </div>
         ))}

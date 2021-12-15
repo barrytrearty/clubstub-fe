@@ -1,18 +1,45 @@
-.swiper {
-  width: 300px;
-  height: 300px;
+.swiperCube {
+  width: 100vw;
+  height: 80vh;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-left: -150px;
-  margin-top: -150px;
+  left: 0;
+  top: 0;
+  /* margin-left: -150px; */
+  margin-top: 60px;
+  z-index: 10;
 }
 
-.swiper-slide {
+.swiper-slideCube {
   background-position: center;
   background-size: cover;
 }
 
-.slide1 {
-  background-image: url("https://res.cloudinary.com/btrearty/image/upload/v1638302144/matches/bg_s7fxsb.png");
+.itemContainerCube {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.651);
+  color: white;
+  /* z-index: 50;*/
+  padding: 10px;
+  text-align: center;
 }
+
+.itemContainerCube a {
+  color: white;
+  text-decoration: none;
+}
+
+.itemContainerCube a:hover {
+  color: rgb(197, 187, 187);
+  text-decoration: none;
+}
+
+.textContainerCube {
+  text-align: center;
+  position: relative;
+  padding-top: 50vh;
+}
+
+/* .slide1 {
+  background-image: url("https://res.cloudinary.com/btrearty/image/upload/v1638302144/matches/bg_s7fxsb.png");
+} */

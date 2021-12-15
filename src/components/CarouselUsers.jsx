@@ -16,6 +16,7 @@ import {
 import "./carousel.css";
 import Swiper from "swiper/swiper-bundle.esm.js";
 import "swiper/swiper-bundle.css";
+import { Link, withRouter } from "react-router-dom";
 
 const CarouselUsers = ({ array }) => {
   const swiper = new Swiper(".swiper", {
@@ -35,17 +36,17 @@ const CarouselUsers = ({ array }) => {
   });
 
   return (
-    <div id="user-carousel" class="swiper">
+    <div id="user-carousel" class="swiper swiperCarousel">
       <div class="swiper-wrapper">
         {array.map((user) => (
-          <div class="swiper-slide">
-            <a
+          <div class="swiper-slide swiper-slideCarousel">
+            {/* <a
               href={`http://localhost:3000/user/${user._id}`}
-              className="crest"
-            >
-              <Image src={user.picture} alt="" roundedCircle />
+            > */}
+            <Link to={`/user/${user._id}`} replace>
+              <img src={user.picture} alt="" className="follower-image" />
               <div>{user.username}</div>
-            </a>
+            </Link>
           </div>
         ))}
       </div>

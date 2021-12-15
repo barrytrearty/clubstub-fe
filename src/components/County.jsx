@@ -19,7 +19,8 @@ const County = ({ match }) => {
   const { id } = match.params;
 
   const apiUrl = "http://localhost:5000";
-  const [county, setCounty] = useState();
+  const [county, setCounty] = useState({});
+  // const [countyName, setCountyName] = useState("");
   const [loading, setLoading] = useState(true);
   const [clubs, setClubs] = useState([]);
   const token = localStorage.getItem("accessToken");
@@ -36,12 +37,36 @@ const County = ({ match }) => {
       let countyRes = await response.json();
       console.log(countyRes);
       setCounty(countyRes);
-      setClubs(countyRes.clubs);
+
+      // setClubs(countyRes.clubs);
       // setLoading(false);
       // console.log(clubs);
       console.log(county);
-      setLoading(false);
+      // setLoading(false);
       return countyRes;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getClubs = async (id) => {
+    try {
+      let response = await fetch(`${apiUrl}/clubs/county/${id}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      let clubsRes = await response.json();
+      console.log(clubsRes);
+      setClubs(clubsRes);
+      // setClubs(clubsRes.clubs);
+      // setLoading(false);
+      console.log(clubs);
+      console.log(county);
+      setLoading(false);
+      return clubsRes;
     } catch (error) {
       console.log(error);
     }
@@ -78,6 +103,7 @@ const County = ({ match }) => {
       localStorage.setItem("accessToken", paramToken);
     }
     getCounty(id);
+    getClubs(id);
     // getClubs(id);
     // setLoading(false);
   }, []);
@@ -91,26 +117,10 @@ const County = ({ match }) => {
           </Spinner>
         </div>
       ) : (
-        <Container fluid>
+        <Container className="full-height">
           <div className="profileTopCard topmargin px-0">
             <Row>
-              <Col xs={3}>
-                <Card className="mt-5" style={{ borderRadius: "8px" }}>
-                  <img className="profileImage" src={county.crest} alt="" />
-                  <Card.Title className="mb-0 font-weight-bold">
-                    {county.name}
-                  </Card.Title>
-                  <Card.Text className="mb-0">Donegal</Card.Text>
-                  <Card.Text className="mb-0">Followers</Card.Text>
-                  <Button
-                    className="mr-2 messagebutton px-3 py-1 mb-3"
-                    variant="success"
-                  >
-                    Message
-                  </Button>
-                </Card>
-              </Col>
-              <Col xs={9}>
+              <Col xs={12} sm={9}>
                 <Card
                   style={{
                     width: "100%",
@@ -129,11 +139,26 @@ const County = ({ match }) => {
                   </Card.Body>
                 </Card>
               </Col>
+              <Col xs={10} sm={3}>
+                <div
+                  id="county-card"
+                  className="mt-5"
+                  style={{ borderRadius: "8px" }}
+                >
+                  <img className="profileImage" src={county.crest} alt="" />
+                  <div className="mb-0 font-weight-bold">{county.name}</div>
+                  <div className="mb-0">Donegal</div>
+                  <div className="mb-0">Followers</div>
+                  <div className="ticket-wrapper">
+                    <div className="messagebutton ticket-button">Message</div>
+                  </div>
+                </div>
+              </Col>
             </Row>
           </div>
+          <CarouselClub array={clubs} />
         </Container>
       )}
-      <CarouselClub array={clubs} />
     </div>
   );
 };
