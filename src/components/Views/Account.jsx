@@ -1,4 +1,4 @@
-import { Link, withRouter } from "react-router-dom";
+import { Link, withRouter, Redirect } from "react-router-dom";
 import { useState, useEffect } from "react";
 import {
   Button,
@@ -18,7 +18,7 @@ import {
   Table,
 } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import Login from "./Login";
+import Login from "../Login/Login";
 import { AiTwotoneCalendar } from "react-icons/ai";
 import { ImLocation } from "react-icons/im";
 import { AiOutlineClockCircle } from "react-icons/ai";
@@ -65,56 +65,56 @@ const Account = ({ match }) => {
     getOrders();
   }, []);
 
+  if (id === "") {
+    return <Redirect to="/login" />;
+  }
+
   return (
+    // <div>
+    //   {id === "" ? (
+    //     <Login />
+    //   ) : (
     <div>
-      {id === "" ? (
-        <Login />
-      ) : (
+      {loading ? (
         <div>
-          {loading ? (
-            <div>
-              <Spinner animation="border" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </Spinner>
-            </div>
-          ) : (
-            <Container className="white-text mt-5 pb-5">
-              {orders.map((order) => (
-                <Row id="event-card">
-                  <Col xs={2}>
-                    {" "}
-                    <img
-                      src={order.match.image}
-                      alt=""
-                      className="eventImage"
-                    />
-                  </Col>
-                  <Col xs={10}>
-                    <h3 className="username">{order.match.description}</h3>
-                    <div>
-                      <ImLocation /> {order.match.venue}
-                    </div>
-                    <div>
-                      <AiTwotoneCalendar /> {order.match.date}{" "}
-                      <AiOutlineClockCircle /> {order.match.time}
-                    </div>
-                    <div>Number of tickets: {order.numberOfTickets}</div>
-                  </Col>
-                </Row>
-                // <tr>
-                //   <td>{order.match.description}</td>
-                //   <td>{order.numberOfTickets}</td>
-                //   <td>{order.match.date}</td>
-                //   <td>{order.match.time}</td>
-                // </tr>
-              ))}
-              {/* </tbody> */}
-              {/* </Table> */}
-            </Container>
-          )}
+          <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
         </div>
+      ) : (
+        <Container className="white-text mt-5 pb-5">
+          {orders.map((order) => (
+            <Row id="event-card">
+              <Col xs={2}>
+                {" "}
+                <img src={order.match.image} alt="" className="eventImage" />
+              </Col>
+              <Col xs={10}>
+                <h3 className="username">{order.match.description}</h3>
+                <div>
+                  <ImLocation /> {order.match.venue}
+                </div>
+                <div>
+                  <AiTwotoneCalendar /> {order.match.date}{" "}
+                  <AiOutlineClockCircle /> {order.match.time}
+                </div>
+                <div>Number of tickets: {order.numberOfTickets}</div>
+              </Col>
+            </Row>
+            // <tr>
+            //   <td>{order.match.description}</td>
+            //   <td>{order.numberOfTickets}</td>
+            //   <td>{order.match.date}</td>
+            //   <td>{order.match.time}</td>
+            // </tr>
+          ))}
+          {/* </tbody> */}
+          {/* </Table> */}
+        </Container>
       )}
     </div>
+    //   )}
+    // </div>
   );
 };
 

@@ -1,18 +1,18 @@
 // import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
+import Login from "./components/Login/Login";
+import Signup from "./components/Login/Signup";
 // import bgImage from "../src/data/bg.PNG";
-import Profile from "./components/Profile";
-import MyProfile from "./components/MyProfile";
+import Profile from "./components/Profiles/Profile";
+import MyProfile from "./components/Profiles/MyProfile";
 import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import County from "./components/County";
-import Club from "./components/Club";
+import Home from "./components/Views/Home";
+import County from "./components/Views/County";
+import Club from "./components/Views/Club";
 import Match from "./components/Match";
-import Account from "./components/Account";
-import CubeHome from "./components/CubeHome";
+import Account from "./components/Views/Account";
+// import CubeHome from "./components/Cube/CubeHome";
 import Competitions from "./components/Competitions";
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
         <Route path="/login" exact component={Login} />
         <Route path="/signup" exact component={Signup} />
         <Route path="/me" component={MyProfile} />
-        <Route path="/cubeHome" component={CubeHome} />
+        {/* <Route path="/cubeHome" component={CubeHome} /> */}
         <Route path="/competitions" component={Competitions} />
         <Route path="/home" component={Home} />
         <Route path="/match/:id" component={Match} />

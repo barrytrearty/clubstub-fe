@@ -27,33 +27,33 @@ const mainReducer = combineReducers({
 });
 
 //PERSISTANCE
-// const persistConfigs = {
-//   key: "root",
-//   storage: localStorage,
-//   transforms: [
-//     encryptTransform({
-//       secretKey: process.env.REACT_APP_KEYENCRIPTION,
-//       onError: function (error) {
-//         // Handle the error.
-//       },
-//     }),
-//   ],
-// };
-// const persistedReducer = persistReducer(persistConfigs, userReducer);
-// const configureStore = createStore(
-//   persistedReducer,
-//   initialState,
-//   composeEnhancers(applyMiddleware(thunk))
-// );
-// const persistor = persistStore(configureStore);
-
-// export { configureStore, persistor };
-
-//SIMPLER ONE FOR NOW
+const persistConfigs = {
+  key: "root",
+  storage: localStorage,
+  transforms: [
+    encryptTransform({
+      secretKey: process.env.REACT_APP_KEYENCRIPTION,
+      onError: function (error) {
+        // Handle the error.
+      },
+    }),
+  ],
+};
+const persistedReducer = persistReducer(persistConfigs, mainReducer);
 const configureStore = createStore(
-  mainReducer,
+  persistedReducer,
   initialState,
   composeEnhancers(applyMiddleware(thunk))
 );
+const persistor = persistStore(configureStore);
 
-export default configureStore;
+export { configureStore, persistor };
+
+//SIMPLER ONE FOR NOW
+// const configureStore = createStore(
+//   mainReducer,
+//   initialState,
+//   composeEnhancers(applyMiddleware(thunk))
+// );
+
+// export default configureStore;

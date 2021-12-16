@@ -16,11 +16,11 @@ import { useDispatch } from "react-redux";
 
 // import PeopleSection from "./PeopleSection";
 import { Link, withRouter } from "react-router-dom";
-import logo from "../data/logo.PNG";
-import pic1 from "../data/bg.PNG";
-import CarouselCounty from "./CarouselCounty";
-import MatchCard from "./MatchCard";
-import Cube from "./Cube";
+
+// import pic1 from "../data/bg.PNG";
+import CarouselCounty from "../Carousels/CarouselCounty";
+// import MatchCard from "../MatchCard";
+import Cube from "../Cube/Cube";
 // import countiesArray from "../data/counties.json";
 
 const Home = () => {

@@ -13,8 +13,8 @@ import {
 
 // import PeopleSection from "./PeopleSection";
 import { Link, withRouter } from "react-router-dom";
-import logo from "../data/logo.PNG";
-import CarouselUser from "./CarouselUsers";
+
+import CarouselUser from "../Carousels/CarouselUsers";
 
 const Club = ({ match }) => {
   const { id } = match.params;

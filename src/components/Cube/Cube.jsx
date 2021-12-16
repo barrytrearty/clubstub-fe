@@ -24,6 +24,10 @@ const Cube = ({ array }) => {
     });
   });
 
+  // const cubeJS = document.getElementsByClassName("swiperCube");
+  // console.log(cubeJS);
+  // cubeJS.addEventListener("mousedown", (cubeJS.style.zIndex = "10"));
+
   // const swiper = new Swiper(".swiper", {
   //   effect: "cube",
   //   grabCursor: true,

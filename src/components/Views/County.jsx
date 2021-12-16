@@ -9,11 +9,8 @@ import {
   Card,
   Spinner,
 } from "react-bootstrap";
-import CarouselClub from "./CarouselClub";
-
-// import PeopleSection from "./PeopleSection";
+import CarouselClub from "../Carousels/CarouselClub";
 import { Link, withRouter } from "react-router-dom";
-import logo from "../data/logo.PNG";
 
 const County = ({ match }) => {
   const { id } = match.params;
@@ -37,10 +34,6 @@ const County = ({ match }) => {
       let countyRes = await response.json();
       console.log(countyRes);
       setCounty(countyRes);
-
-      // setClubs(countyRes.clubs);
-      // setLoading(false);
-      // console.log(clubs);
       console.log(county);
       // setLoading(false);
       return countyRes;

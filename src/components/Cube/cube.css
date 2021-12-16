@@ -9,6 +9,10 @@
   z-index: 10;
 }
 
+/* .swiperCube:focus {
+  z-index: 10;
+} */
+
 .swiper-slideCube {
   background-position: center;
   background-size: cover;

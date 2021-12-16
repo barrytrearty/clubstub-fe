@@ -46,10 +46,11 @@ body {
   font-weight: 600;
 }
 
-.green-bg {
+#club-nav .green-bg {
   /* background-color: #57d699; */
   background-color: #066138;
   padding: 10px;
+  z-index: 11;
 }
 
 .bold-hover {

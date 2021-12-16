@@ -11,11 +11,12 @@ import {
   Modal,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { setUserInfo } from "../redux/actions/actions.js";
+// import { setUserInfo } from "../../redux/actions/actions.js";
+import { setUserInfo } from "../../redux/actions/actions.js";
 // import PeopleSection from "./PeopleSection";
 import { Link, withRouter } from "react-router-dom";
-import logo from "../data/logo.PNG";
-import Orders from "./Orders.jsx";
+
+import Orders from "../Orders.jsx";
 
 const MyProfile = () => {
   const [user, setUser] = useState();
@@ -46,9 +47,7 @@ const MyProfile = () => {
       setUser(userRes);
       dispatch(setUserInfo(userRes));
       setLoading(false);
-      // console.log(user);
 
-      // console.log(user);
       return userRes;
     } catch (error) {
       console.log(error);
@@ -60,8 +59,7 @@ const MyProfile = () => {
       console.log("No image selected!");
     } else {
       setImageFile(e.target.files[0]);
-      // let imagepreview = URL.createObjectURL(e.target.files[0]);
-      // setimagePreview(imagepreview);
+
       setImageUploaded(true);
     }
   };
@@ -133,7 +131,11 @@ const MyProfile = () => {
                     {user.username}
                   </div>
                   <div className="mb-0">Donegal</div>
-                  <div className="mb-0">Followers</div>
+                  <div>
+                    <span className="mr-1">Followers</span>
+                    <span className="mr-1">Following</span>
+                  </div>
+
                   <div className="ticket-wrapper">
                     <div
                       className="messagebutton ticket-button match-text"

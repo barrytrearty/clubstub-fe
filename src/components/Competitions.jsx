@@ -13,9 +13,10 @@ import {
   ListGroup,
   ListGroupItem,
 } from "react-bootstrap";
-import CarouselCounty from "./CarouselCounty";
-import Login from "./Login";
+import CarouselCounty from "./Carousels/CarouselCounty";
+import Login from "./Login/Login";
 import { useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 const Competitions = () => {
   const id = useSelector((state) => state.userInfo._id);
@@ -90,27 +91,31 @@ const Competitions = () => {
     getCounties();
   }, []);
 
+  if (id === "") {
+    return <Redirect to="/login" />;
+  }
+
   return (
+    // <div>
+    //   {id === "" ? (
+    //     <Login />
+    //   ) : (
     <div>
-      {id === "" ? (
-        <Login />
+      {loading ? (
+        <div>
+          <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </div>
       ) : (
         <div>
-          {loading ? (
-            <div>
-              <Spinner animation="border" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </Spinner>
-            </div>
-          ) : (
-            <div>
-              <Row className="pb-5"></Row>
-              <CarouselCounty array={counties} />
-            </div>
-          )}
+          <Row className="pb-5"></Row>
+          <CarouselCounty array={counties} />
         </div>
       )}
     </div>
+    //   )}
+    // </div>
   );
 };
 

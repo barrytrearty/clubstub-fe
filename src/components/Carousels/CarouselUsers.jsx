@@ -43,7 +43,7 @@ const CarouselUsers = ({ array }) => {
             {/* <a
               href={`http://localhost:3000/user/${user._id}`}
             > */}
-            <Link to={`/user/${user._id}`} replace>
+            <Link to={`/profile/${user._id}`} replace>
               <img src={user.picture} alt="" className="follower-image" />
               <div>{user.username}</div>
             </Link>

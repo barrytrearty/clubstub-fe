@@ -12,7 +12,7 @@ import {
   ListGroup,
   ListGroupItem,
 } from "react-bootstrap";
-import CarouselCounty from "./CarouselCounty";
+import CarouselCounty from "./Carousels/CarouselCounty";
 import Login from "./Login";
 import { useSelector } from "react-redux";
 
