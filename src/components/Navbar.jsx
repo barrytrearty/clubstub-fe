@@ -17,6 +17,7 @@ import { withRouter } from "react-router";
 
 const Navbar1 = ({ history, location, match }) => {
   const userName = useSelector((state) => state.userInfo.username);
+  const isAdmin = useSelector((state) => state.userInfo.role);
   const dispatch = useDispatch();
 
   const checkLoginOrSignupPage = window.location.pathname;
@@ -56,6 +57,15 @@ const Navbar1 = ({ history, location, match }) => {
                 </Nav.Item>
               </Link>
             </Nav>
+          )}
+          {isAdmin === "Admin" ? (
+            <Link to="/addEvent">
+              <Nav.Item className="green-bg">
+                <div className="bold-hover">ADD EVENT</div>
+              </Nav.Item>
+            </Link>
+          ) : (
+            ""
           )}
 
           {userName ? (

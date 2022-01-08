@@ -30,6 +30,7 @@ const Match = ({ match }) => {
   const [matchObj, setMatchobj] = useState();
   const [matchId, setMatchId] = useState("");
   const [loading, setLoading] = useState(true);
+  const [qrCodeImg, setQrCodeImg] = useState("");
   const [numberOfTickets, setNumberOfTickets] = useState(1);
   const token = localStorage.getItem("accessToken");
 
@@ -99,6 +100,7 @@ const Match = ({ match }) => {
       price: matchObj.entryFee,
       description: matchObj.description,
     };
+    const description = matchObj.description;
     const response = await axios.post(`${apiUrl}/matches/checkout`, {
       token,
       product,
@@ -108,6 +110,12 @@ const Match = ({ match }) => {
     if (status === "success") {
       // toast("Success! Check email for details", { type: "success" });
       console.log("Nooooice");
+      const response2 = await axios.post(`${apiUrl}/matches/qrCode`, {
+        description,
+      });
+
+      console.log(response2.data);
+      console.log("Nooooice2");
       createOrder();
     } else {
       console.log("Nooooooooooo");

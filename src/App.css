@@ -1,13 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Germania+One&display=swap");
 
 body {
-  background: rgba(0, 0, 0, 0.9);
+  background: linear-gradient(#00301a, #0b2122);
+  /* position: fixed; */
 }
 
 .blackBody {
   /* background: rgba(0, 0, 0, 0.9); */
-  background: linear-gradient(#000000, #00301a);
+  /* background: linear-gradient(#000000, #00301a); */
   /* margin-top: 70px; */
+  position: relative;
   padding-top: 20px;
   height: 100%;
 }

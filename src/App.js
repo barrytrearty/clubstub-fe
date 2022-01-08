@@ -14,6 +14,7 @@ import Match from "./components/Match";
 import Account from "./components/Views/Account";
 // import CubeHome from "./components/Cube/CubeHome";
 import Competitions from "./components/Competitions";
+import AddEvent from "./components/AddEvent";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         {/* <Route path="/cubeHome" component={CubeHome} /> */}
         <Route path="/competitions" component={Competitions} />
         <Route path="/home" component={Home} />
+        <Route path="/addEvent" component={AddEvent} />
         <Route path="/match/:id" component={Match} />
         {/*  <Route path="/checkout" component={Checkout} /> */}
         <Route path="/county/:id" component={County} />
