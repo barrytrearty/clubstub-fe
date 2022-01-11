@@ -58,7 +58,7 @@
 .bold-hover:hover {
   color: rgb(95, 93, 93);
   /* text-shadow: 0 0 10px rgb(0, 122, 0); */
-  font-weight: 600;
+  /* font-weight: 600; */
 }
 
 .green-bg div {
