@@ -1,0 +1,96 @@
+#club-nav-container {
+  width: 100%;
+  z-index: 11;
+  opacity: 0;
+  transition: opacity 1s 1s;
+}
+
+#club-nav {
+  /* background-color: #00db71; */
+  height: 60px;
+  /* background-color: #57d699; */
+  /* background-color: #066138; */
+  background-color: rgb(77, 168, 127);
+  color: #ffffff;
+  /* position: fixed; */
+  z-index: 3;
+  width: 100%;
+  /* opacity: 0;
+  transition: opacity 2s 1s; */
+}
+
+.bottom-nav {
+  position: absolute;
+  bottom: 0;
+  padding-top: 7px;
+  padding-bottom: 0;
+  /* background-color: rgba(70, 160, 119, 0.562); */
+}
+
+.top-nav {
+  position: fixed;
+  top: 0;
+  background-color: rgb(77, 168, 127);
+}
+
+#club-nav a {
+  /* color: black; */
+  color: #f1f1f1;
+  text-decoration: none;
+  /* font-weight: 600; */
+}
+
+#club-nav .green-bg {
+  /* background-color: #57d699; */
+  background-color: rgb(77, 168, 127);
+  padding: 10px;
+  z-index: 11;
+}
+
+.bold-hover {
+  color: rgb(219, 200, 200);
+  color: #242424;
+  text-decoration: none;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.bold-hover:hover {
+  color: rgb(95, 93, 93);
+  /* text-shadow: 0 0 10px rgb(0, 122, 0); */
+  font-weight: 600;
+}
+
+.green-bg div {
+  text-align: center;
+}
+
+.logoOD {
+  position: sticky;
+  /* top: -33px; */
+  /* left: 300px; */
+  /* left: -77px; */
+  /* left: 0; */
+  height: 120px;
+  /* width: 120px; */
+  z-index: 12;
+  animation: spin 2s ease-out;
+}
+
+.logoOD:hover {
+}
+
+.brandLogoOD {
+  position: absolute;
+  left: -67px;
+  top: -33px;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(300vw, 0px);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(-720deg);
+  }
+}

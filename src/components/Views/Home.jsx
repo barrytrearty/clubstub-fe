@@ -106,7 +106,7 @@ const Home = () => {
 
   return (
     // <Container className="mt-3">
-    <div>
+    <div id="home-container">
       {loading ? (
         <div>
           <Spinner animation="border" role="status">

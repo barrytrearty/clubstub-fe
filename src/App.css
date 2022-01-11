@@ -1,18 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Germania+One&display=swap");
 
-body {
+/* body {
   background: linear-gradient(#00301a, #0b2122);
-  /* position: fixed; */
-}
 
-.blackBody {
-  /* background: rgba(0, 0, 0, 0.9); */
-  /* background: linear-gradient(#000000, #00301a); */
-  /* margin-top: 70px; */
+} */
+
+/* .blackBody {
   position: relative;
   padding-top: 20px;
   height: 100%;
-}
+} */
 
 .login {
   opacity: 1;
@@ -24,52 +21,11 @@ body {
   color: black;
 }
 
-.logo-font {
+/* .logo-font {
   font-family: "Germania One", cursive;
   color: white !important;
   text-shadow: black;
-}
-
-#club-nav {
-  /* background-color: #00db71; */
-  height: 60px;
-  /* background-color: #57d699; */
-  background-color: #066138;
-  color: #ffffff;
-  position: fixed;
-  z-index: 3;
-  width: 100%;
-}
-
-#club-nav a {
-  /* color: black; */
-  color: #f1f1f1;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-#club-nav .green-bg {
-  /* background-color: #57d699; */
-  background-color: #066138;
-  padding: 10px;
-  z-index: 11;
-}
-
-.bold-hover {
-  color: rgb(219, 200, 200);
-  color: #f1f1f1;
-  text-decoration: none;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.bold-hover:hover {
-  color: rgb(219, 200, 200);
-}
-
-.green-bg div {
-  text-align: center;
-}
+} */
 
 .match-text {
   color: white;

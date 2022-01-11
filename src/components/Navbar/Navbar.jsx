@@ -1,19 +1,12 @@
-import "../App.css";
-import {
-  Navbar,
-  Nav,
-  Container,
-  NavDropdown,
-  FormControl,
-  Offcanvas,
-  Form,
-  Button,
-} from "react-bootstrap";
+import "./Navbar.css";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import { BsSearch } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { logUserOut } from "../redux/actions/actions";
+import { logUserOut } from "../../redux/actions/actions";
 import { withRouter } from "react-router";
+import { useEffect } from "react";
+import logo from "../../data/county-crests/ballOdeals.png";
 
 const Navbar1 = ({ history, location, match }) => {
   const userName = useSelector((state) => state.userInfo.username);
@@ -28,13 +21,18 @@ const Navbar1 = ({ history, location, match }) => {
     history.push("/home");
   };
 
+  useEffect(() => {
+    document.getElementById("club-nav-container").style.opacity = 1;
+  }, []);
+
   return (
-    <Navbar collapseOnSelect id="club-nav" expand="sm">
-      <Container fluid>
+    <div id="club-nav-container" className="bottom-nav">
+      <Navbar collapseOnSelect id="club-nav" expand="sm">
+        {/* <Container fluid> */}
         <Link to="/home">
-          <Navbar.Brand className="logo-font">
-            {" "}
-            <div className="bold-hover">ClubStub</div>
+          <Navbar.Brand className="brandLogoOD">
+            <img src={logo} className="logoOD" alt="" />
+            {/* <div className="bold-hover">ClubStub</div> */}
           </Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -44,7 +42,7 @@ const Navbar1 = ({ history, location, match }) => {
           ) : checkLoginOrSignupPage === "/signup" ? (
             ""
           ) : (
-            <Nav className="me-auto">
+            <Nav className="ml-auto">
               <Link to="/competitions">
                 <Nav.Item className="green-bg">
                   <div className="bold-hover">COMPETITIONS</div>
@@ -96,8 +94,9 @@ const Navbar1 = ({ history, location, match }) => {
             </Nav>
           )}
         </Navbar.Collapse>
-      </Container>
-    </Navbar>
+        {/* </Container> */}
+      </Navbar>
+    </div>
   );
 };
 
