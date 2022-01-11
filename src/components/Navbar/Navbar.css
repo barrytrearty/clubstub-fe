@@ -75,9 +75,11 @@
   /* width: 120px; */
   z-index: 12;
   animation: spin 2s ease-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .logoOD:hover {
+  transform: scale(1.2);
 }
 
 .brandLogoOD {
