@@ -1,6 +1,24 @@
 import { useState, useEffect } from "react";
 import "swiper/swiper-bundle.css";
 import Swiper from "swiper/swiper-bundle.esm.js";
+import {
+  Col,
+  Container,
+  FormControl,
+  InputGroup,
+  Row,
+  Card,
+  Carousel,
+  Spinner,
+  ListGroup,
+  ListGroupItem,
+  Image,
+  Modal,
+  Dropdown,
+  Table,
+  Button,
+} from "react-bootstrap";
+import { BsSearch } from "react-icons/bs";
 
 // import { Swiper, SwiperSlide } from "swiper/react";
 import "./cube.css";
@@ -46,37 +64,93 @@ const Cube = ({ array }) => {
   //   backgroundImage: `url(${match.image})`,
   // };
 
+  useEffect(() => {
+    document.getElementById("leadTextContainerCube").style.opacity = 1;
+    document.getElementById("odHead").style.opacity = 1;
+  }, []);
+
   return (
     <div className="swiper swiperCube">
       <div className="swiper-wrapper">
-        {array.map((match) => (
-          <div
-            className="swiper-slide swiper-slideCube"
-            style={{ backgroundImage: `url(${match.image})` }}
-          >
-            <div className="itemContainerCube">
-              <div className="textContainerCube">
-                <Link to={`match/${match._id}`}>
-                  <h3>
-                    <strong>
-                      {match.homeTeam.name} vs {match.awayTeam.name}
-                    </strong>
-                  </h3>
-                </Link>
-                <Link to={`match/${match._id}`}>
-                  <p>{match.description}</p>
-                </Link>
-                <Link to={`match/${match._id}#ticketButton`}>
-                  <span className="ticket-button">GET TICKETS</span>
-                </Link>
-              </div>
+        <div
+          className="swiper-slide swiper-slideCube"
+          style={{
+            backgroundImage: `url(https://res.cloudinary.com/btrearty/image/upload/v1638882013/matches/protect_lk2yjy.jpg)`,
+          }}
+        >
+          <div className="itemContainerCube">
+            <div id="leadTextContainerCube">
+              <h1>
+                Welcome to <span id="odHead">O'Deals</span>
+              </h1>
+              <InputGroup className="mb-3" id="inputGroup">
+                <FormControl
+                  placeholder="Search matches"
+                  aria-label="Search matches"
+                  aria-describedby="basic-addon2"
+                />
+                <Button variant="outline-success" id="button-addon2">
+                  <BsSearch />
+                </Button>
+              </InputGroup>
+              {/* <div id="inputGroup">
+                <BsSearch />
+                <input
+                  type="text"
+                  placeholder="Search matches"
+                  id="cubeInput"
+                />{" "}
+                <button>Search</button>
+              </div> */}
             </div>
           </div>
-        ))}
+        </div>
+        <div
+          className="swiper-slide swiper-slideCube"
+          style={{
+            backgroundImage: `url(https://res.cloudinary.com/btrearty/image/upload/v1638882013/matches/tackle_q5i9mi.jpg)`,
+          }}
+        >
+          <div className="itemContainerCube">
+            <div class="textContainerCube">
+              <h1>
+                A <span>Hub</span> for <span>Stubs</span>
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div
+          className="swiper-slide swiper-slideCube"
+          style={{
+            backgroundImage: `url(https://res.cloudinary.com/btrearty/image/upload/v1638881993/matches/block_ps8wbq.jpg)`,
+          }}
+        >
+          <div className="itemContainerCube">
+            <div class="textContainerCube">
+              <h1>
+                The first <span>Pick</span> for <span>Tickets</span>
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div
+          className="swiper-slide swiper-slideCube"
+          style={{
+            backgroundImage: `url(https://res.cloudinary.com/btrearty/image/upload/v1639050927/matches/move_qengv8.jpg)`,
+          }}
+        >
+          <div className="itemContainerCube">
+            <div class="textContainerCube">
+              <h1>
+                Putting the <span>Good</span> in <span>GAA</span>
+              </h1>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className="swiper-button-next"></div>
-      <div className="swiper-button-prev"></div>
+      {/* <div className="swiper-button-next"></div>
+      <div className="swiper-button-prev"></div> */}
     </div>
   );
   // return (

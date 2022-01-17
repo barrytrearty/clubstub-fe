@@ -16,6 +16,7 @@ import { useDispatch } from "react-redux";
 
 // import PeopleSection from "./PeopleSection";
 import { Link, withRouter } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 // import pic1 from "../data/bg.PNG";
 import CarouselCounty from "../Carousels/CarouselCounty";
@@ -27,30 +28,15 @@ const Home = () => {
   // const [user, setUser] = useState();
   const [counties, setCounties] = useState([]);
   const [matches, setMatches] = useState([]);
+  const [matchesValue, setMatchesValue] = useState([]);
+  const [matchesSoon, setMatchesSoon] = useState([]);
   const [loading, setLoading] = useState(true);
+
   // const token = localStorage.getItem("accessToken");
+  const isAdmin = useSelector((state) => state.userInfo.role);
+  let matchOrEdit = isAdmin === "Admin" ? "editMatch" : "match";
 
   const apiUrl = "http://localhost:5000";
-
-  // const getProfile = async () => {
-  //   try {
-  //     let response = await fetch(`${apiUrl}/users/me`, {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     });
-  //     let userRes = await response.json();
-  //     console.log(userRes);
-  //     setUser(userRes);
-  //     // setLoading(false);
-  //     console.log(user);
-  //     return userRes;
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   const getMatches = async () => {
     try {
@@ -63,7 +49,47 @@ const Home = () => {
       });
       let matchesRes = await response.json();
       console.log(matchesRes);
-      setMatches(matchesRes);
+      setMatches(matchesRes.slice(0, 4));
+      // setLoading(false);
+      // console.log(matches);
+      return matchesRes;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getMatchesValue = async () => {
+    try {
+      let response = await fetch(`${apiUrl}/matches/value`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          // Authorization: `Bearer ${token}`,
+        },
+      });
+      let matchesRes = await response.json();
+      console.log(matchesRes);
+      setMatchesValue(matchesRes.slice(0, 4));
+      // setLoading(false);
+      console.log(matches);
+      return matchesRes;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getMatchesSoon = async () => {
+    try {
+      let response = await fetch(`${apiUrl}/matches/upNext`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          // Authorization: `Bearer ${token}`,
+        },
+      });
+      let matchesRes = await response.json();
+      // console.log(matchesRes);
+      setMatchesSoon(matchesRes.slice(0, 4));
       // setLoading(false);
       console.log(matches);
       return matchesRes;
@@ -101,6 +127,8 @@ const Home = () => {
     }
     // getProfile();
     getMatches();
+    getMatchesValue();
+    getMatchesSoon();
     getCounties();
   }, []);
 
@@ -114,44 +142,22 @@ const Home = () => {
           </Spinner>
         </div>
       ) : (
-        <Container fluid>
+        <div>
           <Cube array={matches} />
-          {/* <Carousel className="my-5" id="homeCarousel">
-            {matches.map((match) => (
-              <Carousel.Item interval={5000} className="carousel-pic">
-                <img src={match.image} alt="slide" />
 
-                <Carousel.Caption>
-                  <div className="itemContainer">
-                    <Link to={`match/${match._id}`}>
-                      <h3>
-                        <strong>
-                          {match.homeTeam.name} vs {match.awayTeam.name}
-                        </strong>
-                      </h3>
-                    </Link>
-                    <p>{match.description}</p>{" "}
-                    <Link to={`match/${match._id}#ticketButton`}>
-                      <span className="ticket-button">GET TICKETS</span>
-                    </Link>
-                  </div>
-                </Carousel.Caption>
-              </Carousel.Item>
-            ))}
-          </Carousel> */}
-
-          <div id="card-section">
+          {/* <Container fluid> */}
+          <div class="card-section afterCube">
             <div>
-              <h3 className="heading-county">UPCOMING EVENTS</h3>
+              <h3 className="home-heading">Featured Matches</h3>
             </div>
-            <Row className="mb-3">
+            <Row className="mb-3 ml-1 mr-1">
               {matches.map((match) => (
-                <Col xs={12} sm={6} md={4} className="mb-2">
+                <Col xs={12} sm={6} lg={3} className="mb-4">
                   <div className="card-section-card">
-                    <Link to={`match/${match._id}`}>
+                    <Link to={`${matchOrEdit}/${match._id}`}>
                       <img src={match.image} alt="" className="card-img" />
                     </Link>
-                    <Link to={`match/${match._id}`}>
+                    <Link to={`${matchOrEdit}/${match._id}`}>
                       <div>
                         <div>
                           <strong>
@@ -162,21 +168,92 @@ const Home = () => {
                       </div>
                     </Link>
 
-                    <div>
-                      <Link to={`match/${match._id}#ticketButton`}>
+                    {/* <div>
+                      <Link to={`${matchOrEdit}/${match._id}#ticketButton`}>
                         <div className="ticket-wrapper">
                           <span className="ticket-button">GET TICKETS</span>
                         </div>
                       </Link>
-                    </div>
+                    </div> */}
                   </div>
                 </Col>
               ))}
             </Row>
           </div>
 
+          <div class="card-section">
+            <div>
+              <h3 className="home-heading">Up Next</h3>
+            </div>
+            <Row className="mb-3 ml-1 mr-1">
+              {matchesSoon.map((match) => (
+                <Col xs={12} sm={6} lg={3} className="mb-4">
+                  <div className="card-section-card">
+                    <Link to={`${matchOrEdit}/${match._id}`}>
+                      <img src={match.image} alt="" className="card-img" />
+                    </Link>
+                    <Link to={`${matchOrEdit}/${match._id}`}>
+                      <div>
+                        <div>
+                          <strong>
+                            {match.homeTeam.name} vs {match.awayTeam.name}
+                          </strong>
+                        </div>
+                        <div>{match.description}</div>
+                      </div>
+                    </Link>
+
+                    {/* <div>
+                      <Link to={`${matchOrEdit}/${match._id}#ticketButton`}>
+                        <div className="ticket-wrapper">
+                          <span className="ticket-button">GET TICKETS</span>
+                        </div>
+                      </Link>
+                    </div> */}
+                  </div>
+                </Col>
+              ))}
+            </Row>
+          </div>
+
+          <div class="card-section">
+            <div>
+              <h3 className="home-heading">Bang for your Buck</h3>
+            </div>
+            <Row className="mb-3 ml-1 mr-1">
+              {matchesValue.map((match) => (
+                <Col xs={12} sm={6} lg={3} className="mb-4">
+                  <div className="card-section-card">
+                    <Link to={`${matchOrEdit}/${match._id}`}>
+                      <img src={match.image} alt="" className="card-img" />
+                    </Link>
+                    <Link to={`${matchOrEdit}/${match._id}`}>
+                      <div>
+                        <div>
+                          <strong>
+                            {match.homeTeam.name} vs {match.awayTeam.name}
+                          </strong>
+                        </div>
+                        <div>{match.description}</div>
+                      </div>
+                    </Link>
+
+                    {/* <div>
+                      <Link to={`match/${match._id}#ticketButton`}>
+                        <div className="ticket-wrapper">
+                          <span className="ticket-button">GET TICKETS</span>
+                        </div>
+                      </Link>
+                    </div> */}
+                  </div>
+                </Col>
+              ))}
+            </Row>
+          </div>
+          {/* </Container> */}
+
           <div>
-            <h3 className="heading-county">COUNTIES</h3>
+            <h3 className="home-heading">COUNTIES</h3>
           </div>
           <div className="crestRow">
             {counties.map((county) => (
@@ -187,9 +264,29 @@ const Home = () => {
               </div>
             ))}
           </div>
-        </Container>
+        </div>
       )}
-      <footer>Find us on social media</footer>
+      <footer>
+        <h3>About author</h3>
+        <div class="footer-text-container">
+          <img
+            src="https://res.cloudinary.com/btrearty/image/upload/v1634040287/linked-products/u31qfd3uhxobmzxozubf.jpg"
+            alt=""
+          />
+          <div>
+            <p>
+              My name is Barry and I am a graduate of Strive School. I have a
+              love of programming and web development and it was Strive School
+              that helped me to channel and harness this love. I have created
+              this site as my final project.
+            </p>
+            <p>
+              Feel free to peruse my github and portfolio and please get in
+              contact if you so wish. Thank you
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };

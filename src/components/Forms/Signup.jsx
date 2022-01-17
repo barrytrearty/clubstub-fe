@@ -58,7 +58,41 @@ const Signup = ({ history }) => {
   };
 
   return (
-    <Container className="login">
+    <div>
+      <div id="create-form">
+        <form>
+          {/* <h1>Welcome to O'Deals</h1> */}
+          <h2>Create an account</h2>
+          <input
+            type="text"
+            placeholder="Username"
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button onClick={handleSubmit}>Sign Up </button>
+          <button>
+            <FcGoogle /> Sign up with Google{" "}
+          </button>
+          <button>
+            {" "}
+            <BsFacebook /> Sign up with Facebook{" "}
+          </button>
+          {/* <input type="submit" value="Log in" /> */}
+          <p className="alt-form">
+            Already have an account? <Link to="/login">Login </Link>
+          </p>
+        </form>
+      </div>
+
       <Row>
         <Col
           xs="12"
@@ -108,7 +142,7 @@ const Signup = ({ history }) => {
           </Card>
         </Col>
       </Row>
-    </Container>
+    </div>
   );
 };
 

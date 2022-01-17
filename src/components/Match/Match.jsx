@@ -19,7 +19,7 @@ import {
 import { useSelector } from "react-redux";
 import axios from "axios";
 import StripeCheckout from "react-stripe-checkout";
-import Login from "./Login/Login";
+import "./Match.css";
 // import CheckoutForm from "./CheckoutForm";
 
 const Match = ({ match }) => {
@@ -100,18 +100,20 @@ const Match = ({ match }) => {
       price: matchObj.entryFee,
       description: matchObj.description,
     };
-    const description = matchObj.description;
+
     const response = await axios.post(`${apiUrl}/matches/checkout`, {
       token,
       product,
     });
     const { status } = response.data;
     console.log("Response:", response.data);
+    const receiverEmail = token.email;
     if (status === "success") {
       // toast("Success! Check email for details", { type: "success" });
       console.log("Nooooice");
       const response2 = await axios.post(`${apiUrl}/matches/qrCode`, {
-        description,
+        receiverEmail,
+        matchObj,
       });
 
       console.log(response2.data);
@@ -140,10 +142,12 @@ const Match = ({ match }) => {
           </Spinner>
         </div>
       ) : (
-        <Container className="match-text pb-5">
+        <Container className=" pb-5">
           <img src={matchObj.image} alt="" className="match-image" />
           <div id="match-details-holder">
-            <h1>{matchObj.description}</h1>
+            <h2>
+              {matchObj.competition.description} {matchObj.description}
+            </h2>
 
             <div className="match-detail">
               <img
@@ -151,19 +155,27 @@ const Match = ({ match }) => {
                 alt=""
                 className="match-team-image"
               />
-              {matchObj.homeTeam.name} vs {matchObj.awayTeam.name}
+              <span>
+                {matchObj.homeTeam.name} vs {matchObj.awayTeam.name}
+              </span>
+
               <img
                 src={matchObj.awayTeam.crest}
                 alt=""
                 className="match-team-image"
               />
             </div>
-            <h2 className="mt-4">The location</h2>
-            <div className="match-detail">{matchObj.venue}</div>
-            <h2 className="mt-4">Time</h2>
-            <div className="match-detail">{matchObj.time}</div>
-            <h2 className="mt-4">Date</h2>
-            <div className="match-detail">{matchObj.date}</div>
+
+            <div className="match-detail">Venue: {matchObj.venue}</div>
+            <div className="match-detail">Throw in: {matchObj.time}</div>
+
+            <div className="match-detail">Date: {matchObj.date}</div>
+
+            <div className="match-detail">Entry Fee: €{matchObj.entryFee}</div>
+
+            <div className="match-detail">
+              Tickets remaining: {matchObj.capacity}
+            </div>
 
             <div className="ticket-wrapper my-4">
               <span

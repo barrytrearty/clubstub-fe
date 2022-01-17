@@ -21,7 +21,7 @@ const Club = ({ match }) => {
 
   const apiUrl = "http://localhost:5000";
   const [club, setClub] = useState();
-  const [followers, setFollowers] = useState([]);
+  // const [followers, setFollowers] = useState([]);
   const [loading, setLoading] = useState(true);
   const token = localStorage.getItem("accessToken");
 
@@ -37,7 +37,7 @@ const Club = ({ match }) => {
       let clubRes = await response.json();
       console.log(clubRes);
       setClub(clubRes);
-      setFollowers(clubRes.followers);
+      // setFollowers(clubRes.followers);
       setLoading(false);
       console.log(club);
       return clubRes;
@@ -105,7 +105,7 @@ const Club = ({ match }) => {
           </div>
         </Container>
       )}
-      <CarouselUser array={followers} />
+      {/* <CarouselUser array={followers} /> */}
     </div>
   );
 };

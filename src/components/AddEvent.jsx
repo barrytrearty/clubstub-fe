@@ -124,12 +124,7 @@ const AddEvent = () => {
             <Button onClick={handleShow} variant="primary">
               Match Picture
             </Button>
-            <Button
-              // onClick={handleSubmit}
-              variant="success"
-            >
-              Add Event
-            </Button>
+            <Button variant="success">Add Event</Button>
             {/* <a href={`http://localhost:5000/users/googleLogin`}> */}
           </Card>
         </Col>

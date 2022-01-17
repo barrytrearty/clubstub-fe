@@ -26,7 +26,7 @@ const Navbar1 = ({ history, location, match }) => {
   }, []);
 
   return (
-    <div id="club-nav-container" className="bottom-nav">
+    <div id="club-nav-container" className="top-nav">
       <Navbar collapseOnSelect id="club-nav" expand="sm">
         {/* <Container fluid> */}
         <Link to="/home">
@@ -43,28 +43,28 @@ const Navbar1 = ({ history, location, match }) => {
             ""
           ) : (
             <Nav className="ml-auto">
-              <Link to="/competitions">
+              <Link to="/teams">
                 <Nav.Item className="green-bg">
-                  <div className="bold-hover">COMPETITIONS</div>
+                  <div className="bold-hover">TEAMS</div>
                 </Nav.Item>
               </Link>
 
-              <Link to="/orders">
+              <Link to="/matches">
                 <Nav.Item className="green-bg">
                   <div className="bold-hover">MATCHES</div>
                 </Nav.Item>
               </Link>
             </Nav>
           )}
-          {isAdmin === "Admin" ? (
-            <Link to="/addEvent">
+          {/* {isAdmin === "Admin" ? (
+            <Link to="/manage">
               <Nav.Item className="green-bg">
-                <div className="bold-hover">ADD EVENT</div>
+                <div className="bold-hover">Manage</div>
               </Nav.Item>
             </Link>
           ) : (
             ""
-          )}
+          )} */}
 
           {userName ? (
             <Nav className="ml-auto">

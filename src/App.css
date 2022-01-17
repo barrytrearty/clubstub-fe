@@ -1,19 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Germania+One&display=swap");
 
-/* body {
-  background: linear-gradient(#00301a, #0b2122);
-
-} */
-
-/* .blackBody {
-  position: relative;
-  padding-top: 20px;
-  height: 100%;
-} */
-
-.login {
-  opacity: 1;
-  height: 100vh;
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .profileTopCard {
@@ -35,21 +25,9 @@
   color: black;
 }
 
-#searchbar {
-  background-color: #b6fddb;
-}
-
-#searchbarItem {
-  background-color: #d2fdb6;
-}
-
-#homeCarousel {
+/* #homeCarousel {
   height: 20%;
 }
-
-/* #homeCarousel .carousel-pic {
-  height: 20%;
-} */
 
 #homeCarousel .carousel-pic img {
   width: 100%;
@@ -65,27 +43,40 @@
 
 #homeCarousel .carousel-pic a:hover {
   color: rgb(219, 200, 200);
-}
-
-#card-section {
-  color: white;
+} */
+/* ////////////CARD SECTION//////////// */
+.card-section {
+  color: black;
   text-align: center;
-  margin-top: 90vh;
-  /* padding-bottom: vh; */
-  /* height: 25vh; */
+  width: 98vw;
 }
 
-#card-section a {
-  color: white;
+.home-heading {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  /* fon */
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.afterCube {
+  margin-top: 97vh;
+}
+
+.card-section a {
+  color: black;
   text-decoration: none;
 }
 
-#card-section a:hover {
-  color: rgb(219, 200, 200);
+.card-section a:hover {
+  color: rgb(24, 211, 33);
 }
 
 .card-section-card {
-  margin-bottom: 2vh;
+  /* margin: 2vh 1vw; */
+  border: 3px solid rgba(0, 0, 0, 0);
+  box-shadow: 0px 0px 20px black, 0px 0px 20px black;
+  /* box-shadow: -1px -2px 2px black; */
 }
 
 .card-img {
@@ -96,9 +87,14 @@
   margin-bottom: 1vh;
 }
 
-.card-img:hover {
-  transform: translateY(5px);
+.card-section-card:hover {
+  border: 1px solid white;
+  border: 3px solid black;
 }
+
+/* .card-img:hover {
+  transform: translateY(5px);
+} */
 
 .ticket-button {
   background-color: #066138;
@@ -109,6 +105,15 @@
 .ticket-wrapper {
   margin-top: 10px;
 }
+
+/* ////////////CARD SECTION//////////// */
+/*////////////CLUB SECTION////////////*/
+
+.afterNavbar {
+  margin-top: 70px;
+}
+
+/*////////////CLUB SECTION////////////*/
 
 .itemContainer {
   width: 100%;
@@ -154,29 +159,46 @@
   margin-top: 20px;
 }
 
-.crestRow {
+/* .crestRow {
   background-color: white;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   padding-bottom: 2vh;
-}
-
-/* .crestHolder {
-  justify-content: space-around;
 } */
 
-.heading-county {
-  color: white;
-  text-align: center;
-  font-weight: 600;
+.crestRow {
+  columns: 16;
 }
 
 .crestImage {
-  width: 5vh;
   margin: 1vh;
   margin-top: 2vh;
+  height: 3rem;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 992px) {
+  .crestRow {
+    columns: 8;
+  }
+
+  .crestImage {
+    height: 4rem;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .crestRow {
+    columns: 4;
+  }
+
+  .crestImage {
+    height: 4rem;
+    margin-bottom: 12px;
+  }
 }
 
 .crestImage:hover {
@@ -185,20 +207,31 @@
   transform: scale(1.2);
 }
 
-.full-height {
-  height: 100vh;
-}
-
 .username {
   padding-top: 20px;
   font-size: 23px;
 }
 
+/* ///////////All matches//////// */
+.addNew {
+  background-color: rgb(128, 127, 127);
+  text-align: centre;
+  height: 100%;
+  /* width: 120px; */
+  /* padding: 40%; */
+  box-shadow: 2px 4px black;
+}
+
+.addNew:active {
+  box-shadow: -2px -4px black;
+}
+/* ///////////All matches//////// */
+
 footer {
   background-color: #066138;
 }
 
-.match-image {
+/* .match-image {
   width: 100%;
   margin-top: 60px;
   height: 70vh;
@@ -211,14 +244,27 @@ footer {
 }
 
 .match-team-image {
-  width: 100px;
-  /* margin-top: 60px; */
+  width: 100px; 
   height: 100px;
   margin: 10px;
-  /* object-fit: cover; */
 }
 
 #match-details-holder {
   width: 50vw;
   margin: auto;
+} */
+
+footer {
+  height: 40vh;
+  background: rgb(19, 15, 15);
+  color: white;
+  padding: 50px;
+}
+
+footer .footer-text-container {
+  display: flex;
+}
+
+footer img {
+  height: 100px;
 }
