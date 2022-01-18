@@ -16,7 +16,7 @@ import Account from "./components/Views/Account";
 import Competitions from "./components/Competitions";
 import AllTeams from "./components/AllTeams/AllTeams";
 import AllMatches from "./components/AllMatches/AllMatches";
-
+import SearchMatches from "./components/SearchMatches/SearchMatches";
 import CreateMatchForm from "./components/Forms/CreateMatchForm";
 import CreateCompetitionForm from "./components/Forms/CreateCompetitionForm";
 import CreateTeamForm from "./components/Forms/CreateTeamForm";
@@ -64,6 +64,7 @@ function App() {
         {/* <Route path="/cubeHome" component={CubeHome} /> */}
         <Route path="/teams" component={AllTeams} />
         <Route path="/matches" component={AllMatches} />
+        <Route path="/search" component={SearchMatches} />
         <Route path="/home" component={Home} />
         <Route path="/addMatch" component={CreateMatchForm} />
         <Route path="/addComp" component={CreateCompetitionForm} />

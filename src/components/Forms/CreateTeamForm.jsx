@@ -17,10 +17,11 @@ import {
   Dropdown,
   Table,
 } from "react-bootstrap";
+
 import { useSelector } from "react-redux";
 import "./forms.css";
 
-const CreateTeamForm = () => {
+const CreateTeamForm = ({ history }) => {
   const [show, setShow] = useState(false);
 
   const [imageFile, setImageFile] = useState();
@@ -95,6 +96,7 @@ const CreateTeamForm = () => {
       if (response.ok) {
         const reply = response.json();
         handleClose();
+        history.push("/home");
         // setIsLoading(false);
         console.log(reply);
       } else {
@@ -165,9 +167,28 @@ const CreateTeamForm = () => {
           <Modal.Title>Select Team Crest</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <label for="file-upload" className="custom-file-upload py-2">
+          <label
+            for="file-upload"
+            className="custom-file-upload py-2 fileLabel"
+          >
             Select image
           </label>
+
+          {imageUploaded ? (
+            <label
+              for="file-upload"
+              className="custom-file-upload py-2 fileLabel fileSuccess"
+            >
+              Uploaded
+            </label>
+          ) : (
+            <label
+              for="file-upload"
+              className="custom-file-upload py-2 fileLabel fileFail"
+            >
+              Not uploaded
+            </label>
+          )}
           <input
             className="d-none"
             id="file-upload"

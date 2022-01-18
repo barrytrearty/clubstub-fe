@@ -103,20 +103,40 @@ const AllTeams = () => {
               <h3 className="home-heading">Clubs</h3>
             </div>
             <Row className="mb-3 ml-1 mr-1">
+              {isAdmin === "Admin" ? (
+                <Col xs={12} sm={6} md={4} lg={3} className="mb-4">
+                  <Link to="/addTeam">
+                    <div className="addNew">
+                      <TiPlusOutline className="plus" />
+                      <div>Add Team</div>
+                    </div>
+                  </Link>
+                </Col>
+              ) : (
+                ""
+              )}
+
               {clubs.map((club) => (
                 <Col xs={12} sm={6} md={4} lg={3} className="mb-4">
                   <div className="card-section-card">
                     <Link to={`${clubOrEdit}/${club._id}`}>
                       <div>
-                        <div>
-                          <strong>{club.name}</strong>
+                        <div className="team-section-card-title">
+                          {club.name}
                         </div>
-                        <div>{club.county}</div>
                       </div>
                     </Link>
                     <Link to={`${clubOrEdit}/${club._id}`}>
                       <img src={club.crest} alt="" className="card-img" />
                     </Link>
+                    <div className="team-section-card-info">
+                      <span className="team-section-card-county">
+                        {club.county}
+                      </span>
+                      <span className="team-section-card-province">
+                        {club.province}
+                      </span>
+                    </div>
 
                     {/* <div>
                       <Link to={`club/${club._id}#ticketButton`}>

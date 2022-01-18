@@ -24,7 +24,9 @@ import { BsSearch } from "react-icons/bs";
 import "./cube.css";
 import { Link, withRouter } from "react-router-dom";
 
-const Cube = ({ array }) => {
+const Cube = ({ history }) => {
+  const [searchInput, setSearchInput] = useState("");
+
   useEffect(() => {
     const swiper = new Swiper(".swiper", {
       effect: "cube",
@@ -64,6 +66,10 @@ const Cube = ({ array }) => {
   //   backgroundImage: `url(${match.image})`,
   // };
 
+  const useSearchBar = () => {
+    history.push(`/search?query=${searchInput}`);
+  };
+
   useEffect(() => {
     document.getElementById("leadTextContainerCube").style.opacity = 1;
     document.getElementById("odHead").style.opacity = 1;
@@ -88,8 +94,13 @@ const Cube = ({ array }) => {
                   placeholder="Search matches"
                   aria-label="Search matches"
                   aria-describedby="basic-addon2"
+                  onChange={(e) => setSearchInput(e.target.value)}
                 />
-                <Button variant="outline-success" id="button-addon2">
+                <Button
+                  variant="outline-success"
+                  id="button-addon2"
+                  onClick={useSearchBar}
+                >
                   <BsSearch />
                 </Button>
               </InputGroup>
@@ -169,4 +180,4 @@ const Cube = ({ array }) => {
   // );
 };
 
-export default Cube;
+export default withRouter(Cube);

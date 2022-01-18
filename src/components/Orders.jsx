@@ -18,6 +18,7 @@ import {
   Table,
 } from "react-bootstrap";
 import { useSelector } from "react-redux";
+
 import { AiTwotoneCalendar } from "react-icons/ai";
 import { ImLocation } from "react-icons/im";
 import { AiOutlineClockCircle } from "react-icons/ai";
@@ -66,7 +67,7 @@ const Orders = ({ match }) => {
   }, []);
 
   return (
-    <Container className="white-text">
+    <Container>
       {orders.map((order) => (
         <Row id="event-card">
           <Col xs={12} sm={3}>

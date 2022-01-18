@@ -70,12 +70,15 @@ body {
 
 .card-section a:hover {
   color: rgb(24, 211, 33);
+  text-decoration: none;
 }
 
 .card-section-card {
   /* margin: 2vh 1vw; */
+  text-align: left;
   border: 3px solid rgba(0, 0, 0, 0);
-  box-shadow: 0px 0px 20px black, 0px 0px 20px black;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5), 0px 0px 20px rgba(0, 0, 0, 0.507);
+  /* padding: 10px; */
   /* box-shadow: -1px -2px 2px black; */
 }
 
@@ -92,18 +95,70 @@ body {
   border: 3px solid black;
 }
 
-/* .card-img:hover {
-  transform: translateY(5px);
-} */
-
-.ticket-button {
-  background-color: #066138;
-  cursor: pointer;
-  padding: 5px;
+.card-section-card-info {
+  padding: 0px 10px;
 }
 
-.ticket-wrapper {
-  margin-top: 10px;
+.card-section-card-title {
+  text-align: center;
+  padding-top: 10px;
+  font-weight: 600;
+}
+
+.card-section-card-price {
+  text-align: right;
+  padding-top: 10px;
+  font-weight: 600;
+}
+
+/* ///////////All matches//////// */
+
+.comp-section-card-title {
+  text-align: center;
+  font-weight: 600;
+  padding: 6px;
+}
+
+.plus {
+  margin-top: 30%;
+  font-size: 3rem;
+}
+
+.addNew {
+  background-color: rgb(248, 245, 245);
+  text-align: centre;
+  height: 100%;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5), 0px 0px 20px rgba(0, 0, 0, 0.507);
+}
+/* 
+
+/* ///////////All matches//////// */
+
+.team-section-card-title {
+  text-align: center;
+  font-weight: 600;
+  padding: 6px;
+}
+
+.team-section-card-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.team-section-card-info span {
+  padding: 6px;
+}
+
+.ticket-button {
+  background: rgb(113, 230, 113);
+  box-shadow: inset 0px 0px 5px rgb(75, 71, 71);
+  cursor: pointer;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.ticket-button:hover {
+  background: rgb(135, 250, 135);
 }
 
 /* ////////////CARD SECTION//////////// */
@@ -212,21 +267,6 @@ body {
   font-size: 23px;
 }
 
-/* ///////////All matches//////// */
-.addNew {
-  background-color: rgb(128, 127, 127);
-  text-align: centre;
-  height: 100%;
-  /* width: 120px; */
-  /* padding: 40%; */
-  box-shadow: 2px 4px black;
-}
-
-.addNew:active {
-  box-shadow: -2px -4px black;
-}
-/* ///////////All matches//////// */
-
 footer {
   background-color: #066138;
 }
@@ -255,16 +295,33 @@ footer {
 } */
 
 footer {
-  height: 40vh;
-  background: rgb(19, 15, 15);
-  color: white;
+  height: 50vh;
+  background: rgb(248, 220, 220);
+  color: rgb(17, 16, 16);
   padding: 50px;
+}
+
+footer .footerCont {
+  width: 80%;
+  margin: auto;
+}
+
+footer h3 {
+  font-size: 1.5rem;
 }
 
 footer .footer-text-container {
   display: flex;
 }
 
+footer p {
+  font-size: 100%;
+  margin-bottom: 5px;
+}
+
 footer img {
   height: 100px;
+  border-radius: 50%;
+  margin: 10px;
+  margin-right: 20px;
 }

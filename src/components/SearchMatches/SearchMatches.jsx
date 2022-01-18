@@ -18,14 +18,18 @@ import { Redirect } from "react-router-dom";
 // import "./Manage.css";
 import { TiPlusOutline } from "react-icons/ti";
 import { Link, withRouter } from "react-router-dom";
-import { BsCalendarCheck } from "react-icons/bs";
+import { BsCalendarCheck, BsSearch } from "react-icons/bs";
 import { FiMapPin } from "react-icons/fi";
+// import { BsSearch } from "react-icons/bs";
 
-const AllMatches = () => {
+const SearchMatches = () => {
+  let params = new URLSearchParams(document.location.search);
+  const searchQuery = params.get("query");
   const id = useSelector((state) => state.userInfo._id);
   const isAdmin = useSelector((state) => state.userInfo.role);
   let matchOrEdit = isAdmin === "Admin" ? "editMatch" : "match";
 
+  const [searchInput, setSearchInput] = useState(searchQuery);
   const [matches, setMatches] = useState([]);
   const apiUrl = "http://localhost:5000";
   const [comps, setComps] = useState([]);
@@ -34,7 +38,7 @@ const AllMatches = () => {
 
   const getMatches = async () => {
     try {
-      let response = await fetch(`${apiUrl}/matches`, {
+      let response = await fetch(`${apiUrl}/matches/search/${searchInput}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -52,31 +56,37 @@ const AllMatches = () => {
     }
   };
 
-  const getComps = async () => {
-    try {
-      let response = await fetch(`${apiUrl}/competitions`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          // Authorization: `Bearer ${token}`,
-        },
-      });
-      let compsRes = await response.json();
-      console.log(compsRes);
-      setComps(compsRes);
-      // setLoading(false);
-      console.log(comps);
-      return compsRes;
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //   const getComps = async () => {
+  //     try {
+  //       let response = await fetch(`${apiUrl}/competitions`, {
+  //         method: "GET",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //           // Authorization: `Bearer ${token}`,
+  //         },
+  //       });
+  //       let compsRes = await response.json();
+  //       console.log(compsRes);
+  //       setComps(compsRes);
+  //       // setLoading(false);
+  //       console.log(comps);
+  //       return compsRes;
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
 
   useEffect(() => {
     getMatches();
-    getComps();
+    // getComps();
     // getClubs();
   }, []);
+
+  useEffect(() => {
+    getMatches();
+    // getComps();
+    // getClubs();
+  }, [searchInput]);
 
   if (id === "") {
     return <Redirect to="/login" />;
@@ -95,44 +105,38 @@ const AllMatches = () => {
           </Spinner>
         </div>
       ) : (
-        <div>
-          <div class="card-section afterNavbar">
+        <div className="afterNavbar">
+          <InputGroup className="mb-3 afterNavbar" id="inputGroup">
+            <FormControl
+              placeholder="Search matches"
+              aria-label="Search matches"
+              aria-describedby="basic-addon2"
+              onChange={(e) => setSearchInput(e.target.value)}
+            />
+            {/* <Button variant="outline-success" id="button-addon2">
+              <BsSearch />
+            </Button> */}
+          </InputGroup>
+          {/* <div class="card-section">
             <div>
               <h3 className="home-heading">Competitions</h3>
             </div>
             <Row className="mb-3 ml-1 mr-1">
-              {isAdmin === "Admin" ? (
-                <Col xs={12} sm={6} md={4} lg={3} className="mb-4">
-                  <Link to="/addComp">
-                    <div className="addNew">
-                      <TiPlusOutline className="plus" />
-                      <div>Add Competition</div>
-                    </div>
-                  </Link>
-                </Col>
-              ) : (
-                ""
-              )}
-
               {comps.map((comp) => (
                 <Col xs={12} sm={6} md={4} lg={3} className="mb-4">
                   <div className="card-section-card">
-                    {/* <Link to={`/${comp._id}`}> */}
                     <img src={comp.image} alt="" className="card-img" />
-                    {/* </Link> */}
-                    {/* <Link to={`${matchOrEdit}/${match._id}`}> */}
+
                     <div>
                       <div className="comp-section-card-title">
                         {comp.description}
                       </div>
-                      {/* <div>{comp.description}</div> */}
                     </div>
-                    {/* </Link> */}
                   </div>
                 </Col>
               ))}
             </Row>
-          </div>
+          </div> */}
           <div class="card-section">
             <div>
               <h3 className="home-heading">Matches</h3>
@@ -176,14 +180,6 @@ const AllMatches = () => {
                         </div>
                       </div>
                     </Link>
-
-                    {/* <div>
-                      <Link to={`match/${match._id}#ticketButton`}>
-                        <div className="ticket-wrapper">
-                          <span className="ticket-button">GET TICKETS</span>
-                        </div>
-                      </Link>
-                    </div> */}
                   </div>
                 </Col>
               ))}
@@ -197,4 +193,4 @@ const AllMatches = () => {
   );
 };
 
-export default AllMatches;
+export default SearchMatches;

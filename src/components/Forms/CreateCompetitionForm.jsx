@@ -20,7 +20,7 @@ import {
 import { useSelector } from "react-redux";
 import "./forms.css";
 
-const CreateCompetitionForm = () => {
+const CreateCompetitionForm = ({ history }) => {
   const [show, setShow] = useState(false);
 
   const [imageFile, setImageFile] = useState();
@@ -95,6 +95,7 @@ const CreateCompetitionForm = () => {
       if (response.ok) {
         const reply = response.json();
         handleClose();
+        history.push("/home");
         // setIsLoading(false);
         console.log(reply);
       } else {

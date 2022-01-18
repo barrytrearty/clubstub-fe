@@ -71,16 +71,18 @@ select {
 
 .fileLabel {
   margin: auto;
-  border: solid 1px black;
-  padding: 2px;
+  /* border: solid 1px black; */
+  border-radius: 10%;
+  box-shadow: inset 0px 0px 5px rgb(75, 71, 71);
+  padding: 0 5px;
   cursor: pointer;
-  background: yellow;
+  background: rgb(247, 247, 127);
 }
 
 .fileSuccess {
-  background: green;
+  background: rgb(105, 255, 105);
 }
 
 .fileFail {
-  background: red;
+  background: rgb(255, 70, 70);
 }

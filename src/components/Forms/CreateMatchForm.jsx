@@ -20,7 +20,7 @@ import {
 import { useSelector } from "react-redux";
 import "./forms.css";
 
-const CreateMatchForm = () => {
+const CreateMatchForm = ({ history }) => {
   const [show, setShow] = useState(false);
 
   const [comps, setComps] = useState([]);
@@ -168,6 +168,7 @@ const CreateMatchForm = () => {
       if (response.ok) {
         const reply = response.json();
         handleClose();
+        history.push("/home");
         // setIsLoading(false);
         console.log(reply);
       } else {

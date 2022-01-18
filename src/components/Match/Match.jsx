@@ -95,29 +95,21 @@ const Match = ({ match }) => {
   const handleToken = async (token, addresses) => {
     handleClose();
     console.log({ token, addresses });
-    const product = {
-      name: matchObj.id,
-      price: matchObj.entryFee,
-      description: matchObj.description,
-    };
 
     const response = await axios.post(`${apiUrl}/matches/checkout`, {
       token,
-      product,
+      matchObj,
     });
     const { status } = response.data;
     console.log("Response:", response.data);
     const receiverEmail = token.email;
     if (status === "success") {
-      // toast("Success! Check email for details", { type: "success" });
-      console.log("Nooooice");
       const response2 = await axios.post(`${apiUrl}/matches/qrCode`, {
         receiverEmail,
         matchObj,
       });
 
       console.log(response2.data);
-      console.log("Nooooice2");
       createOrder();
     } else {
       console.log("Nooooooooooo");

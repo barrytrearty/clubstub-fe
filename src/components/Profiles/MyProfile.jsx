@@ -116,7 +116,7 @@ const MyProfile = () => {
           </Spinner>
         </div>
       ) : (
-        <Container>
+        <Container className="afterNavbar">
           <div className="profileTopCard topmargin px-0">
             <Row>
               <Col xs={3}>
@@ -131,10 +131,10 @@ const MyProfile = () => {
                     {user.username}
                   </div>
                   <div className="mb-0">Donegal</div>
-                  <div>
+                  {/* <div>
                     <span className="mr-1">Followers</span>
                     <span className="mr-1">Following</span>
-                  </div>
+                  </div> */}
 
                   <div className="ticket-wrapper">
                     <div
@@ -147,7 +147,7 @@ const MyProfile = () => {
                 </div>
               </Col>
               <Col xs={9} className="mt-5">
-                <h2 className=" match-text">Upcoming Events</h2>
+                <h2>Upcoming Events</h2>
                 <Orders />
                 {/* <Card
                   style={{
@@ -185,9 +185,28 @@ const MyProfile = () => {
               <Modal.Title>Select Profile Picture</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <label for="file-upload" className="custom-file-upload py-2">
+              <label
+                for="file-upload"
+                className="custom-file-upload py-2 fileLabel"
+              >
                 Select image
               </label>
+
+              {imageUploaded ? (
+                <label
+                  for="file-upload"
+                  className="custom-file-upload py-2 fileLabel fileSuccess"
+                >
+                  Uploaded
+                </label>
+              ) : (
+                <label
+                  for="file-upload"
+                  className="custom-file-upload py-2 fileLabel fileFail"
+                >
+                  Not uploaded
+                </label>
+              )}
               <input
                 className="d-none"
                 id="file-upload"
