@@ -1,24 +1,7 @@
-import { Link, withRouter, Redirect } from "react-router-dom";
+import { withRouter, Redirect } from "react-router-dom";
 import { useState, useEffect } from "react";
-import {
-  Button,
-  Col,
-  Container,
-  FormControl,
-  InputGroup,
-  Row,
-  Card,
-  Carousel,
-  Spinner,
-  ListGroup,
-  ListGroupItem,
-  Image,
-  Modal,
-  Dropdown,
-} from "react-bootstrap";
+import { Button, Container, Spinner, Modal } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import axios from "axios";
-import StripeCheckout from "react-stripe-checkout";
 
 // import CheckoutForm from "./CheckoutForm";
 
@@ -26,7 +9,7 @@ const EditMatch = ({ match, location, history }) => {
   const { id } = match.params;
   const checkLoginId = useSelector((state) => state.userInfo._id);
 
-  const apiUrl = process.env.REACT_APP_PROD_BE
+  const apiUrl = process.env.REACT_APP_PROD_BE;
   const [matchObj, setMatchobj] = useState();
   const [matchId, setMatchId] = useState("");
   const [loading, setLoading] = useState(true);

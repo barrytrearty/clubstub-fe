@@ -1,22 +1,6 @@
-import { Link, withRouter, Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { useState, useEffect } from "react";
-import {
-  Button,
-  Col,
-  Container,
-  FormControl,
-  InputGroup,
-  Row,
-  Card,
-  Carousel,
-  Spinner,
-  ListGroup,
-  ListGroupItem,
-  Image,
-  Modal,
-  Dropdown,
-  Table,
-} from "react-bootstrap";
+import { Col, Container, Row, Spinner } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 import { AiTwotoneCalendar } from "react-icons/ai";
@@ -27,7 +11,7 @@ const Orders = ({ match }) => {
   const id = useSelector((state) => state.userInfo._id);
   const isAdmin = useSelector((state) => state.userInfo.role);
 
-  const apiUrl = process.env.REACT_APP_PROD_BE
+  const apiUrl = process.env.REACT_APP_PROD_BE;
   const [orders, setOrders] = useState([]);
   const [adminMatches, setAdminMatches] = useState([]);
   const [matches, setMatches] = useState([]);

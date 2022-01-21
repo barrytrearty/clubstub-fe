@@ -1,22 +1,6 @@
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { useState, useEffect } from "react";
-import {
-  Button,
-  Col,
-  Container,
-  FormControl,
-  InputGroup,
-  Row,
-  Card,
-  Carousel,
-  Spinner,
-  ListGroup,
-  ListGroupItem,
-  Image,
-  Modal,
-  Dropdown,
-  Table,
-} from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import "./forms.css";
 
@@ -41,7 +25,7 @@ const CreateMatchForm = ({ history }) => {
   const [entryFee, setEntryFee] = useState();
   const [capacity, setCapacity] = useState();
 
-  const apiUrl = process.env.REACT_APP_PROD_BE
+  const apiUrl = process.env.REACT_APP_PROD_BE;
   const token = localStorage.getItem("accessToken");
   const id = useSelector((state) => state.userInfo._id);
 

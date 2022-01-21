@@ -1,17 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  Button,
-  Col,
-  Container,
-  FormControl,
-  InputGroup,
-  Spinner,
-  Row,
-  Card,
-} from "react-bootstrap";
-
-// import PeopleSection from "./PeopleSection";
-import { Link, withRouter } from "react-router-dom";
+import { Col, Container, Spinner, Row, Card } from "react-bootstrap";
 
 const Profile = ({ match }) => {
   const id = match.params.id;

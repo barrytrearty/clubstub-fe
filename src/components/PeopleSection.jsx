@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Container, Button } from "react-bootstrap";
 // import PeopleRow from "./PeopleRow";
 // import "./ShowButton.css";

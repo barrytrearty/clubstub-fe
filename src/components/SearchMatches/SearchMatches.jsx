@@ -1,24 +1,12 @@
 import { useState, useEffect } from "react";
-import {
-  Button,
-  Col,
-  Container,
-  FormControl,
-  InputGroup,
-  Row,
-  Card,
-  Carousel,
-  Spinner,
-  ListGroup,
-  ListGroupItem,
-} from "react-bootstrap";
+import { Col, FormControl, InputGroup, Row, Spinner } from "react-bootstrap";
 // import CarouselCounty from "../Carousels/CarouselCounty";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 // import "./Manage.css";
 import { TiPlusOutline } from "react-icons/ti";
-import { Link, withRouter } from "react-router-dom";
-import { BsCalendarCheck, BsSearch } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import { BsCalendarCheck } from "react-icons/bs";
 import { FiMapPin } from "react-icons/fi";
 // import { BsSearch } from "react-icons/bs";
 

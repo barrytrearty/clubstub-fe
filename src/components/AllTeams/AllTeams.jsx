@@ -1,23 +1,11 @@
 import { useState, useEffect } from "react";
-import {
-  Button,
-  Col,
-  Container,
-  FormControl,
-  InputGroup,
-  Row,
-  Card,
-  Carousel,
-  Spinner,
-  ListGroup,
-  ListGroupItem,
-} from "react-bootstrap";
+import { Col, Row, Spinner } from "react-bootstrap";
 // import CarouselCounty from "../Carousels/CarouselCounty";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 // import "./Manage.css";
 import { TiPlusOutline } from "react-icons/ti";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CarouselCounty from "../Carousels/CarouselCounty";
 
 const AllTeams = () => {

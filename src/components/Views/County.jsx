@@ -1,16 +1,7 @@
 import { useState, useEffect } from "react";
-import {
-  Button,
-  Col,
-  Container,
-  FormControl,
-  InputGroup,
-  Row,
-  Card,
-  Spinner,
-} from "react-bootstrap";
+import { Col, Container, Row, Card, Spinner } from "react-bootstrap";
 import CarouselClub from "../Carousels/CarouselClub";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 const County = ({ match }) => {
   const { id } = match.params;

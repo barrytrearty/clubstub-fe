@@ -1,31 +1,14 @@
 import { useState, useEffect } from "react";
-import {
-  Button,
-  Col,
-  Container,
-  FormControl,
-  InputGroup,
-  Row,
-  Card,
-  Carousel,
-  Spinner,
-  ListGroup,
-  ListGroupItem,
-} from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { Col, Row, Spinner } from "react-bootstrap";
 
 // import PeopleSection from "./PeopleSection";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { BsCalendarCheck } from "react-icons/bs";
 import { BiTimeFive } from "react-icons/bi";
 import { FiMapPin } from "react-icons/fi";
 
-// import pic1 from "../data/bg.PNG";
-import CarouselCounty from "../Carousels/CarouselCounty";
-// import MatchCard from "../MatchCard";
 import Cube from "../Cube/Cube";
-// import countiesArray from "../data/counties.json";
 
 const Home = () => {
   // const [user, setUser] = useState();

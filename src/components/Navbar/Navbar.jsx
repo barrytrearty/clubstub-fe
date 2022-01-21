@@ -1,6 +1,6 @@
 import "./Navbar.css";
-import { Navbar, Nav, Container } from "react-bootstrap";
-import { BsSearch } from "react-icons/bs";
+import { Navbar, Nav } from "react-bootstrap";
+
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logUserOut } from "../../redux/actions/actions";

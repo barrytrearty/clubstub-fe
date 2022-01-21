@@ -1,23 +1,17 @@
 import { useState, useEffect } from "react";
 import {
-  Button,
   Col,
-  Container,
-  FormControl,
-  InputGroup,
   Row,
-  Card,
-  Carousel,
+
   Spinner,
-  ListGroup,
-  ListGroupItem,
+
 } from "react-bootstrap";
-// import CarouselCounty from "../Carousels/CarouselCounty";
+
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-// import "./Manage.css";
+
 import { TiPlusOutline } from "react-icons/ti";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { BsCalendarCheck } from "react-icons/bs";
 import { BiTimeFive } from "react-icons/bi";
 import { FiMapPin } from "react-icons/fi";
@@ -31,7 +25,6 @@ const AllMatches = () => {
 
   const apiUrl = process.env.REACT_APP_BE;
   const [comps, setComps] = useState([]);
-  //   const [clubs, setClubs] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const getMatches = async () => {
@@ -60,7 +53,6 @@ const AllMatches = () => {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          // Authorization: `Bearer ${token}`,
         },
       });
       let compsRes = await response.json();

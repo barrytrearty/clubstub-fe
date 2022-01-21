@@ -1,20 +1,8 @@
 import { useState, useEffect } from "react";
-import {
-  Button,
-  Col,
-  Container,
-  FormControl,
-  InputGroup,
-  Row,
-  Card,
-  Spinner,
-  Image,
-} from "react-bootstrap";
+import { Col, Container, Row, Card, Spinner } from "react-bootstrap";
 
 // import PeopleSection from "./PeopleSection";
-import { Link, withRouter } from "react-router-dom";
-
-import CarouselUser from "../Carousels/CarouselUsers";
+import { withRouter } from "react-router-dom";
 
 const Club = ({ match }) => {
   const { id } = match.params;

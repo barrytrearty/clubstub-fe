@@ -1,23 +1,7 @@
-import { Link, withRouter } from "react-router-dom";
-import { useState, useEffect } from "react";
-import {
-  Button,
-  Col,
-  Container,
-  FormControl,
-  InputGroup,
-  Row,
-  Card,
-  Carousel,
-  Spinner,
-  ListGroup,
-  ListGroupItem,
-  Image,
-  Modal,
-  Dropdown,
-  Table,
-} from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { useState } from "react";
+import { Button, Modal } from "react-bootstrap";
+
 import "./forms.css";
 
 const CreateCompetitionForm = ({ history }) => {

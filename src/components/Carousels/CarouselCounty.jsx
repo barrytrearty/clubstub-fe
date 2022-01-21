@@ -1,17 +1,3 @@
-import { useState, useEffect } from "react";
-import {
-  Button,
-  Col,
-  Container,
-  FormControl,
-  InputGroup,
-  Row,
-  Card,
-  Carousel,
-  Spinner,
-  ListGroup,
-  ListGroupItem,
-} from "react-bootstrap";
 import Swiper from "swiper/swiper-bundle.esm.js";
 // import "swiper/swiper-bundle.css";
 import "./carousel.css";

@@ -1,18 +1,6 @@
 import { useState, useEffect } from "react";
-import {
-  Button,
-  Col,
-  Container,
-  FormControl,
-  InputGroup,
-  Row,
-  Card,
-  Carousel,
-  Spinner,
-  ListGroup,
-  ListGroupItem,
-} from "react-bootstrap";
-import CarouselCounty from "./Carousels/CarouselCounty";
+import { Spinner } from "react-bootstrap";
+
 import Login from "./Login";
 import { useSelector } from "react-redux";
 

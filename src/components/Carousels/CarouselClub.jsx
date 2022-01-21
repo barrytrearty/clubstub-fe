@@ -1,21 +1,7 @@
-import { useState, useEffect } from "react";
-import {
-  Button,
-  Col,
-  Container,
-  FormControl,
-  InputGroup,
-  Row,
-  Card,
-  Carousel,
-  Spinner,
-  ListGroup,
-  ListGroupItem,
-} from "react-bootstrap";
 import Swiper from "swiper/swiper-bundle.esm.js";
 // import "swiper/swiper-bundle.css";
 import "./carousel.css";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const CarouselClub = ({ array }) => {
   const swiper = new Swiper(".swiper", {

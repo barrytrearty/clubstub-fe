@@ -1,5 +1,5 @@
-import { Link, withRouter } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { withRouter } from "react-router-dom";
+import { useState } from "react";
 import {
   Button,
   Col,
@@ -8,16 +8,8 @@ import {
   InputGroup,
   Row,
   Card,
-  Carousel,
-  Spinner,
-  ListGroup,
-  ListGroupItem,
-  Image,
   Modal,
-  Dropdown,
-  Table,
 } from "react-bootstrap";
-import { useSelector } from "react-redux";
 
 const AddEvent = () => {
   const [show, setShow] = useState(false);

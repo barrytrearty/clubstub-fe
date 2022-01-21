@@ -1,24 +1,7 @@
-import { Link, withRouter, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { useState, useEffect } from "react";
-import {
-  Button,
-  Col,
-  Container,
-  FormControl,
-  InputGroup,
-  Row,
-  Card,
-  Carousel,
-  Spinner,
-  ListGroup,
-  ListGroupItem,
-  Image,
-  Modal,
-  Dropdown,
-  Table,
-} from "react-bootstrap";
+import { Col, Container, Row, Spinner } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import Login from "../Forms/Login";
 import { AiTwotoneCalendar } from "react-icons/ai";
 import { ImLocation } from "react-icons/im";
 import { AiOutlineClockCircle } from "react-icons/ai";

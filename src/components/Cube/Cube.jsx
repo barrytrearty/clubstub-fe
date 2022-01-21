@@ -1,28 +1,12 @@
 import { useState, useEffect } from "react";
 import "swiper/swiper-bundle.css";
 import Swiper from "swiper/swiper-bundle.esm.js";
-import {
-  Col,
-  Container,
-  FormControl,
-  InputGroup,
-  Row,
-  Card,
-  Carousel,
-  Spinner,
-  ListGroup,
-  ListGroupItem,
-  Image,
-  Modal,
-  Dropdown,
-  Table,
-  Button,
-} from "react-bootstrap";
+import { FormControl, InputGroup, Button } from "react-bootstrap";
 import { BsSearch } from "react-icons/bs";
 
 // import { Swiper, SwiperSlide } from "swiper/react";
 import "./cube.css";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 const Cube = ({ history }) => {
   const [searchInput, setSearchInput] = useState("");

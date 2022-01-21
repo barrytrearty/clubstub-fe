@@ -1,21 +1,6 @@
-import { Link, withRouter, Redirect } from "react-router-dom";
+import { withRouter, Redirect } from "react-router-dom";
 import { useState, useEffect } from "react";
-import {
-  Button,
-  Col,
-  Container,
-  FormControl,
-  InputGroup,
-  Row,
-  Card,
-  Carousel,
-  Spinner,
-  ListGroup,
-  ListGroupItem,
-  Image,
-  Modal,
-  Dropdown,
-} from "react-bootstrap";
+import { Button, Container, Spinner, Modal } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import StripeCheckout from "react-stripe-checkout";
@@ -30,7 +15,7 @@ const Match = ({ match }) => {
   const [matchObj, setMatchobj] = useState();
   const [matchId, setMatchId] = useState("");
   const [loading, setLoading] = useState(true);
-  const [qrCodeImg, setQrCodeImg] = useState("");
+
   const [numberOfTickets, setNumberOfTickets] = useState(1);
   const token = localStorage.getItem("accessToken");
 

@@ -1,20 +1,10 @@
 import { useState, useEffect } from "react";
-import {
-  Button,
-  Col,
-  Container,
-  FormControl,
-  InputGroup,
-  Row,
-  Card,
-  Spinner,
-  Modal,
-} from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
+import { Button, Col, Container, Row, Spinner, Modal } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 // import { setUserInfo } from "../../redux/actions/actions.js";
 import { setUserInfo } from "../../redux/actions/actions.js";
 // import PeopleSection from "./PeopleSection";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Orders from "../Orders.jsx";
 
