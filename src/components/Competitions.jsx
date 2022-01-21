@@ -21,7 +21,7 @@ const Competitions = () => {
   const id = useSelector((state) => state.userInfo._id);
 
   const [matches, setMatches] = useState([]);
-  const apiUrl = "http://localhost:5000";
+  const apiUrl = process.env.REACT_APP_PROD_BE;
   const [counties, setCounties] = useState([]);
   const [loading, setLoading] = useState(true);
 

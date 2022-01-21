@@ -41,8 +41,9 @@ const CreateMatchForm = ({ history }) => {
   const [entryFee, setEntryFee] = useState();
   const [capacity, setCapacity] = useState();
 
-  const apiUrl = "http://localhost:5000";
+  const apiUrl = process.env.REACT_APP_PROD_BE
   const token = localStorage.getItem("accessToken");
+  const id = useSelector((state) => state.userInfo._id);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -107,7 +108,21 @@ const CreateMatchForm = ({ history }) => {
     // dateArray[1] = dateArray[1] + 1;
     dateArray[1]--;
     console.log(dateArray);
-    const finalDate = new Date(...dateArray);
+    const processDate = new Date(...dateArray);
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
+
+    const finalDate = processDate.toLocaleDateString("en-GB", options);
+
+    const finalTime = processDate.toLocaleTimeString("en-GB", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+
     // const finalDate = new Date("2022, 02, 02, 22, 02");
     console.log(finalDate);
 
@@ -118,14 +133,16 @@ const CreateMatchForm = ({ history }) => {
       awayTeam,
       venue,
       date: finalDate,
-      time,
+      time: finalTime,
       entryFee,
       capacity,
+      admin: id,
+      createdOn: new Date(),
     };
 
     console.log(obj);
     try {
-      let response = await fetch(`http://localhost:5000/matches`, {
+      let response = await fetch(`${apiUrl}/matches`, {
         method: "POST",
         body: JSON.stringify(obj),
         headers: {

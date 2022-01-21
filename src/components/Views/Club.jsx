@@ -19,7 +19,7 @@ import CarouselUser from "../Carousels/CarouselUsers";
 const Club = ({ match }) => {
   const { id } = match.params;
 
-  const apiUrl = "http://localhost:5000";
+  const apiUrl = process.env.REACT_APP_PROD_BE;
   const [club, setClub] = useState();
   // const [followers, setFollowers] = useState([]);
   const [loading, setLoading] = useState(true);

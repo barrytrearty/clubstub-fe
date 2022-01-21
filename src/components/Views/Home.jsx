@@ -18,6 +18,7 @@ import { useDispatch } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { BsCalendarCheck } from "react-icons/bs";
+import { BiTimeFive } from "react-icons/bi";
 import { FiMapPin } from "react-icons/fi";
 
 // import pic1 from "../data/bg.PNG";
@@ -38,7 +39,7 @@ const Home = () => {
   const isAdmin = useSelector((state) => state.userInfo.role);
   let matchOrEdit = isAdmin === "Admin" ? "editMatch" : "match";
 
-  const apiUrl = "http://localhost:5000";
+  const apiUrl = process.env.REACT_APP_BE;
 
   const getMatches = async () => {
     try {
@@ -174,19 +175,14 @@ const Home = () => {
                         <div>
                           <BsCalendarCheck /> {match.date}
                         </div>
+                        <div>
+                          <BiTimeFive /> {match.time}
+                        </div>
                         <div className="card-section-card-price">
                           €{match.entryFee}.00
                         </div>
                       </div>
                     </Link>
-
-                    {/* <div>
-                      <Link to={`${matchOrEdit}/${match._id}#ticketButton`}>
-                        <div className="ticket-wrapper">
-                          <span className="ticket-button">GET TICKETS</span>
-                        </div>
-                      </Link>
-                    </div> */}
                   </div>
                 </Col>
               ))}
@@ -219,19 +215,14 @@ const Home = () => {
                         <div>
                           <BsCalendarCheck /> {match.date}
                         </div>
+                        <div>
+                          <BiTimeFive /> {match.time}
+                        </div>
                         <div className="card-section-card-price">
                           €{match.entryFee}.00
                         </div>
                       </div>
                     </Link>
-
-                    {/* <div>
-                      <Link to={`${matchOrEdit}/${match._id}#ticketButton`}>
-                        <div className="ticket-wrapper">
-                          <span className="ticket-button">GET TICKETS</span>
-                        </div>
-                      </Link>
-                    </div> */}
                   </div>
                 </Col>
               ))}
@@ -264,25 +255,19 @@ const Home = () => {
                         <div>
                           <BsCalendarCheck /> {match.date}
                         </div>
+                        <div>
+                          <BiTimeFive /> {match.time}
+                        </div>
                         <div className="card-section-card-price">
                           €{match.entryFee}.00
                         </div>
                       </div>
                     </Link>
-
-                    {/* <div>
-                      <Link to={`match/${match._id}#ticketButton`}>
-                        <div className="ticket-wrapper">
-                          <span className="ticket-button">GET TICKETS</span>
-                        </div>
-                      </Link>
-                    </div> */}
                   </div>
                 </Col>
               ))}
             </Row>
           </div>
-          {/* </Container> */}
 
           <div>
             <h3 className="home-heading">COUNTIES</h3>

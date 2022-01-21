@@ -26,7 +26,7 @@ const Match = ({ match }) => {
   const { id } = match.params;
   const checkLoginId = useSelector((state) => state.userInfo._id);
 
-  const apiUrl = "http://localhost:5000";
+  const apiUrl = process.env.REACT_APP_PROD_BE;
   const [matchObj, setMatchobj] = useState();
   const [matchId, setMatchId] = useState("");
   const [loading, setLoading] = useState(true);
@@ -104,13 +104,14 @@ const Match = ({ match }) => {
     console.log("Response:", response.data);
     const receiverEmail = token.email;
     if (status === "success") {
+      createOrder();
       const response2 = await axios.post(`${apiUrl}/matches/qrCode`, {
         receiverEmail,
         matchObj,
       });
 
       console.log(response2.data);
-      createOrder();
+      // createOrder();
     } else {
       console.log("Nooooooooooo");
       // toast("Something went wrong", { type: "error" });

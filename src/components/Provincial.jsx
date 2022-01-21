@@ -20,7 +20,7 @@ const Provincial = ({ competition }) => {
   const id = useSelector((state) => state.userInfo._id);
   // const competition = match.params.competition
   // const [matches, setMatches] = useState([]);
-  const apiUrl = "http://localhost:5000";
+  const apiUrl = process.env.REACT_APP_PROD_BE;
   const [matches, setMatches] = useState([]);
   //   const [ulsterMatches, setUlsterMatches] = useState([]);
   //   const [leinsterMatches, setLeinsterMatches] = useState([]);

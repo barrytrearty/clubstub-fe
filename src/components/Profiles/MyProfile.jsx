@@ -23,6 +23,8 @@ const MyProfile = () => {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
+  const [comps, setComps] = useState([]);
+  const [matches, setMatches] = useState([]);
 
   const [imageFile, setImageFile] = useState();
   const [imageUploaded, setImageUploaded] = useState(false);
@@ -30,7 +32,7 @@ const MyProfile = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const apiUrl = "http://localhost:5000";
+  const apiUrl = process.env.REACT_APP_PROD_BE;
   const token = localStorage.getItem("accessToken");
 
   const getProfile = async () => {
@@ -54,6 +56,26 @@ const MyProfile = () => {
     }
   };
 
+  const getMatches = async () => {
+    try {
+      let response = await fetch(`${apiUrl}/matches`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          // Authorization: `Bearer ${token}`,
+        },
+      });
+      let matchesRes = await response.json();
+      console.log(matchesRes);
+      setMatches(matchesRes);
+      setLoading(false);
+      console.log(matches);
+      return matchesRes;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const imageUpload = (e) => {
     if (e.target.files.length == 0) {
       console.log("No image selected!");
@@ -61,6 +83,26 @@ const MyProfile = () => {
       setImageFile(e.target.files[0]);
 
       setImageUploaded(true);
+    }
+  };
+
+  const getComps = async () => {
+    try {
+      let response = await fetch(`${apiUrl}/competitions`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          // Authorization: `Bearer ${token}`,
+        },
+      });
+      let compsRes = await response.json();
+      console.log(compsRes);
+      setComps(compsRes);
+      // setLoading(false);
+      console.log(comps);
+      return compsRes;
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -104,7 +146,10 @@ const MyProfile = () => {
   }, []);
 
   useEffect(() => {
+    getComps();
+    getMatches();
     getProfile();
+    // getComps();
   }, [show]);
 
   return (
@@ -130,11 +175,6 @@ const MyProfile = () => {
                   <div className="mb-0 font-weight-bold username">
                     {user.username}
                   </div>
-                  <div className="mb-0">Donegal</div>
-                  {/* <div>
-                    <span className="mr-1">Followers</span>
-                    <span className="mr-1">Following</span>
-                  </div> */}
 
                   <div className="ticket-wrapper">
                     <div
@@ -145,40 +185,30 @@ const MyProfile = () => {
                     </div>
                   </div>
                 </div>
+                <div className="mt-2">
+                  <h5>Competitions</h5>
+                  {comps.map((comp) => (
+                    <Link to={`/matches`}>
+                      <div className="card-section-card">
+                        <img src={comp.image} alt="" className="card-img" />
+                        {/* </Link> */}
+                        {/* <Link to={`${matchOrEdit}/${match._id}`}> */}
+                        <div>
+                          <div className="comp-section-card-title">
+                            {comp.description}
+                          </div>
+                          {/* <div>{comp.description}</div> */}
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
               </Col>
               <Col xs={9} className="mt-5">
-                <h2>Upcoming Events</h2>
                 <Orders />
-                {/* <Card
-                  style={{
-                    borderRadius: "8px",
-                  }}
-                  className="mt-5"
-                >
-                  <Card.Body className="py-4">
-                    <Card.Title class="sectionheader pb-3">
-                      Upcoming Events
-                    </Card.Title>
-                    <Card.Text class="sectiontext mb-0">None to show</Card.Text>
-                  </Card.Body>
-                </Card> */}
               </Col>
             </Row>
           </div>
-
-          {/* <Card
-            style={{
-              borderRadius: "8px",
-            }}
-            className="mb-3"
-          >
-            <Card.Body className="py-4">
-              <Card.Title class="sectionheader pb-3">
-                Carousel with Club/County Teams
-              </Card.Title>
-              <Card.Text class="sectiontext mb-0">None to show</Card.Text>
-            </Card.Body>
-          </Card> */}
 
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>

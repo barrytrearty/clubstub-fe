@@ -18,7 +18,7 @@ const Profile = ({ match }) => {
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(true);
 
-  const apiUrl = "http://localhost:5000";
+  const apiUrl = process.env.REACT_APP_PROD_BE;
   const token = localStorage.getItem("accessToken");
 
   const getProfile = async () => {

@@ -33,7 +33,7 @@ const CreateTeamForm = ({ history }) => {
   const [province, setProvince] = useState();
   const [county, setCounty] = useState();
 
-  const apiUrl = "http://localhost:5000";
+  const apiUrl = process.env.REACT_APP_PROD_BE;
   const token = localStorage.getItem("accessToken");
 
   const handleClose = () => setShow(false);
@@ -56,7 +56,7 @@ const CreateTeamForm = ({ history }) => {
       province,
     };
     try {
-      let response = await fetch(`http://localhost:5000/clubs`, {
+      let response = await fetch(`${apiUrl}/clubs`, {
         method: "POST",
         body: JSON.stringify(obj),
         headers: {

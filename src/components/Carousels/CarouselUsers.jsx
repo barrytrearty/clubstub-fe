@@ -40,9 +40,6 @@ const CarouselUsers = ({ array }) => {
       <div class="swiper-wrapper">
         {array.map((user) => (
           <div class="swiper-slide swiper-slideCarousel">
-            {/* <a
-              href={`http://localhost:3000/user/${user._id}`}
-            > */}
             <Link to={`/profile/${user._id}`} replace>
               <img src={user.picture} alt="" className="follower-image" />
               <div>{user.username}</div>

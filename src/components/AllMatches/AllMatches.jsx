@@ -19,6 +19,7 @@ import { Redirect } from "react-router-dom";
 import { TiPlusOutline } from "react-icons/ti";
 import { Link, withRouter } from "react-router-dom";
 import { BsCalendarCheck } from "react-icons/bs";
+import { BiTimeFive } from "react-icons/bi";
 import { FiMapPin } from "react-icons/fi";
 
 const AllMatches = () => {
@@ -27,7 +28,8 @@ const AllMatches = () => {
   let matchOrEdit = isAdmin === "Admin" ? "editMatch" : "match";
 
   const [matches, setMatches] = useState([]);
-  const apiUrl = "http://localhost:5000";
+
+  const apiUrl = process.env.REACT_APP_BE;
   const [comps, setComps] = useState([]);
   //   const [clubs, setClubs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -171,19 +173,14 @@ const AllMatches = () => {
                         <div>
                           <BsCalendarCheck /> {match.date}
                         </div>
+                        <div>
+                          <BiTimeFive /> {match.time}
+                        </div>
                         <div className="card-section-card-price">
                           €{match.entryFee}.00
                         </div>
                       </div>
                     </Link>
-
-                    {/* <div>
-                      <Link to={`match/${match._id}#ticketButton`}>
-                        <div className="ticket-wrapper">
-                          <span className="ticket-button">GET TICKETS</span>
-                        </div>
-                      </Link>
-                    </div> */}
                   </div>
                 </Col>
               ))}

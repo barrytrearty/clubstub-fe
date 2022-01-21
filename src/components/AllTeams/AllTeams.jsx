@@ -26,7 +26,7 @@ const AllTeams = () => {
   let clubOrEdit = isAdmin === "Admin" ? "editClub" : "clubs";
 
   // const [matches, setMatches] = useState([]);
-  const apiUrl = "http://localhost:5000";
+  const apiUrl = process.env.REACT_APP_PROD_BE;
   // const [comps, setComps] = useState([]);
   const [clubs, setClubs] = useState([]);
   const [counties, setCounties] = useState([]);

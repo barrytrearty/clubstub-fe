@@ -28,8 +28,9 @@ import { AiOutlineClockCircle } from "react-icons/ai";
 
 const Account = ({ match }) => {
   const id = useSelector((state) => state.userInfo._id);
+  const isAdmin = useSelector((state) => state.userInfo.role);
 
-  const apiUrl = "http://localhost:5000";
+  const apiUrl = process.env.REACT_APP_PROD_BE;
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -55,6 +56,26 @@ const Account = ({ match }) => {
     }
   };
 
+  const getAdminMatches = async () => {
+    try {
+      let response = await fetch(`${apiUrl}/matches/admin/${id}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      let ordersRes = await response.json();
+      console.log(ordersRes);
+      setOrders(ordersRes);
+      setLoading(false);
+      console.log(orders);
+      return ordersRes;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const paramToken = params.get("accessToken");
@@ -62,7 +83,7 @@ const Account = ({ match }) => {
     if (paramToken) {
       localStorage.setItem("accessToken", paramToken);
     }
-    getOrders();
+    isAdmin ? getAdminMatches() : getOrders();
   }, []);
 
   if (id === "") {
@@ -101,15 +122,7 @@ const Account = ({ match }) => {
                 <div>Number of tickets: {order.numberOfTickets}</div>
               </Col>
             </Row>
-            // <tr>
-            //   <td>{order.match.description}</td>
-            //   <td>{order.numberOfTickets}</td>
-            //   <td>{order.match.date}</td>
-            //   <td>{order.match.time}</td>
-            // </tr>
           ))}
-          {/* </tbody> */}
-          {/* </Table> */}
         </Container>
       )}
     </div>

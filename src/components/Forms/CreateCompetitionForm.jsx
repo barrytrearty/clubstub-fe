@@ -30,7 +30,7 @@ const CreateCompetitionForm = ({ history }) => {
   //Input
   const [description, setDescription] = useState();
 
-  const apiUrl = "http://localhost:5000";
+  const apiUrl = process.env.REACT_APP_PROD_BE;
   const token = localStorage.getItem("accessToken");
 
   const handleClose = () => setShow(false);
@@ -52,7 +52,7 @@ const CreateCompetitionForm = ({ history }) => {
       matches: [],
     };
     try {
-      let response = await fetch(`http://localhost:5000/competitions`, {
+      let response = await fetch(`${apiUrl}/competitions`, {
         method: "POST",
         body: JSON.stringify(obj),
         headers: {

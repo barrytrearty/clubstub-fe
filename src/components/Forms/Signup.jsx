@@ -20,12 +20,13 @@ const Signup = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const dispatch = useDispatch();
+  const apiUrl = process.env.REACT_APP_PROD_BE;
   const [loggedIn, setLoggedIn] = useState(false);
 
   const signup = async () => {
     const obj = { email, password, username };
     try {
-      let response = await fetch(`http://localhost:5000/users/register`, {
+      let response = await fetch(`${apiUrl}/users/register`, {
         method: "POST",
         body: JSON.stringify(obj),
 

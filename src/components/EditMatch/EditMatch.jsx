@@ -22,23 +22,25 @@ import StripeCheckout from "react-stripe-checkout";
 
 // import CheckoutForm from "./CheckoutForm";
 
-const EditMatch = ({ match }) => {
+const EditMatch = ({ match, location, history }) => {
   const { id } = match.params;
   const checkLoginId = useSelector((state) => state.userInfo._id);
 
-  const apiUrl = "http://localhost:5000";
+  const apiUrl = process.env.REACT_APP_PROD_BE
   const [matchObj, setMatchobj] = useState();
   const [matchId, setMatchId] = useState("");
   const [loading, setLoading] = useState(true);
-  const [qrCodeImg, setQrCodeImg] = useState("");
-  const [numberOfTickets, setNumberOfTickets] = useState(1);
   const token = localStorage.getItem("accessToken");
 
   //Modal stuff
-  const [show, setShow] = useState(false);
+  const [showEdit, setShowEdit] = useState(false);
+  const [showDelete, setShowDelete] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleCloseEdit = () => setShowEdit(false);
+  const handleShowEdit = () => setShowEdit(true);
+
+  const handleCloseDelete = () => setShowDelete(false);
+  const handleShowDelete = () => setShowDelete(true);
 
   const getMatch = async (id) => {
     try {
@@ -61,22 +63,19 @@ const EditMatch = ({ match }) => {
     }
   };
 
-  const createOrder = async () => {
+  const deleteMatch = async () => {
     try {
-      const bodyInfo = { match: matchId, numberOfTickets };
-      console.log(bodyInfo);
-      let response = await fetch(`${apiUrl}/orders`, {
-        method: "POST",
-        body: JSON.stringify(bodyInfo),
+      let response = await fetch(`${apiUrl}/matches/${id}`, {
+        method: "DELETE",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
       });
-      let matchRes = await response.json();
-      // console.log(matchRes);
-      // console.log(matchObj);
-      return matchRes;
+      if (response.ok) {
+        // handleCloseDelete();
+        history.push("/matches");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -145,16 +144,39 @@ const EditMatch = ({ match }) => {
               Tickets remaining: {matchObj.capacity}
             </div>
 
-            <div className="ticket-wrapper my-4">
+            <div className="my-4">
               <Button
-                className="ticket-button"
-                onClick={handleShow}
-                id="ticketButton"
+                // className="ticket-button"
+                onClick={handleShowEdit}
+                // id="ticketButton"
               >
                 Edit
               </Button>
+              <Button
+                // className="ticket-button"
+                onClick={handleShowDelete}
+                // id="ticketButton"
+                variant="danger"
+              >
+                Delete
+              </Button>
             </div>
           </div>
+
+          <Modal show={showDelete} onHide={handleCloseDelete}>
+            <Modal.Header closeButton>
+              <Modal.Title>Delete match</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>Are you sure you want to delete match?</Modal.Body>
+            <Modal.Footer>
+              <Button variant="primary" onClick={handleCloseDelete}>
+                Cancel
+              </Button>
+              <Button variant="danger" onClick={deleteMatch}>
+                Delete
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </Container>
       )}
     </div>

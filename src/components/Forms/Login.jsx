@@ -20,12 +20,13 @@ const Login = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const dispatch = useDispatch();
+  const apiUrl = process.env.REACT_APP_PROD_BE;
   const [loggedIn, setLoggedIn] = useState(false);
 
   const login = async () => {
     const obj = { email, password };
     try {
-      let response = await fetch(`http://localhost:5000/users/login`, {
+      let response = await fetch(`${apiUrl}/users/login`, {
         method: "POST",
         body: JSON.stringify(obj),
         headers: { "Content-Type": "application/json" },

@@ -25,7 +25,7 @@ const AddEvent = () => {
   const [imageFile, setImageFile] = useState();
   const [imageUploaded, setImageUploaded] = useState(false);
 
-  const apiUrl = "http://localhost:5000";
+  const apiUrl = process.env.REACT_APP_BE;
   const token = localStorage.getItem("accessToken");
 
   const handleClose = () => setShow(false);
@@ -125,7 +125,6 @@ const AddEvent = () => {
               Match Picture
             </Button>
             <Button variant="success">Add Event</Button>
-            {/* <a href={`http://localhost:5000/users/googleLogin`}> */}
           </Card>
         </Col>
       </Row>

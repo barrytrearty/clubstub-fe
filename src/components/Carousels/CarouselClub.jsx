@@ -39,10 +39,6 @@ const CarouselClub = ({ array }) => {
       <div class="swiper-wrapper swiper-wrapper-club">
         {array.map((club) => (
           <div class="swiper-slide swiper-slideCarousel">
-            {/* <a
-              href={`http://localhost:3000/club/${club._id}`}
-              className="crest"
-            > */}
             <Link to={`/club/${club._id}`} replace className="crest">
               <img src={club.crest} alt="" />
             </Link>
