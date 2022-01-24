@@ -30,7 +30,7 @@ const Signup = ({ history }) => {
 
         headers: { "Content-Type": "application/json" },
       });
-      console.log(obj);
+      // console.log(obj);
       console.log(response);
       let tokenObj = await response.json();
       console.log(tokenObj);
@@ -92,7 +92,7 @@ const Signup = ({ history }) => {
         </form>
       </div>
 
-      <Row>
+      {/* <Row>
         <Col
           xs="12"
           className="mx-auto text-dark p-5 d-flex flex-column justify-content-center align-items-center"
@@ -140,7 +140,7 @@ const Signup = ({ history }) => {
             </Button>
           </Card>
         </Col>
-      </Row>
+      </Row> */}
     </div>
   );
 };
