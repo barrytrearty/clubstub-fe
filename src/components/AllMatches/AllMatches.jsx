@@ -163,7 +163,7 @@ const AllMatches = () => {
                           <FiMapPin /> {match.venue}
                         </div>
                         <div>
-                          <BsCalendarCheck /> {match.date}
+                          <BsCalendarCheck /> {match.displayDate}
                         </div>
                         <div>
                           <BiTimeFive /> {match.time}

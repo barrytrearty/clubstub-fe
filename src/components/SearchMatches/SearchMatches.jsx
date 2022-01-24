@@ -19,7 +19,7 @@ const SearchMatches = () => {
 
   const [searchInput, setSearchInput] = useState(searchQuery);
   const [matches, setMatches] = useState([]);
-  const apiUrl = process.env.REACT_APP_PROD_BE;
+  const apiUrl = process.env.REACT_APP_BE;
   const [comps, setComps] = useState([]);
   //   const [clubs, setClubs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -161,7 +161,7 @@ const SearchMatches = () => {
                           <FiMapPin /> {match.venue}
                         </div>
                         <div>
-                          <BsCalendarCheck /> {match.date}
+                          <BsCalendarCheck /> {match.displayDate}
                         </div>
                         <div className="card-section-card-price">
                           €{match.entryFee}.00

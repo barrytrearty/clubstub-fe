@@ -11,7 +11,7 @@ const Orders = ({ match }) => {
   const id = useSelector((state) => state.userInfo._id);
   const isAdmin = useSelector((state) => state.userInfo.role);
 
-  const apiUrl = process.env.REACT_APP_PROD_BE;
+  const apiUrl = process.env.REACT_APP_BE;
   const [orders, setOrders] = useState([]);
   const [adminMatches, setAdminMatches] = useState([]);
   const [matches, setMatches] = useState([]);
@@ -125,7 +125,7 @@ const Orders = ({ match }) => {
                         <ImLocation /> {match.venue}
                       </div>
                       <div>
-                        <AiTwotoneCalendar /> {match.date}
+                        <AiTwotoneCalendar /> {match.displayDate}
                       </div>
                       <div>
                         <AiOutlineClockCircle /> {match.time}
@@ -196,7 +196,7 @@ const Orders = ({ match }) => {
                         <ImLocation /> {order.match.venue}
                       </div>
                       <div>
-                        <AiTwotoneCalendar /> {order.match.date}
+                        <AiTwotoneCalendar /> {order.match.displayDate}
                       </div>
                       <div>
                         <AiOutlineClockCircle /> {order.match.time}

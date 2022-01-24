@@ -16,7 +16,7 @@ const CreateTeamForm = ({ history }) => {
   const [province, setProvince] = useState();
   const [county, setCounty] = useState();
 
-  const apiUrl = process.env.REACT_APP_PROD_BE;
+  const apiUrl = process.env.REACT_APP_BE;
   const token = localStorage.getItem("accessToken");
 
   const handleClose = () => setShow(false);

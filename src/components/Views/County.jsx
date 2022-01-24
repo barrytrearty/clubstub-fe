@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 const County = ({ match }) => {
   const { id } = match.params;
 
-  const apiUrl = process.env.REACT_APP_PROD_BE;
+  const apiUrl = process.env.REACT_APP_BE;
   const [county, setCounty] = useState({});
   // const [countyName, setCountyName] = useState("");
   const [loading, setLoading] = useState(true);

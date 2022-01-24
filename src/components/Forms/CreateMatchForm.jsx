@@ -25,7 +25,7 @@ const CreateMatchForm = ({ history }) => {
   const [entryFee, setEntryFee] = useState();
   const [capacity, setCapacity] = useState();
 
-  const apiUrl = process.env.REACT_APP_PROD_BE;
+  const apiUrl = process.env.REACT_APP_BE;
   const token = localStorage.getItem("accessToken");
   const id = useSelector((state) => state.userInfo._id);
 
@@ -116,7 +116,8 @@ const CreateMatchForm = ({ history }) => {
       homeTeam,
       awayTeam,
       venue,
-      date: finalDate,
+      date,
+      displayDate: finalDate,
       time: finalTime,
       entryFee,
       capacity,

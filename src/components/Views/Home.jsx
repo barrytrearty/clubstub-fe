@@ -156,7 +156,7 @@ const Home = () => {
                           <FiMapPin /> {match.venue}
                         </div>
                         <div>
-                          <BsCalendarCheck /> {match.date}
+                          <BsCalendarCheck /> {match.displayDate}
                         </div>
                         <div>
                           <BiTimeFive /> {match.time}
@@ -196,7 +196,7 @@ const Home = () => {
                           <FiMapPin /> {match.venue}
                         </div>
                         <div>
-                          <BsCalendarCheck /> {match.date}
+                          <BsCalendarCheck /> {match.displayDate}
                         </div>
                         <div>
                           <BiTimeFive /> {match.time}
@@ -236,7 +236,7 @@ const Home = () => {
                           <FiMapPin /> {match.venue}
                         </div>
                         <div>
-                          <BsCalendarCheck /> {match.date}
+                          <BsCalendarCheck /> {match.displayDate}
                         </div>
                         <div>
                           <BiTimeFive /> {match.time}

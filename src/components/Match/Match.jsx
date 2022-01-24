@@ -11,7 +11,7 @@ const Match = ({ match }) => {
   const { id } = match.params;
   const checkLoginId = useSelector((state) => state.userInfo._id);
 
-  const apiUrl = process.env.REACT_APP_PROD_BE;
+  const apiUrl = process.env.REACT_APP_BE;
   const [matchObj, setMatchobj] = useState();
   const [matchId, setMatchId] = useState("");
   const [loading, setLoading] = useState(true);
@@ -147,7 +147,7 @@ const Match = ({ match }) => {
             <div className="match-detail">Venue: {matchObj.venue}</div>
             <div className="match-detail">Throw in: {matchObj.time}</div>
 
-            <div className="match-detail">Date: {matchObj.date}</div>
+            <div className="match-detail">Date: {matchObj.displayDate}</div>
 
             <div className="match-detail">Entry Fee: €{matchObj.entryFee}</div>
 
@@ -175,7 +175,7 @@ const Match = ({ match }) => {
             <Modal.Body>
               {matchObj.homeTeam.name} vs {matchObj.awayTeam.name}
               <div>Time {matchObj.time}</div>
-              <div>Date {matchObj.date} </div>
+              <div>Date {matchObj.displayDate} </div>
               <div>
                 <strong>General Admission</strong>: €{matchObj.entryFee}
               </div>

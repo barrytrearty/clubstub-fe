@@ -22,7 +22,7 @@ const MyProfile = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const apiUrl = process.env.REACT_APP_PROD_BE;
+  const apiUrl = process.env.REACT_APP_BE;
   const token = localStorage.getItem("accessToken");
 
   const getProfile = async () => {

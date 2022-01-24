@@ -9,7 +9,7 @@ const EditMatch = ({ match, location, history }) => {
   const { id } = match.params;
   const checkLoginId = useSelector((state) => state.userInfo._id);
 
-  const apiUrl = process.env.REACT_APP_PROD_BE;
+  const apiUrl = process.env.REACT_APP_BE;
   const [matchObj, setMatchobj] = useState();
   const [matchId, setMatchId] = useState("");
   const [loading, setLoading] = useState(true);
@@ -119,7 +119,7 @@ const EditMatch = ({ match, location, history }) => {
             <div className="match-detail">Venue: {matchObj.venue}</div>
             <div className="match-detail">Throw in: {matchObj.time}</div>
 
-            <div className="match-detail">Date: {matchObj.date}</div>
+            <div className="match-detail">Date: {matchObj.displayDate}</div>
 
             <div className="match-detail">Entry Fee: €{matchObj.entryFee}</div>
 

@@ -13,7 +13,7 @@ const Account = ({ match }) => {
   const id = useSelector((state) => state.userInfo._id);
   const isAdmin = useSelector((state) => state.userInfo.role);
 
-  const apiUrl = process.env.REACT_APP_PROD_BE;
+  const apiUrl = process.env.REACT_APP_BE;
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -99,7 +99,7 @@ const Account = ({ match }) => {
                   <ImLocation /> {order.match.venue}
                 </div>
                 <div>
-                  <AiTwotoneCalendar /> {order.match.date}{" "}
+                  <AiTwotoneCalendar /> {order.match.displayDate}{" "}
                   <AiOutlineClockCircle /> {order.match.time}
                 </div>
                 <div>Number of tickets: {order.numberOfTickets}</div>

@@ -8,7 +8,7 @@ const Provincial = ({ competition }) => {
   const id = useSelector((state) => state.userInfo._id);
   // const competition = match.params.competition
   // const [matches, setMatches] = useState([]);
-  const apiUrl = process.env.REACT_APP_PROD_BE;
+  const apiUrl = process.env.REACT_APP_BE;
   const [matches, setMatches] = useState([]);
   //   const [ulsterMatches, setUlsterMatches] = useState([]);
   //   const [leinsterMatches, setLeinsterMatches] = useState([]);
@@ -161,7 +161,7 @@ const Provincial = ({ competition }) => {
                   <div>
                     {" "}
                     <div>{match.time}</div>
-                    <div>{match.date}</div>
+                    <div>{match.displayDate}</div>
                     <div>{match.venue}</div>
                     {/* <div>{match.homeTeam}</div>
                     <div>{match.awayTeam}</div> */}

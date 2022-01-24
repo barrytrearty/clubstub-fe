@@ -18,7 +18,7 @@ const Signup = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const dispatch = useDispatch();
-  const apiUrl = process.env.REACT_APP_PROD_BE;
+  const apiUrl = process.env.REACT_APP_BE;
   const [loggedIn, setLoggedIn] = useState(false);
 
   const signup = async () => {

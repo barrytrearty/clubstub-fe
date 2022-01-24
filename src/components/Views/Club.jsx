@@ -7,7 +7,7 @@ import { withRouter } from "react-router-dom";
 const Club = ({ match }) => {
   const { id } = match.params;
 
-  const apiUrl = process.env.REACT_APP_PROD_BE;
+  const apiUrl = process.env.REACT_APP_BE;
   const [club, setClub] = useState();
   // const [followers, setFollowers] = useState([]);
   const [loading, setLoading] = useState(true);

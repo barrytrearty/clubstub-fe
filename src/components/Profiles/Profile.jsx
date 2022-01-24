@@ -6,7 +6,7 @@ const Profile = ({ match }) => {
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(true);
 
-  const apiUrl = process.env.REACT_APP_PROD_BE;
+  const apiUrl = process.env.REACT_APP_BE;
   const token = localStorage.getItem("accessToken");
 
   const getProfile = async () => {
