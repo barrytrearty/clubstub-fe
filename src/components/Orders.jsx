@@ -142,7 +142,7 @@ const Orders = ({ match }) => {
                 <button className="ticket-button">Next 7 day</button>
                 <button className="ticket-button ml-1">Next 30 day</button>
               </div>
-              {orders[0] === undefined ? (
+              {orders === undefined ? (
                 <div>
                   <Row id="event-card" className="p-5">
                     <div>None to show</div>
