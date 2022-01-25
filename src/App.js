@@ -26,8 +26,7 @@ import { useEffect } from "react";
 
 function App() {
   useEffect(() => {
-    document.body.style = "background: linear-gradient(#0b2122, #03160e);";
-    document.body.style = "  background: rgb(229, 250, 229);";
+    document.body.style = "  background: rgb(255, 255, 255);";
   }, []);
 
   // useEffect(() => {

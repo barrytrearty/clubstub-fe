@@ -17,14 +17,6 @@ body {
   text-shadow: black;
 } */
 
-.match-text {
-  color: white;
-}
-
-.white-text {
-  color: black;
-}
-
 /* #homeCarousel {
   height: 20%;
 }
@@ -49,18 +41,17 @@ body {
   color: black;
   text-align: center;
   width: 98vw;
+  /* margin-top: 100vh; */
 }
 
 .home-heading {
+  padding-top: 10vh;
+  padding-bottom: 4vh;
   color: rgb(0, 0, 0);
   text-align: center;
   /* fon */
   font-weight: 500;
   text-transform: uppercase;
-}
-
-.afterCube {
-  margin-top: 97vh;
 }
 
 .card-section a {
@@ -69,17 +60,16 @@ body {
 }
 
 .card-section a:hover {
-  color: rgb(24, 211, 33);
+  color: rgb(0, 0, 0);
   text-decoration: none;
 }
 
 .card-section-card {
-  /* margin: 2vh 1vw; */
   text-align: left;
   border: 3px solid rgba(0, 0, 0, 0);
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5), 0px 0px 20px rgba(0, 0, 0, 0.507);
-  /* padding: 10px; */
-  /* box-shadow: -1px -2px 2px black; */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.329),
+    0px 0px 10px rgba(0, 0, 0, 0.329);
+  border-radius: 10px;
 }
 
 .card-img {
@@ -91,8 +81,7 @@ body {
 }
 
 .card-section-card:hover {
-  border: 1px solid white;
-  border: 3px solid black;
+  border: 3px solid rgb(5, 60, 60);
 }
 
 .card-section-card-info {
@@ -117,6 +106,12 @@ body {
   text-align: center;
   font-weight: 600;
   padding: 6px;
+
+  color: black;
+}
+
+.comp-section-card-title:hover a {
+  text-decoration: none;
 }
 
 .plus {
@@ -150,15 +145,16 @@ body {
 }
 
 .ticket-button {
-  background: rgb(113, 230, 113);
-  box-shadow: inset 0px 0px 5px rgb(75, 71, 71);
-  cursor: pointer;
+  border: 0px;
+  padding: 5px;
+  outline: none;
   font-weight: 600;
-  padding: 10px;
+  background-color: #0fd286;
+  box-shadow: 0px 2px 2px rgb(189, 180, 180);
 }
 
 .ticket-button:hover {
-  background: rgb(135, 250, 135);
+  background-color: #60f7bd;
 }
 
 /* ////////////CARD SECTION//////////// */
@@ -192,15 +188,20 @@ body {
   text-align: left;
   margin-bottom: 20px;
   border: 3px solid white;
+  border-radius: 10px;
 }
 
 #event-card:hover {
-  border: 3px solid black;
+  border: 3px solid rgb(5, 60, 60);
 }
 
-#event-card a {
+#event-card div {
   text-decoration: none;
   color: black;
+}
+
+#event-card div:hover {
+  text-decoration: none;
 }
 
 .profileImage {
@@ -277,9 +278,9 @@ body {
   font-size: 23px;
 }
 
-footer {
+/* footer {
   background-color: #066138;
-}
+} */
 
 /* .match-image {
   width: 100%;
@@ -304,38 +305,13 @@ footer {
   margin: auto;
 } */
 
-footer {
-  height: 50vh;
-  background: rgb(248, 220, 220);
-  color: rgb(17, 16, 16);
-  padding: 50px;
-}
-
-footer .footerCont {
-  width: 80%;
-  margin: auto;
-}
-
-footer h3 {
-  font-size: 1.5rem;
-}
-
-footer .footer-text-container {
-  display: flex;
-}
-
-footer p {
-  font-size: 100%;
-  margin-bottom: 5px;
-}
-
-footer img {
-  height: 100px;
-  border-radius: 50%;
-  margin: 10px;
-  margin-right: 20px;
-}
-
 h5 {
   text-align: center;
+}
+
+.truncate {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

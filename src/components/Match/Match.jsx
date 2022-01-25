@@ -156,13 +156,13 @@ const Match = ({ match }) => {
             </div>
 
             <div className="ticket-wrapper my-4">
-              <span
+              <button
                 className="ticket-button"
                 onClick={handleShow}
                 id="ticketButton"
               >
                 GET TICKETS
-              </span>
+              </button>
             </div>
           </div>
           {/* <Button onClick={handleShow} id="ticketButton">

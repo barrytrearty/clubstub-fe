@@ -109,8 +109,8 @@ const Orders = ({ match }) => {
             <div>
               <h2>Matches created by you</h2>
               <div>
-                <button>Last 7 day</button>
-                <button>Last 30 day</button>
+                <button className="ticket-button">Last 7 day</button>
+                <button className="ticket-button">Last 30 day</button>
               </div>
               {adminMatches.map((match) => (
                 <Link to={`editMatch/${match._id}`}>
@@ -139,8 +139,8 @@ const Orders = ({ match }) => {
             <div>
               <h2>Upcoming Events</h2>
               <div>
-                <button>Next 7 day</button>
-                <button>Next 30 day</button>
+                <button className="ticket-button">Next 7 day</button>
+                <button className="ticket-button ml-1">Next 30 day</button>
               </div>
               {orders[0] === undefined ? (
                 <div>

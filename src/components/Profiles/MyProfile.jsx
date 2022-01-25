@@ -1,5 +1,13 @@
 import { useState, useEffect } from "react";
-import { Button, Col, Container, Row, Spinner, Modal } from "react-bootstrap";
+import {
+  Button,
+  Col,
+  Container,
+  Row,
+  Spinner,
+  Modal,
+  CloseButton,
+} from "react-bootstrap";
 import { useDispatch } from "react-redux";
 // import { setUserInfo } from "../../redux/actions/actions.js";
 import { setUserInfo } from "../../redux/actions/actions.js";
@@ -154,7 +162,7 @@ const MyProfile = () => {
         <Container className="afterNavbar">
           <div className="profileTopCard topmargin px-0">
             <Row>
-              <Col xs={3}>
+              <Col xs={12} md={3}>
                 {" "}
                 <div
                   id="county-card"
@@ -167,12 +175,9 @@ const MyProfile = () => {
                   </div>
 
                   <div className="ticket-wrapper">
-                    <div
-                      className="messagebutton ticket-button match-text"
-                      onClick={handleShow}
-                    >
-                      Edit Profile
-                    </div>
+                    <button className="ticket-button" onClick={handleShow}>
+                      Change Picture
+                    </button>
                   </div>
                 </div>
                 <div className="mt-2">
@@ -194,7 +199,7 @@ const MyProfile = () => {
                   ))}
                 </div>
               </Col>
-              <Col xs={9} className="mt-5">
+              <Col xs={12} md={9} className="mt-5">
                 <Orders />
               </Col>
             </Row>

@@ -28,46 +28,37 @@ const Navbar1 = ({ history, location, match }) => {
   return (
     <div id="club-nav-container" className="top-nav">
       <Navbar collapseOnSelect id="club-nav" expand="sm">
-        {/* <Container fluid> */}
         <Link to="/home">
           <Navbar.Brand className="brandLogoOD">
             <img src={logo} className="logoOD" alt="" />
-            {/* <div className="bold-hover">ClubStub</div> */}
           </Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          {checkLoginOrSignupPage === "/login" ? (
+          {/* {checkLoginOrSignupPage === "/login" ? (
             ""
           ) : checkLoginOrSignupPage === "/signup" ? (
             ""
-          ) : (
-            <Nav className="ml-auto">
-              <Link to="/teams">
-                <Nav.Item className="green-bg">
-                  <div className="bold-hover">TEAMS</div>
-                </Nav.Item>
-              </Link>
-
-              <Link to="/matches">
-                <Nav.Item className="green-bg">
-                  <div className="bold-hover">MATCHES</div>
-                </Nav.Item>
-              </Link>
-            </Nav>
-          )}
-          {/* {isAdmin === "Admin" ? (
-            <Link to="/manage">
+          ) : ( */}
+          <Nav id="teamNav" className="ml-auto">
+            <Link to="/teams">
               <Nav.Item className="green-bg">
-                <div className="bold-hover">Manage</div>
+                <div className="bold-hover">TEAMS</div>
               </Nav.Item>
             </Link>
-          ) : (
-            ""
-          )} */}
+
+            <Link to="/matches">
+              <Nav.Item className="green-bg">
+                <div className="bold-hover">MATCHES</div>
+              </Nav.Item>
+            </Link>
+          </Nav>
+          {/* )} */}
 
           {userName ? (
-            <Nav className="ml-auto">
+            // <Nav className="ml-auto">
+            <Nav>
+              <div className="green-bg disappearSM">|</div>
               <Link to="/me">
                 <Nav.Item className="green-bg">
                   <div className="bold-hover">{userName}</div>
@@ -80,7 +71,8 @@ const Navbar1 = ({ history, location, match }) => {
               </Nav.Item>
             </Nav>
           ) : (
-            <Nav className="ml-auto">
+            <Nav>
+              <div className="green-bg disappearSM">|</div>
               <Link to="/signup">
                 <Nav.Item className="green-bg">
                   <div className="bold-hover">SIGN UP</div>

@@ -2,18 +2,18 @@
 
 .swiperCube {
   width: 99vw;
-  height: 95vh;
-  position: absolute;
+  height: 80vh;
+  position: relative;
   left: 0;
   top: 0;
   /* margin-left: -150px; */
-  /* margin-top: 60px; */
+  margin-top: 60px;
   /* z-index: 10; */
 }
 
 .swiperCube h1 {
   font-weight: 300;
-  font-size: 3rem;
+  font-size: 4rem;
 }
 
 .swiperCube span {
@@ -55,10 +55,10 @@
   height: 100%;
   text-align: center;
   position: relative;
-  padding-top: 40vh;
+  padding-top: 30vh;
   /* padding-left: 10vw; */
   /* margin-right: 10vw; */
-  background: rgba(0, 0, 0, 0.664);
+  /* background: rgba(0, 0, 0, 0.664); */
   opacity: 0;
   transition: opacity 2s 1s;
 }
@@ -83,21 +83,48 @@
 
 #inputGroup {
   margin: auto;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
   color: black;
-  width: 80vw;
+  width: 60vw;
+  height: 40px;
+  border-radius: 10px;
 }
 
-/* #cubeGlass {
-  width: 5%;
-} */
+#formSearch {
+  width: 85%;
+  padding: 5px;
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+}
 
-#cubeInput {
-  width: 80%;
+#formSearch:focus {
+  outline: none;
+  border: 2px solid #60f7bd;
 }
 
 #inputGroup button {
+  border: 0px;
+  padding: 0px;
+  outline: none;
+  border-radius: 0 10px 10px 0;
   width: 15%;
+  height: 100%;
+  background-color: #0fd286;
+}
+
+#inputGroup button:hover {
+  background-color: #60f7bd;
+}
+
+@media (max-width: 575px) {
+  .swiperCube {
+    /* height: 90vh; */
+    margin-top: 50px;
+  }
+}
+
+.whiteArrow {
+  color: white;
 }
 
 /* .slide1 {

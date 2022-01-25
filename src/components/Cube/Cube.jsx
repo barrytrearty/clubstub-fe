@@ -73,30 +73,18 @@ const Cube = ({ history }) => {
               <h1>
                 Welcome to <span id="odHead">O'Deals</span>
               </h1>
-              <InputGroup className="mb-3" id="inputGroup">
-                <FormControl
+              <div className="mb-3" id="inputGroup">
+                <input
+                  id="formSearch"
                   placeholder="Search matches"
                   aria-label="Search matches"
                   aria-describedby="basic-addon2"
                   onChange={(e) => setSearchInput(e.target.value)}
                 />
-                <Button
-                  variant="outline-success"
-                  id="button-addon2"
-                  onClick={useSearchBar}
-                >
+                <button onClick={useSearchBar}>
                   <BsSearch />
-                </Button>
-              </InputGroup>
-              {/* <div id="inputGroup">
-                <BsSearch />
-                <input
-                  type="text"
-                  placeholder="Search matches"
-                  id="cubeInput"
-                />{" "}
-                <button>Search</button>
-              </div> */}
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -137,15 +125,15 @@ const Cube = ({ history }) => {
           <div className="itemContainerCube">
             <div class="textContainerCube">
               <h1>
-                Putting the <span>Good</span> in <span>GAA</span>
+                Putting the <span>G</span> in <span>GAA</span>
               </h1>
             </div>
           </div>
         </div>
       </div>
 
-      {/* <div className="swiper-button-next"></div>
-      <div className="swiper-button-prev"></div> */}
+      <div className="swiper-button-next whiteArrow"></div>
+      <div className="swiper-button-prev whiteArrow"></div>
     </div>
   );
   // return (

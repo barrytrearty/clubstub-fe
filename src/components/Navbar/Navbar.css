@@ -8,9 +8,7 @@
 #club-nav {
   /* background-color: #00db71; */
   height: 60px;
-  /* background-color: #57d699; */
-  /* background-color: #066138; */
-  /* background-color: rgb(77, 168, 127); */
+
   color: #ffffff;
   /* position: fixed; */
   z-index: 3;
@@ -22,15 +20,9 @@
 .top-nav {
   position: fixed;
   top: 0;
-  background-color: rgb(77, 168, 127);
+  /* background-color: rgb(77, 168, 127); */
+  background-color: rgb(5, 60, 60);
 }
-
-/* .bottom-nav {
-  position: fixed;
-  background-color: rgb(77, 168, 127);
-  padding-top: 7px;
-  padding-bottom: 0;
-} */
 
 #club-nav a {
   /* color: black; */
@@ -40,24 +32,21 @@
 }
 
 #club-nav .green-bg {
-  background-color: rgb(77, 168, 127);
+  /* background-color: rgb(77, 168, 127); */
+  background-color: rgb(5, 60, 60);
   padding: 10px;
   z-index: 11;
 }
 
 .bold-hover {
   color: rgb(219, 200, 200);
-  color: #242424;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
 }
 
 .bold-hover:hover {
-  color: rgb(95, 93, 93);
-  /* background-color: rgb(77, 168, 127); */
-  /* text-shadow: 0 0 10px rgb(0, 122, 0); */
-  /* font-weight: 600; */
+  color: rgb(255, 255, 255);
 }
 
 .green-bg div {
@@ -66,12 +55,7 @@
 
 .logoOD {
   position: sticky;
-  /* top: -33px; */
-  /* left: 300px; */
-  /* left: -77px; */
-  /* left: 0; */
   height: 120px;
-  /* width: 120px; */
   z-index: 12;
   animation: spin 2s ease-out;
   transition: all 0.2s ease-in-out;
@@ -93,5 +77,19 @@
   }
   100% {
     transform: translate(0px, 0px) rotate(-720deg);
+  }
+}
+
+@media (max-width: 575px) {
+  #club-nav {
+    height: 50px;
+  }
+
+  .logoOD {
+    height: 90px;
+  }
+
+  .disappearSM {
+    display: none;
   }
 }

@@ -9,6 +9,7 @@ import { BiTimeFive } from "react-icons/bi";
 import { FiMapPin } from "react-icons/fi";
 
 import Cube from "../Cube/Cube";
+import Footer from "../Footer/Footer";
 
 const Home = () => {
   // const [user, setUser] = useState();
@@ -132,30 +133,31 @@ const Home = () => {
           <Cube array={matches} />
 
           {/* <Container fluid> */}
-          <div class="card-section afterCube">
+          <div class="card-section">
             <div>
               <h3 className="home-heading">Featured Matches</h3>
             </div>
-            <Row className="mb-3 ml-1 mr-1">
+            <Row className="mb-3 ml-1 mr-1 row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-5">
               {matches.map((match) => (
-                <Col xs={12} sm={6} lg={3} className="mb-4">
+                // <Col xs={12} sm={6} lg={3} className="mb-4">
+                <Col className="py-4 px-4">
                   <div className="card-section-card">
                     <Link to={`${matchOrEdit}/${match._id}`}>
                       <img src={match.image} alt="" className="card-img" />
                     </Link>
                     <Link to={`${matchOrEdit}/${match._id}`}>
                       <div className="card-section-card-info">
-                        <div className="card-section-card-title">
+                        <div className="card-section-card-title truncate">
                           {match.competition.description} {match.description}
                         </div>
-                        <div className="card-section-card-teams">
+                        <div className="card-section-card-teams truncate">
                           {match.homeTeam.name} vs {match.awayTeam.name}
                         </div>
 
                         <div>
                           <FiMapPin /> {match.venue}
                         </div>
-                        <div>
+                        <div className="truncate">
                           <BsCalendarCheck /> {match.displayDate}
                         </div>
                         <div>
@@ -185,17 +187,17 @@ const Home = () => {
                     </Link>
                     <Link to={`${matchOrEdit}/${match._id}`}>
                       <div className="card-section-card-info">
-                        <div className="card-section-card-title">
+                        <div className="card-section-card-title truncate">
                           {match.competition.description} {match.description}
                         </div>
-                        <div className="card-section-card-teams">
+                        <div className="card-section-card-teams truncate">
                           {match.homeTeam.name} vs {match.awayTeam.name}
                         </div>
 
                         <div>
                           <FiMapPin /> {match.venue}
                         </div>
-                        <div>
+                        <div className="truncate">
                           <BsCalendarCheck /> {match.displayDate}
                         </div>
                         <div>
@@ -225,17 +227,17 @@ const Home = () => {
                     </Link>
                     <Link to={`${matchOrEdit}/${match._id}`}>
                       <div className="card-section-card-info">
-                        <div className="card-section-card-title">
+                        <div className="card-section-card-title truncate">
                           {match.competition.description} {match.description}
                         </div>
-                        <div className="card-section-card-teams">
+                        <div className="card-section-card-teams truncate">
                           {match.homeTeam.name} vs {match.awayTeam.name}
                         </div>
 
                         <div>
                           <FiMapPin /> {match.venue}
                         </div>
-                        <div>
+                        <div className="truncate">
                           <BsCalendarCheck /> {match.displayDate}
                         </div>
                         <div>
@@ -264,34 +266,9 @@ const Home = () => {
               </div>
             ))}
           </div>
+          <Footer />
         </div>
       )}
-      <footer>
-        <div className="footerCont">
-          <h3>About author</h3>
-          <div class="footer-text-container">
-            <img
-              src="https://res.cloudinary.com/btrearty/image/upload/v1634040287/linked-products/u31qfd3uhxobmzxozubf.jpg"
-              alt=""
-            />
-            <div>
-              <p>My name is Barry and I am a graduate of Strive School. </p>
-              <p>
-                I am a Fullstack developer centered on the MERN stack with a
-                special focus on the frontend.
-              </p>
-              <p>
-                This site is a prototype site for a GAA ticket vendor. It was
-                built using React, Redux, node.js, Express and MongoDB
-              </p>
-              <p>
-                Feel free to check out my github and portfolio and don't
-                hesitate to get in touch. Thank you
-              </p>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
