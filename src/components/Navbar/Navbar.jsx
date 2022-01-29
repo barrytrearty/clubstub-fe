@@ -10,7 +10,7 @@ import logo from "../../data/county-crests/ballOdeals.png";
 
 const Navbar1 = ({ history, location, match }) => {
   const userName = useSelector((state) => state.userInfo.username);
-  const isAdmin = useSelector((state) => state.userInfo.role);
+  const picture = useSelector((state) => state.userInfo.picture);
   const dispatch = useDispatch();
 
   const checkLoginOrSignupPage = window.location.pathname;
@@ -40,7 +40,7 @@ const Navbar1 = ({ history, location, match }) => {
           ) : checkLoginOrSignupPage === "/signup" ? (
             ""
           ) : ( */}
-          <Nav id="teamNav" className="ml-auto">
+          <Nav id="teamNav" className="ml-auto navbarCont">
             <Link to="/teams">
               <Nav.Item className="green-bg">
                 <div className="bold-hover">TEAMS</div>
@@ -57,10 +57,15 @@ const Navbar1 = ({ history, location, match }) => {
 
           {userName ? (
             // <Nav className="ml-auto">
-            <Nav>
+            <Nav className="navbarCont">
               <div className="green-bg disappearSM">|</div>
+              <Link to="/me" className="disappearSM">
+                <Nav.Item className="green-bg userNav">
+                  <img src={picture} alt="" />
+                </Nav.Item>
+              </Link>
               <Link to="/me">
-                <Nav.Item className="green-bg">
+                <Nav.Item className="green-bg userNav">
                   <div className="bold-hover">{userName}</div>
                 </Nav.Item>
               </Link>
@@ -71,7 +76,7 @@ const Navbar1 = ({ history, location, match }) => {
               </Nav.Item>
             </Nav>
           ) : (
-            <Nav>
+            <Nav className="navbarCont">
               <div className="green-bg disappearSM">|</div>
               <Link to="/signup">
                 <Nav.Item className="green-bg">

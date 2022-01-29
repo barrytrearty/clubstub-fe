@@ -1,5 +1,7 @@
 export const SET_USER_INFO = "SET_USER_INFO";
 export const LOG_USER_OUT = "LOG_USER_OUT";
+// export const SET_COUNTIES_ARRAY = "SET_COUNTIES_ARRAY";
+
 // export const FETCH_USER = "FETCH_USER";
 
 // REGULAR ACTION CREATORS
@@ -31,6 +33,15 @@ export const logUserOut = (userObj) => {
     });
   };
 };
+
+// export const setCountiesArray = (array) => {
+//   return (dispatch) => {
+//     dispatch({
+//       type: SET_COUNTIES_ARRAY,
+//       payload: array,
+//     });
+//   };
+// };
 
 // export const fetchUser = () => {
 //   return async (dispatch, getState) => {

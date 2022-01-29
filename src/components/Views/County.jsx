@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Col, Container, Row, Card, Spinner } from "react-bootstrap";
-import CarouselClub from "../Carousels/CarouselClub";
 import { withRouter } from "react-router-dom";
 
 const County = ({ match }) => {
@@ -140,7 +139,6 @@ const County = ({ match }) => {
               </Col>
             </Row>
           </div>
-          <CarouselClub array={clubs} />
         </Container>
       )}
     </div>

@@ -1,7 +1,9 @@
 import Swiper from "swiper/swiper-bundle.esm.js";
+import { Col, Row, Spinner } from "react-bootstrap";
 // import "swiper/swiper-bundle.css";
 import "./carousel.css";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const CarouselCounty = ({ array }) => {
   const swiper = new Swiper(".swiper", {

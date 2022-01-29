@@ -46,7 +46,7 @@ body {
 
 .home-heading {
   padding-top: 10vh;
-  padding-bottom: 4vh;
+  /* padding-bottom: 4vh; */
   color: rgb(0, 0, 0);
   text-align: center;
   /* fon */
@@ -236,6 +236,9 @@ body {
 
 .crestRow {
   columns: 16;
+  background: rgb(212, 245, 216);
+  margin-top: 10vh;
+  /* margin-bottom: 10vh; */
 }
 
 .crestImage {

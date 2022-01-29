@@ -6,7 +6,7 @@ import thunk from "redux-thunk";
 // import { chatsReducer } from "../reducer/chat";
 // import { socketReducer } from "../reducer/socket";
 import { userReducer } from "../reducers/user.js";
-import { teamReducer } from "../reducers/team.js";
+import { countiesReducer } from "../reducers/counties.js";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -18,12 +18,12 @@ export const initialState = {
     picture: "",
     role: "",
   },
-  teams: { favorites: [] },
+  counties: [],
 };
 
 const mainReducer = combineReducers({
   userInfo: userReducer,
-  teams: teamReducer,
+  counties: countiesReducer,
 });
 
 //PERSISTANCE

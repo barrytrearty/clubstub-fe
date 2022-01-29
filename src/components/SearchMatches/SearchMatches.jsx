@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Col, FormControl, InputGroup, Row, Spinner } from "react-bootstrap";
-// import CarouselCounty from "../Carousels/CarouselCounty";
+
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 // import "./Manage.css";
@@ -17,7 +17,7 @@ const SearchMatches = () => {
   const isAdmin = useSelector((state) => state.userInfo.role);
   let matchOrEdit = isAdmin === "Admin" ? "editMatch" : "match";
 
-  const [searchInput, setSearchInput] = useState(searchQuery);
+  const [searchInput, setSearchInput] = useState(searchQuery.toLowerCase());
   const [matches, setMatches] = useState([]);
   const apiUrl = process.env.REACT_APP_BE;
   const [comps, setComps] = useState([]);

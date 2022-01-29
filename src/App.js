@@ -12,15 +12,14 @@ import County from "./components/Views/County";
 import Club from "./components/Views/Club";
 import Match from "./components/Match/Match";
 import Account from "./components/Views/Account";
-// import CubeHome from "./components/Cube/CubeHome";
-import Competitions from "./components/Competitions";
+
 import AllTeams from "./components/AllTeams/AllTeams";
 import AllMatches from "./components/AllMatches/AllMatches";
 import SearchMatches from "./components/SearchMatches/SearchMatches";
 import CreateMatchForm from "./components/Forms/CreateMatchForm";
 import CreateCompetitionForm from "./components/Forms/CreateCompetitionForm";
 import CreateTeamForm from "./components/Forms/CreateTeamForm";
-import EditMatch from "./components/EditMatch/EditMatch";
+import EditMatch from "./components/Match/EditMatch";
 // import AddEvent from "./components/AddEvent";
 import { useEffect } from "react";
 

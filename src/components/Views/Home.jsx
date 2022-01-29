@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Col, Row, Spinner } from "react-bootstrap";
+import { Col, Row, Spinner, Container } from "react-bootstrap";
 
 // import PeopleSection from "./PeopleSection";
 import { Link } from "react-router-dom";
@@ -174,91 +174,8 @@ const Home = () => {
             </Row>
           </div>
 
-          <div class="card-section">
-            <div>
-              <h3 className="home-heading">Up Next</h3>
-            </div>
-            <Row className="mb-3 ml-1 mr-1">
-              {matchesSoon.map((match) => (
-                <Col xs={12} sm={6} lg={3} className="mb-4">
-                  <div className="card-section-card">
-                    <Link to={`${matchOrEdit}/${match._id}`}>
-                      <img src={match.image} alt="" className="card-img" />
-                    </Link>
-                    <Link to={`${matchOrEdit}/${match._id}`}>
-                      <div className="card-section-card-info">
-                        <div className="card-section-card-title truncate">
-                          {match.competition.description} {match.description}
-                        </div>
-                        <div className="card-section-card-teams truncate">
-                          {match.homeTeam.name} vs {match.awayTeam.name}
-                        </div>
-
-                        <div>
-                          <FiMapPin /> {match.venue}
-                        </div>
-                        <div className="truncate">
-                          <BsCalendarCheck /> {match.displayDate}
-                        </div>
-                        <div>
-                          <BiTimeFive /> {match.time}
-                        </div>
-                        <div className="card-section-card-price">
-                          €{match.entryFee}.00
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-                </Col>
-              ))}
-            </Row>
-          </div>
-
-          <div class="card-section">
-            <div>
-              <h3 className="home-heading">Bang for your Buck</h3>
-            </div>
-            <Row className="mb-3 ml-1 mr-1">
-              {matchesValue.map((match) => (
-                <Col xs={12} sm={6} lg={3} className="mb-4">
-                  <div className="card-section-card">
-                    <Link to={`${matchOrEdit}/${match._id}`}>
-                      <img src={match.image} alt="" className="card-img" />
-                    </Link>
-                    <Link to={`${matchOrEdit}/${match._id}`}>
-                      <div className="card-section-card-info">
-                        <div className="card-section-card-title truncate">
-                          {match.competition.description} {match.description}
-                        </div>
-                        <div className="card-section-card-teams truncate">
-                          {match.homeTeam.name} vs {match.awayTeam.name}
-                        </div>
-
-                        <div>
-                          <FiMapPin /> {match.venue}
-                        </div>
-                        <div className="truncate">
-                          <BsCalendarCheck /> {match.displayDate}
-                        </div>
-                        <div>
-                          <BiTimeFive /> {match.time}
-                        </div>
-                        <div className="card-section-card-price">
-                          €{match.entryFee}.00
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-                </Col>
-              ))}
-            </Row>
-          </div>
-
-          <div>
-            <h3 className="home-heading">COUNTIES</h3>
-          </div>
           <div className="crestRow">
-            {counties.map((county) => (
+            {counties.slice(0, 16).map((county) => (
               <div className="crestHolder">
                 <Link to={`county/${county.name}`}>
                   <img src={county.crest} alt="" className="crestImage" />
@@ -266,6 +183,110 @@ const Home = () => {
               </div>
             ))}
           </div>
+
+          <div class="card-section">
+            <div>
+              <h3 className="home-heading">Up Next</h3>
+            </div>
+            <Row className="mb-3 ml-1 mr-1 row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-5">
+              {matchesSoon.map((match) => (
+                <Col className="py-4 px-4">
+                  <div className="card-section-card">
+                    <Link to={`${matchOrEdit}/${match._id}`}>
+                      <img src={match.image} alt="" className="card-img" />
+                    </Link>
+                    <Link to={`${matchOrEdit}/${match._id}`}>
+                      <div className="card-section-card-info">
+                        <div className="card-section-card-title truncate">
+                          {match.competition.description} {match.description}
+                        </div>
+                        <div className="card-section-card-teams truncate">
+                          {match.homeTeam.name} vs {match.awayTeam.name}
+                        </div>
+
+                        <div>
+                          <FiMapPin /> {match.venue}
+                        </div>
+                        <div className="truncate">
+                          <BsCalendarCheck /> {match.displayDate}
+                        </div>
+                        <div>
+                          <BiTimeFive /> {match.time}
+                        </div>
+                        <div className="card-section-card-price">
+                          €{match.entryFee}.00
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+                </Col>
+              ))}
+            </Row>
+          </div>
+
+          <div className="crestRow">
+            {counties.slice(16, 32).map((county) => (
+              <div className="crestHolder">
+                <Link to={`county/${county.name}`}>
+                  <img src={county.crest} alt="" className="crestImage" />
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          <div class="card-section">
+            <div>
+              <h3 className="home-heading">Bang for your Buck</h3>
+            </div>
+
+            <Row className="mb-3 ml-1 mr-1 row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-5">
+              {matchesValue.map((match) => (
+                <Col className="py-4 px-4">
+                  <div className="card-section-card">
+                    <Link to={`${matchOrEdit}/${match._id}`}>
+                      <img src={match.image} alt="" className="card-img" />
+                    </Link>
+                    <Link to={`${matchOrEdit}/${match._id}`}>
+                      <div className="card-section-card-info">
+                        <div className="card-section-card-title truncate">
+                          {match.competition.description} {match.description}
+                        </div>
+                        <div className="card-section-card-teams truncate">
+                          {match.homeTeam.name} vs {match.awayTeam.name}
+                        </div>
+
+                        <div>
+                          <FiMapPin /> {match.venue}
+                        </div>
+                        <div className="truncate">
+                          <BsCalendarCheck /> {match.displayDate}
+                        </div>
+                        <div>
+                          <BiTimeFive /> {match.time}
+                        </div>
+                        <div className="card-section-card-price">
+                          €{match.entryFee}.00
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+                </Col>
+              ))}
+            </Row>
+          </div>
+
+          {/* <div>
+            <h3 className="home-heading">COUNTIES</h3>
+          </div> */}
+          {/* <div className="crestRow">
+            {counties.slice(0, 16).map((county) => (
+              <div className="crestHolder">
+                <Link to={`county/${county.name}`}>
+                  <img src={county.crest} alt="" className="crestImage" />
+                </Link>
+              </div>
+            ))}
+          </div> */}
           <Footer />
         </div>
       )}

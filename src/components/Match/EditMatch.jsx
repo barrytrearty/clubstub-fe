@@ -2,6 +2,7 @@ import { withRouter, Redirect } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Button, Container, Spinner, Modal } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import "./Match.css";
 
 // import CheckoutForm from "./CheckoutForm";
 
@@ -91,7 +92,7 @@ const EditMatch = ({ match, location, history }) => {
           </Spinner>
         </div>
       ) : (
-        <Container className=" pb-5">
+        <div className=" pb-5">
           <h2>Edit bit</h2>
           <img src={matchObj.image} alt="" className="match-image" />
           <div id="match-details-holder">
@@ -160,7 +161,7 @@ const EditMatch = ({ match, location, history }) => {
               </Button>
             </Modal.Footer>
           </Modal>
-        </Container>
+        </div>
       )}
     </div>
   );

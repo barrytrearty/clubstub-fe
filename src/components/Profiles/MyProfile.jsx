@@ -8,8 +8,8 @@ import {
   Modal,
   CloseButton,
 } from "react-bootstrap";
-import { useDispatch } from "react-redux";
-// import { setUserInfo } from "../../redux/actions/actions.js";
+import { useDispatch, useSelector } from "react-redux";
+
 import { setUserInfo } from "../../redux/actions/actions.js";
 // import PeopleSection from "./PeopleSection";
 import { Link } from "react-router-dom";
@@ -17,12 +17,14 @@ import { Link } from "react-router-dom";
 import Orders from "../Orders.jsx";
 
 const MyProfile = () => {
-  const [user, setUser] = useState();
+  // const [user, setUser] = useState();
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const [comps, setComps] = useState([]);
   const [matches, setMatches] = useState([]);
+
+  const user = useSelector((state) => state.userInfo);
 
   const [imageFile, setImageFile] = useState();
   const [imageUploaded, setImageUploaded] = useState(false);
@@ -32,27 +34,6 @@ const MyProfile = () => {
 
   const apiUrl = process.env.REACT_APP_BE;
   const token = localStorage.getItem("accessToken");
-
-  const getProfile = async () => {
-    try {
-      let response = await fetch(`${apiUrl}/users/me`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      let userRes = await response.json();
-      console.log(userRes);
-      setUser(userRes);
-      dispatch(setUserInfo(userRes));
-      setLoading(false);
-
-      return userRes;
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const getMatches = async () => {
     try {
@@ -66,7 +47,7 @@ const MyProfile = () => {
       let matchesRes = await response.json();
       console.log(matchesRes);
       setMatches(matchesRes);
-      setLoading(false);
+      // setLoading(false);
       console.log(matches);
       return matchesRes;
     } catch (error) {
@@ -96,7 +77,7 @@ const MyProfile = () => {
       let compsRes = await response.json();
       console.log(compsRes);
       setComps(compsRes);
-      // setLoading(false);
+      setLoading(false);
       console.log(comps);
       return compsRes;
     } catch (error) {
@@ -138,15 +119,15 @@ const MyProfile = () => {
     if (paramToken) {
       localStorage.setItem("accessToken", paramToken);
     }
-    getProfile();
+    // getProfile();
 
     // dispatch(setUserInfo(user));
   }, []);
 
   useEffect(() => {
-    getComps();
+    // getProfile();
     getMatches();
-    getProfile();
+    getComps();
     // getComps();
   }, [show]);
 

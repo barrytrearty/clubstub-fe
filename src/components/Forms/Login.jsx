@@ -6,12 +6,34 @@ import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
 import "./forms.css";
 
+import { useDispatch, useSelector } from "react-redux";
+import { setUserInfo } from "../../redux/actions/actions.js";
+
 const Login = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const dispatch = useDispatch();
+
   const apiUrl = process.env.REACT_APP_BE;
-  const [loggedIn, setLoggedIn] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const getProfile = async (token) => {
+    try {
+      let response = await fetch(`${apiUrl}/users/me`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      let userRes = await response.json();
+      console.log(userRes);
+      dispatch(setUserInfo(userRes));
+      return userRes;
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const login = async () => {
     const obj = { email, password };
@@ -26,9 +48,11 @@ const Login = ({ history }) => {
       console.log(response);
       let tokenObj = await response.json();
       console.log(tokenObj);
+      let token = tokenObj.tokens.accessToken;
       if (response.ok) {
-        localStorage.setItem("accessToken", tokenObj.tokens.accessToken);
-        setLoggedIn(true);
+        localStorage.setItem("accessToken", token);
+        getProfile(token);
+
         history.push(`/me`);
       } else {
         console.log("Not groovy");
@@ -44,14 +68,9 @@ const Login = ({ history }) => {
     login();
   };
 
-  // useEffect(() => {
-  //   dispatch(setUserInfo({ email: email, username: email }));
-  // }, [loggedIn]);
-
   return (
     <div id="create-form">
       <form>
-        {/* <h1>Welcome to O'Deals</h1> */}
         <h2>Log in</h2>
         <input
           type="email"
@@ -65,13 +84,12 @@ const Login = ({ history }) => {
         />
         <button onClick={handleSubmit}>Login </button>
         <button>
-          <FcGoogle /> Log in with Google{" "}
+          <FcGoogle /> Log in with Google
         </button>
         <button>
-          {" "}
-          <BsFacebook /> Log in with Facebook{" "}
+          <BsFacebook /> Log in with Facebook
         </button>
-        {/* <input type="submit" value="Log in" /> */}
+
         <p className="alt-form">
           Don't have an account? <Link to="/signup">Sign up</Link>
         </p>

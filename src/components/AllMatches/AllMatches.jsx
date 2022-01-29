@@ -1,11 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  Col,
-  Row,
-
-  Spinner,
-
-} from "react-bootstrap";
+import { Col, Row, Spinner } from "react-bootstrap";
 
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
@@ -155,7 +149,7 @@ const AllMatches = () => {
                         <div className="card-section-card-title">
                           {match.competition.description} {match.description}
                         </div>
-                        <div className="card-section-card-teams">
+                        <div className="card-section-card-teams truncate">
                           {match.homeTeam.name} vs {match.awayTeam.name}
                         </div>
 

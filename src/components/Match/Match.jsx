@@ -120,7 +120,7 @@ const Match = ({ match }) => {
           </Spinner>
         </div>
       ) : (
-        <Container className=" pb-5">
+        <div className=" pb-5">
           <img src={matchObj.image} alt="" className="match-image" />
           <div id="match-details-holder">
             <h2>
@@ -224,7 +224,7 @@ const Match = ({ match }) => {
             </Modal.Footer>
           </Modal>
           {/* {showStripe ?? <CheckoutForm />} */}
-        </Container>
+        </div>
       )}
     </div>
     //   )}
