@@ -77,6 +77,10 @@ const Match = ({ match }) => {
     getMatch(id);
   }, []);
 
+  // useEffect(() => {
+  //   document.getElementById("buyTicketBar").style.opacity = 1;
+  // }, [loading]);
+
   const handleToken = async (token, addresses) => {
     handleClose();
     console.log({ token, addresses });
@@ -120,10 +124,9 @@ const Match = ({ match }) => {
           </Spinner>
         </div>
       ) : (
-        <div className=" pb-5">
-          <h2>Edit bit</h2>
+        <div className="py-5">
           <img src={matchObj.image} alt="" className="match-image" />
-          <Container id="match-details-holder">
+          <Container id="match-details-holder" className="pb-5">
             <Row>
               {" "}
               <Col xs={12} md={6}>
@@ -238,6 +241,11 @@ const Match = ({ match }) => {
               </Col>
             </Row>
           </Container>
+          <div id="buyTicketBar">
+            <button className="ticket-button" onClick={handleShow}>
+              GET TICKETS
+            </button>
+          </div>
           {/* <Button onClick={handleShow} id="ticketButton">
             Get Tickets
           </Button> */}

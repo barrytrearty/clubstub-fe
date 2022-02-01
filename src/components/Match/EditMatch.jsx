@@ -117,8 +117,7 @@ const EditMatch = ({ match, location, history }) => {
           </Spinner>
         </div>
       ) : (
-        <div className=" pb-5">
-          <h2>Edit bit</h2>
+        <div className="py-5">
           <img src={matchObj.image} alt="" className="match-image" />
           <Container id="match-details-holder">
             <Row>

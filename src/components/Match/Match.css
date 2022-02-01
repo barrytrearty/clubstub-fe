@@ -47,3 +47,19 @@
   text-align: center;
   margin: auto;
 } */
+
+#buyTicketBar {
+  width: 100%;
+  height: 49px;
+  background-color: #5a8283;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  /* opacity: 0; */
+}
+
+#buyTicketBar button {
+  margin-right: 20px;
+  margin-left: auto;
+  padding: 5px;
+}
