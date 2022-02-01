@@ -363,7 +363,7 @@ const CreateMatchForm = ({ history }) => {
 
           <label
             for="file-upload"
-            className="custom-file-upload py-2 fileLabel"
+            className="custom-file-upload py-2 fileLabel upload-button"
           >
             Select image
           </label>
@@ -371,14 +371,14 @@ const CreateMatchForm = ({ history }) => {
           {imageUploaded ? (
             <label
               for="file-upload"
-              className="custom-file-upload py-2 fileLabel fileSuccess"
+              className="custom-file-upload py-2 fileLabel save-button"
             >
               Uploaded
             </label>
           ) : (
             <label
               for="file-upload"
-              className="custom-file-upload py-2 fileLabel fileFail"
+              className="custom-file-upload py-2 fileLabel cancel-button"
             >
               Not uploaded
             </label>
@@ -391,12 +391,12 @@ const CreateMatchForm = ({ history }) => {
           />
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <button className="cancel-button" onClick={handleClose}>
             Close
-          </Button>
-          <Button variant="primary" onClick={postImage}>
-            Save Changes
-          </Button>
+          </button>
+          <button className="save-button" onClick={postImage}>
+            Save Image
+          </button>
         </Modal.Footer>
       </Modal>
     </div>

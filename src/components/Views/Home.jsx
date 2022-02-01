@@ -36,7 +36,7 @@ const Home = () => {
       });
       let matchesRes = await response.json();
       console.log(matchesRes);
-      setMatches(matchesRes.slice(0, 4));
+      setMatches(matchesRes.slice(0, 5));
       // setLoading(false);
       // console.log(matches);
       return matchesRes;
@@ -56,7 +56,7 @@ const Home = () => {
       });
       let matchesRes = await response.json();
       console.log(matchesRes);
-      setMatchesValue(matchesRes.slice(0, 4));
+      setMatchesValue(matchesRes.slice(0, 5));
       // setLoading(false);
       console.log(matches);
       return matchesRes;
@@ -76,7 +76,7 @@ const Home = () => {
       });
       let matchesRes = await response.json();
       // console.log(matchesRes);
-      setMatchesSoon(matchesRes.slice(0, 4));
+      setMatchesSoon(matchesRes.slice(0, 5));
       // setLoading(false);
       console.log(matches);
       return matchesRes;

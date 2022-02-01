@@ -146,7 +146,7 @@ const AllMatches = () => {
                     </Link>
                     <Link to={`${matchOrEdit}/${match._id}`}>
                       <div className="card-section-card-info">
-                        <div className="card-section-card-title">
+                        <div className="card-section-card-title truncate">
                           {match.competition.description} {match.description}
                         </div>
                         <div className="card-section-card-teams truncate">
@@ -156,7 +156,7 @@ const AllMatches = () => {
                         <div>
                           <FiMapPin /> {match.venue}
                         </div>
-                        <div>
+                        <div className="truncate">
                           <BsCalendarCheck /> {match.displayDate}
                         </div>
                         <div>

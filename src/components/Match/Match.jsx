@@ -188,7 +188,7 @@ const Match = ({ match }) => {
                       </Link>
                       <div className="team-section-card-info">
                         <Link to={`editClub/${matchObj.homeTeam._id}`}>
-                          <span className="team-section-card-title">
+                          <span className="team-section-card-title truncate">
                             {matchObj.homeTeam.name}
                           </span>
                         </Link>
@@ -207,7 +207,7 @@ const Match = ({ match }) => {
                       </Link>
                       <div className="team-section-card-info">
                         <Link to={`editClub/${matchObj.homeTeam._id}`}>
-                          <span className="team-section-card-title">
+                          <span className="team-section-card-title truncate">
                             {matchObj.awayTeam.name}
                           </span>
                         </Link>
@@ -251,12 +251,14 @@ const Match = ({ match }) => {
           </Button> */}
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-              <Modal.Title>{matchObj.description}</Modal.Title>
+              <Modal.Title>
+                {matchObj.competition.description} {matchObj.description}
+              </Modal.Title>
             </Modal.Header>
             <Modal.Body>
               {matchObj.homeTeam.name} vs {matchObj.awayTeam.name}
-              <div>Time {matchObj.time}</div>
-              <div>Date {matchObj.displayDate} </div>
+              <div>Time: {matchObj.time}</div>
+              <div>Date: {matchObj.displayDate} </div>
               <div>
                 <strong>General Admission</strong>: €{matchObj.entryFee}
               </div>
@@ -285,17 +287,15 @@ const Match = ({ match }) => {
               </div>
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-              <Button variant="primary" onClick={handleClose}>
-                Save Changes
-              </Button>
+              <button className="cancel-button" onClick={handleClose}>
+                Cancel
+              </button>
+
               <StripeCheckout
                 stripeKey="pk_test_51K3f3oE5lYsTD6vYHP3LmaWjfYfqPPWdd8jAr8CYIokpPEY6PHm515xCLhoArxpGXDdELmt0KW4Zisy0aHo2S2yd00a5MREuo4"
                 token={handleToken}
                 amount={matchObj.entryFee * numberOfTickets * 100}
-                name={matchObj.description}
+                name={matchObj.competition.description}
                 billingAddress
                 shippingAddress
               />
