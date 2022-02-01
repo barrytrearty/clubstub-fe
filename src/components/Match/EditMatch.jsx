@@ -57,12 +57,37 @@ const EditMatch = ({ match, location, history }) => {
         },
       });
       if (response.ok) {
+        console.log("deleted match");
         // handleCloseDelete();
-        history.push("/matches");
+        // history.push("/matches");
       }
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const deleteMatchOrders = async () => {
+    try {
+      let response = await fetch(`${apiUrl}/allMatchOrders/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (response.ok) {
+        console.log("deleted orders");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleDelete = async () => {
+    deleteMatch();
+    deleteMatchOrders();
+    handleCloseDelete();
+    history.push("/matches");
   };
 
   useEffect(() => {
@@ -156,7 +181,7 @@ const EditMatch = ({ match, location, history }) => {
               <Button variant="primary" onClick={handleCloseDelete}>
                 Cancel
               </Button>
-              <Button variant="danger" onClick={deleteMatch}>
+              <Button variant="danger" onClick={handleDelete}>
                 Delete
               </Button>
             </Modal.Footer>
