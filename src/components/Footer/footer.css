@@ -56,6 +56,11 @@ footer img {
   font-size: 3rem;
 }
 
+#footer-icons-div a:hover {
+  text-decoration: none;
+  color: rgb(156, 156, 156);
+}
+
 @media (max-width: 600px) {
   footer .footer-text-container {
     display: grid;
@@ -81,6 +86,10 @@ footer img {
 
   #footer-icons-div a {
     font-size: 4rem;
+  }
+
+  footer h3 {
+    text-align: center;
   }
 }
 

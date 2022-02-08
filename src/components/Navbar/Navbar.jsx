@@ -32,7 +32,12 @@ const Navbar1 = ({ history, location, match }) => {
 
   return (
     <div id="club-nav-container" className="top-nav">
-      <Navbar collapseOnSelect id="club-nav" expand="sm">
+      <Navbar
+        collapseOnSelect
+        id="club-nav"
+        expand="sm"
+        className="navbar-dark"
+      >
         <Link to="/home">
           <Navbar.Brand className="brandLogoOD">
             <img src={logo} className="logoOD" alt="" />
