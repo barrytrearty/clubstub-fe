@@ -20,7 +20,6 @@
 .top-nav {
   position: fixed;
   top: 0;
-  /* background-color: rgb(77, 168, 127); */
   background-color: rgb(5, 60, 60);
 }
 
@@ -31,11 +30,11 @@
   /* font-weight: 600; */
 }
 
-#club-nav .green-bg {
+#club-nav .single-links {
   /* background-color: rgb(77, 168, 127); */
-  background-color: rgb(5, 60, 60);
   padding: 10px;
   z-index: 11;
+  background-color: rgb(5, 60, 60);
 }
 
 .bold-hover {
@@ -49,8 +48,12 @@
   color: rgb(255, 255, 255);
 }
 
-.green-bg div {
+.single-links div {
   text-align: center;
+}
+
+.green-bg {
+  background-color: rgb(5, 60, 60);
 }
 
 .logoOD {

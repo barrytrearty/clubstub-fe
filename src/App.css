@@ -82,6 +82,7 @@ body {
 
 .card-section-card:hover {
   border: 3px solid rgb(5, 60, 60);
+  text-decoration: none;
 }
 
 .card-section-card-info {
@@ -92,6 +93,7 @@ body {
   text-align: center;
   padding-top: 10px;
   font-weight: 600;
+  color: black;
 }
 
 .card-section-card-price {
@@ -182,26 +184,35 @@ body {
   /* background: linear-gradient(#000000, #81928b); */
 }
 
-#event-card {
+.event-card {
   width: 100%;
-  background-color: white;
+  margin-left: 0;
+  margin-right: 0;
+  display: flex;
+  /* justify-content: space-around; */
+  background-color: rgb(203, 226, 200);
   text-align: left;
   margin-bottom: 20px;
-  border: 3px solid white;
+  border: 3px solid rgb(255, 255, 255);
   border-radius: 10px;
 }
 
-#event-card:hover {
+.event-card:hover {
   border: 3px solid rgb(5, 60, 60);
 }
 
-#event-card div {
+.event-card div {
   text-decoration: none;
   color: black;
+  /* padding: 10px; */
 }
 
-#event-card div:hover {
+.event-card div:hover {
   text-decoration: none;
+}
+
+div .event-card:nth-child(2n) {
+  background-color: rgba(203, 226, 200, 0.603);
 }
 
 .profileImage {
@@ -222,6 +233,8 @@ body {
   height: 80px;
   border-radius: 50%;
   object-fit: cover;
+
+  margin: 15px;
   margin-top: 20px;
 }
 

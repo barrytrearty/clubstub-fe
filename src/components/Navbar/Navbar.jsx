@@ -12,6 +12,7 @@ const Navbar1 = ({ history, location, match }) => {
   const userName = useSelector((state) => state.userInfo.username);
   const picture = useSelector((state) => state.userInfo.picture);
   const dispatch = useDispatch();
+  // const scrollHeight = window.scrollY
 
   const checkLoginOrSignupPage = window.location.pathname;
   console.log(checkLoginOrSignupPage);
@@ -24,6 +25,10 @@ const Navbar1 = ({ history, location, match }) => {
   useEffect(() => {
     document.getElementById("club-nav-container").style.opacity = 1;
   }, []);
+
+  // useEffect(() => {
+  //   if(scrollHeight > );
+  // }, []);
 
   return (
     <div id="club-nav-container" className="top-nav">
@@ -42,13 +47,13 @@ const Navbar1 = ({ history, location, match }) => {
           ) : ( */}
           <Nav id="teamNav" className="ml-auto navbarCont">
             <Link to="/teams">
-              <Nav.Item className="green-bg">
+              <Nav.Item className="single-links">
                 <div className="bold-hover">TEAMS</div>
               </Nav.Item>
             </Link>
 
             <Link to="/matches">
-              <Nav.Item className="green-bg">
+              <Nav.Item className="single-links">
                 <div className="bold-hover">MATCHES</div>
               </Nav.Item>
             </Link>
@@ -58,18 +63,18 @@ const Navbar1 = ({ history, location, match }) => {
           {userName ? (
             // <Nav className="ml-auto">
             <Nav className="navbarCont">
-              <div className="green-bg disappearSM">|</div>
+              <div className="single-links disappearSM">|</div>
               <Link to="/me" className="disappearSM">
-                <Nav.Item className="green-bg userNav">
+                <Nav.Item className="single-links userNav">
                   <img src={picture} alt="" />
                 </Nav.Item>
               </Link>
               <Link to="/me">
-                <Nav.Item className="green-bg userNav">
+                <Nav.Item className="single-links userNav">
                   <div className="bold-hover">{userName}</div>
                 </Nav.Item>
               </Link>
-              <Nav.Item className="green-bg">
+              <Nav.Item className="single-links">
                 <div className="bold-hover" onClick={logOut}>
                   LOGOUT
                 </div>
@@ -77,14 +82,14 @@ const Navbar1 = ({ history, location, match }) => {
             </Nav>
           ) : (
             <Nav className="navbarCont">
-              <div className="green-bg disappearSM">|</div>
+              <div className="single-links disappearSM">|</div>
               <Link to="/signup">
-                <Nav.Item className="green-bg">
+                <Nav.Item className="single-links">
                   <div className="bold-hover">SIGN UP</div>
                 </Nav.Item>
               </Link>
               <Link to="/login">
-                <Nav.Item className="green-bg">
+                <Nav.Item className="single-links">
                   <div className="bold-hover">LOGIN</div>
                 </Nav.Item>
               </Link>

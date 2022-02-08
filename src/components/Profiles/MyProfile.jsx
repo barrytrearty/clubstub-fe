@@ -165,15 +165,13 @@ const MyProfile = () => {
                   <h5>Competitions</h5>
                   {comps.map((comp) => (
                     <Link to={`/matches`}>
-                      <div className="card-section-card">
+                      <div className="card-section-card my-3">
                         <img src={comp.image} alt="" className="card-img" />
-                        {/* </Link> */}
-                        {/* <Link to={`${matchOrEdit}/${match._id}`}> */}
+
                         <div>
                           <div className="comp-section-card-title">
                             {comp.description}
                           </div>
-                          {/* <div>{comp.description}</div> */}
                         </div>
                       </div>
                     </Link>

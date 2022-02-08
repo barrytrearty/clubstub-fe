@@ -1,119 +1,46 @@
 import { withRouter, Redirect, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Button, Container, Spinner, Modal, Col, Row } from "react-bootstrap";
+import { Button, Container, Spinner, Modal, Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import "./Match.css";
+import axios from "axios";
+import StripeCheckout from "react-stripe-checkout";
 
-// import CheckoutForm from "./CheckoutForm";
-
-const EditMatch = ({ match, location, history }) => {
-  const { id } = match.params;
+const SingleOrder = ({ match }) => {
+  const { orderId } = match.params;
   const checkLoginId = useSelector((state) => state.userInfo._id);
 
   const apiUrl = process.env.REACT_APP_BE;
   const [matchObj, setMatchobj] = useState();
+  const [orderObj, setOrderObj] = useState();
   const [matchId, setMatchId] = useState("");
   const [loading, setLoading] = useState(true);
+
   const token = localStorage.getItem("accessToken");
 
-  //Modal stuff
-  const [showEdit, setShowEdit] = useState(false);
-  const [showDelete, setShowDelete] = useState(false);
-
-  // const handleCloseEdit = () => setShowEdit(false);
-  // const handleShowEdit = () => setShowEdit(true);
-
-  const handleCloseDelete = () => setShowDelete(false);
-  const handleShowDelete = () => setShowDelete(true);
-
-  const goToEdit = () => {
-    history.push(`/editMatchForm/${id}`);
-  };
-
-  const getMatch = async (id) => {
+  const getOrder = async (id) => {
     try {
-      let response = await fetch(`${apiUrl}/matches/${id}`, {
+      let response = await fetch(`${apiUrl}/order/${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
       });
-      let matchRes = await response.json();
-      console.log(matchRes);
-      setMatchobj(matchRes);
-      setMatchId(matchRes._id);
+      let orderRes = await response.json();
+      console.log(orderRes);
+      setOrderObj(orderRes);
+      //   setOrderId(orderRes._id);
       setLoading(false);
-      console.log(matchObj);
-      return matchRes;
+      console.log(orderObj);
+      return orderRes;
     } catch (error) {
       console.log(error);
     }
   };
-
-  const deleteMatch = async () => {
-    try {
-      let response = await fetch(`${apiUrl}/matches/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      if (response.ok) {
-        console.log("deleted match");
-        // handleCloseDelete();
-        // history.push("/matches");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const deleteMatchOrders = async () => {
-    try {
-      let response = await fetch(`${apiUrl}/allMatchOrders/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      if (response.ok) {
-        console.log("deleted orders");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleDelete = async () => {
-    deleteMatch();
-    deleteMatchOrders();
-    handleCloseDelete();
-    history.push("/matches");
-  };
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const paramToken = params.get("accessToken");
-
-    if (paramToken) {
-      localStorage.setItem("accessToken", paramToken);
-    }
-    getMatch(id);
-  }, []);
-
-  if (checkLoginId === "") {
-    return <Redirect to="/login" />;
-  }
 
   return (
-    // <div>
-    //   {checkLoginId === "" ? (
-    //     <Login />
-    //   ) : (
     <div>
+      {" "}
       {loading ? (
         <div>
           <Spinner animation="border" role="status">
@@ -123,12 +50,12 @@ const EditMatch = ({ match, location, history }) => {
       ) : (
         <div className="py-5">
           <img src={matchObj.image} alt="" className="match-image" />
-          <Container id="match-details-holder">
+          <Container id="match-details-holder" className="pb-5">
             <Row>
               {" "}
               <Col xs={12} md={6}>
                 {" "}
-                <h2>Description:</h2>
+                <h2>Description: </h2>
                 <h3>
                   {matchObj.competition.description} {matchObj.description}
                 </h3>
@@ -159,22 +86,14 @@ const EditMatch = ({ match, location, history }) => {
                 </div>
                 <h2>Tickets remaining: </h2>
                 <div className="match-detail">{matchObj.capacity}</div>
-                <div className="my-4">
-                  <Button
-                    // className="ticket-button"
-                    onClick={goToEdit}
-                    // id="ticketButton"
+                <div className="ticket-wrapper my-4">
+                  <button
+                    className="ticket-button"
+                    // onClick={handleShow}
+                    id="ticketButton"
                   >
-                    Edit
-                  </Button>
-                  <Button
-                    // className="ticket-button"
-                    onClick={handleShowDelete}
-                    // id="ticketButton"
-                    variant="danger"
-                  >
-                    Delete
-                  </Button>
+                    GET TICKETS
+                  </button>
                 </div>
               </Col>
               <Col xs={12} md={6}>
@@ -193,7 +112,7 @@ const EditMatch = ({ match, location, history }) => {
                       </Link>
                       <div className="team-section-card-info">
                         <Link to={`editClub/${matchObj.homeTeam._id}`}>
-                          <span className="team-section-card-title">
+                          <span className="team-section-card-title truncate">
                             {matchObj.homeTeam.name}
                           </span>
                         </Link>
@@ -212,7 +131,7 @@ const EditMatch = ({ match, location, history }) => {
                       </Link>
                       <div className="team-section-card-info">
                         <Link to={`editClub/${matchObj.homeTeam._id}`}>
-                          <span className="team-section-card-title">
+                          <span className="team-section-card-title truncate">
                             {matchObj.awayTeam.name}
                           </span>
                         </Link>
@@ -246,25 +165,10 @@ const EditMatch = ({ match, location, history }) => {
               </Col>
             </Row>
           </Container>
-
-          <Modal show={showDelete} onHide={handleCloseDelete}>
-            <Modal.Header closeButton>
-              <Modal.Title>Delete match</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>Are you sure you want to delete match?</Modal.Body>
-            <Modal.Footer>
-              <Button variant="primary" onClick={handleCloseDelete}>
-                Cancel
-              </Button>
-              <Button variant="danger" onClick={handleDelete}>
-                Delete
-              </Button>
-            </Modal.Footer>
-          </Modal>
         </div>
       )}
     </div>
   );
 };
 
-export default withRouter(EditMatch);
+export default SingleOrder;

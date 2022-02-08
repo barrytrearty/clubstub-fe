@@ -50,7 +50,7 @@ const Orders = ({ match }) => {
       });
       let matchesRes = await response.json();
       console.log(matchesRes);
-      setMatches(matchesRes);
+      setMatches(matchesRes.slice(0, 4));
       // setLoading(false);
       console.log(matches);
       return matchesRes;
@@ -113,14 +113,18 @@ const Orders = ({ match }) => {
                 <button className="ticket-button">Last 30 day</button>
               </div>
               {adminMatches.map((match) => (
-                <Link to={`editMatch/${match._id}`}>
-                  <Row id="event-card">
-                    <Col xs={12} sm={3}>
-                      {" "}
+                // <Link to={`editMatch/${match._id}`}>
+                <div className="event-card">
+                  <div>
+                    <Link to={`editMatch/${match._id}`}>
                       <img src={match.image} alt="" className="eventImage" />
-                    </Col>
-                    <Col xs={12} sm={9}>
-                      <h3 className="username">{match.description}</h3>
+                    </Link>
+                  </div>
+                  <Link to={`editMatch/${match._id}`}>
+                    <div>
+                      <h3 className="username">
+                        {match.competition.description} {match.description}
+                      </h3>
                       <div>
                         <ImLocation /> {match.venue}
                       </div>
@@ -130,9 +134,10 @@ const Orders = ({ match }) => {
                       <div>
                         <AiOutlineClockCircle /> {match.time}
                       </div>
-                    </Col>
-                  </Row>
-                </Link>
+                    </div>
+                  </Link>
+                </div>
+                // </Link>
               ))}
             </div>
           ) : (
@@ -142,71 +147,67 @@ const Orders = ({ match }) => {
                 <button className="ticket-button">Next 7 day</button>
                 <button className="ticket-button ml-1">Next 30 day</button>
               </div>
-              {orders === undefined ? (
-                <div>
-                  <Row id="event-card" className="p-5">
-                    <div>None to show</div>
-                  </Row>
-                  <h5>Featured Matches</h5>
-                  <Row>
-                    {matches.map((match) => (
-                      <Col xs={6} sm={6} md={4} lg={3} className="mb-4">
-                        <div className="card-section-card">
-                          <Link to={`match/${match._id}`}>
-                            <img
-                              src={match.image}
-                              alt=""
-                              className="card-img"
-                            />
-                          </Link>
-                          <Link to={`match/${match._id}`}>
-                            <div className="card-section-card-info">
-                              <div className="card-section-card-title">
-                                {match.competition.description}{" "}
-                                {match.description}
-                              </div>
-                              {/* <div className="card-section-card-teams">
-                                {match.homeTeam.name} vs {match.awayTeam.name}
-                              </div> */}
-
-                              <div className="card-section-card-price">
-                                €{match.entryFee}.00
-                              </div>
-                            </div>
-                          </Link>
-                        </div>
-                      </Col>
-                    ))}
-                  </Row>
-                </div>
+              {orders === [] ? (
+                <Row className="event-card">
+                  <div>None to show</div>
+                </Row>
               ) : (
                 orders.map((order) => (
-                  <Row id="event-card">
-                    <Col xs={12} sm={3}>
-                      {" "}
-                      <img
-                        src={order.match.image}
-                        alt=""
-                        className="eventImage"
-                      />
-                    </Col>
-                    <Col xs={12} sm={9}>
-                      <h3 className="username">{order.match.description}</h3>
+                  <div className="event-card">
+                    <div>
+                      <Link to={`editMatch/${order.match._id}`}>
+                        <img
+                          src={order.match.image}
+                          alt=""
+                          className="eventImage"
+                        />
+                      </Link>
+                    </div>
+                    <Link to={`editMatch/${order.match._id}`}>
                       <div>
-                        <ImLocation /> {order.match.venue}
+                        <h3 className="username">{order.match.description}</h3>
+                        <div>
+                          <ImLocation /> {order.match.venue}
+                        </div>
+                        <div>
+                          <AiTwotoneCalendar /> {order.match.displayDate}
+                        </div>
+                        <div>
+                          <AiOutlineClockCircle /> {order.match.time}
+                        </div>
                       </div>
-                      <div>
-                        <AiTwotoneCalendar /> {order.match.displayDate}
-                      </div>
-                      <div>
-                        <AiOutlineClockCircle /> {order.match.time}
-                      </div>
-                    </Col>
-                  </Row>
+                    </Link>
+                  </div>
                 ))
               )}
             </div>
           )}
+          <h5>Featured Matches</h5>
+          <Row>
+            {matches.map((match) => (
+              <Col xs={12} sm={6} md={4} lg={3} className="mb-4">
+                <div className="card-section-card">
+                  <Link to={`match/${match._id}`}>
+                    <img src={match.image} alt="" className="card-img" />
+                  </Link>
+                  <Link to={`match/${match._id}`}>
+                    <div className="card-section-card-info">
+                      <div className="card-section-card-title truncate">
+                        {match.competition.description} {match.description}
+                      </div>
+                      {/* <div className="card-section-card-teams">
+                                {match.homeTeam.name} vs {match.awayTeam.name}
+                              </div> */}
+
+                      <div className="card-section-card-price">
+                        €{match.entryFee}.00
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              </Col>
+            ))}
+          </Row>
         </Container>
       )}
     </div>

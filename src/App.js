@@ -11,15 +11,17 @@ import Home from "./components/Views/Home";
 import County from "./components/Views/County";
 import Club from "./components/Views/Club";
 import Match from "./components/Match/Match";
-import Account from "./components/Views/Account";
+import SingleOrder from "./components/SingleOrder/SingleOrder";
 
 import AllTeams from "./components/AllTeams/AllTeams";
 import AllMatches from "./components/AllMatches/AllMatches";
 import SearchMatches from "./components/SearchMatches/SearchMatches";
 import CreateMatchForm from "./components/Forms/CreateMatchForm";
+import EditMatchForm from "./components/Forms/EditMatchForm";
 import CreateCompetitionForm from "./components/Forms/CreateCompetitionForm";
 import CreateTeamForm from "./components/Forms/CreateTeamForm";
 import EditMatch from "./components/Match/EditMatch";
+
 // import AddEvent from "./components/AddEvent";
 import { useEffect } from "react";
 
@@ -65,10 +67,12 @@ function App() {
         <Route path="/search" component={SearchMatches} />
         <Route path="/home" component={Home} />
         <Route path="/addMatch" component={CreateMatchForm} />
+        <Route path="/editMatchForm/:matchId" component={EditMatchForm} />
         <Route path="/addComp" component={CreateCompetitionForm} />
         <Route path="/addTeam" component={CreateTeamForm} />
 
         <Route path="/match/:id" component={Match} />
+        <Route path="/order/:id" component={SingleOrder} />
         <Route path="/editMatch/:id" component={EditMatch} />
         {/*  <Route path="/checkout" component={Checkout} /> */}
         <Route path="/county/:id" component={County} />

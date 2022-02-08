@@ -137,7 +137,7 @@ const Home = () => {
             <div>
               <h3 className="home-heading">Featured Matches</h3>
             </div>
-            <Row className="mx-5 mb-3 ml-1 mr-1 row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-5">
+            <Row className="mx-5 mb-3 ml-1 mr-1 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
               {matches.map((match) => (
                 // <Col xs={12} sm={6} lg={3} className="mb-4">
                 <Col className="py-4 px-4">
@@ -188,7 +188,7 @@ const Home = () => {
             <div>
               <h3 className="home-heading">Up Next</h3>
             </div>
-            <Row className="mx-5  mb-3 ml-1 mr-1 row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-5">
+            <Row className="mx-5  mb-3 ml-1 mr-1 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
               {matchesSoon.map((match) => (
                 <Col className="py-4 px-4">
                   <div className="card-section-card">
@@ -239,7 +239,7 @@ const Home = () => {
               <h3 className="home-heading">Bang for your Buck</h3>
             </div>
 
-            <Row className="mx-5  mb-3 ml-1 mr-1 row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-5">
+            <Row className="mx-5  mb-3 ml-1 mr-1 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
               {matchesValue.map((match) => (
                 <Col className="py-4 px-4">
                   <div className="card-section-card">
