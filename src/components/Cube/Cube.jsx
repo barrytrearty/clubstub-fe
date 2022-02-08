@@ -65,7 +65,7 @@ const Cube = ({ history }) => {
         <div
           className="swiper-slide swiper-slideCube"
           style={{
-            backgroundImage: `url(https://res.cloudinary.com/btrearty/image/upload/v1638882013/matches/protect_lk2yjy.jpg)`,
+            backgroundImage: `url(https://res.cloudinary.com/btrearty/image/upload/v1639050927/matches/move_qengv8.jpg)`,
           }}
         >
           <div className="itemContainerCube">
@@ -119,7 +119,7 @@ const Cube = ({ history }) => {
         <div
           className="swiper-slide swiper-slideCube"
           style={{
-            backgroundImage: `url(https://res.cloudinary.com/btrearty/image/upload/v1639050927/matches/move_qengv8.jpg)`,
+            backgroundImage: `url(https://res.cloudinary.com/btrearty/image/upload/v1638882013/matches/protect_lk2yjy.jpg)`,
           }}
         >
           <div className="itemContainerCube">

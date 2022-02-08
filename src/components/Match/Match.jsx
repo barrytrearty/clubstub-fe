@@ -127,38 +127,39 @@ const Match = ({ match }) => {
         <div className="py-5">
           <img src={matchObj.image} alt="" className="match-image" />
           <Container id="match-details-holder" className="pb-5">
+            <h1>
+              {matchObj.competition.description} {matchObj.description}
+            </h1>
             <Row>
               {" "}
               <Col xs={12} md={6}>
                 {" "}
                 <h2>Description: </h2>
-                <h3>
-                  {matchObj.competition.description} {matchObj.description}
-                </h3>
                 <div className="match-detail">
-                  <img
+                  {/* <img
                     src={matchObj.homeTeam.crest}
                     alt=""
                     className="match-team-image"
-                  />
+                  /> */}
                   <span>
                     {matchObj.homeTeam.name} vs {matchObj.awayTeam.name}
                   </span>
 
-                  <img
+                  {/* <img
                     src={matchObj.awayTeam.crest}
                     alt=""
                     className="match-team-image"
-                  />
+                  /> */}
                 </div>
                 <h2>Venue: </h2>
                 <div className="match-detail">{matchObj.venue}</div>
                 <h2>Date and Time: </h2>
-                <div className="match-detail">Time: {matchObj.time}</div>
-                <div className="match-detail">Date: {matchObj.displayDate}</div>
+                <div className="match-detail">
+                  {matchObj.time} on {matchObj.displayDate}
+                </div>
                 <h2>Entry Fee: </h2>
                 <div className="match-detail">
-                  Entry Fee: €{matchObj.entryFee}
+                  General admission - €{matchObj.entryFee}
                 </div>
                 <h2>Tickets remaining: </h2>
                 <div className="match-detail">{matchObj.capacity}</div>

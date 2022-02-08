@@ -22,6 +22,11 @@
   /* text-align: center; */
 }
 
+#match-details-holder h1 {
+  font-weight: 400;
+  text-align: center;
+}
+
 #match-details-holder h2 {
   font-size: 1.5rem;
   font-weight: 600;

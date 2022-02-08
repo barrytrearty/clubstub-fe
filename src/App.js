@@ -7,7 +7,7 @@ import Signup from "./components/Forms/Signup";
 import Profile from "./components/Profiles/Profile";
 import MyProfile from "./components/Profiles/MyProfile";
 import Navbar from "./components/Navbar/Navbar";
-import Home from "./components/Views/Home";
+import Home from "./components/Home/Home";
 import County from "./components/Views/County";
 import Club from "./components/Views/Club";
 import Match from "./components/Match/Match";

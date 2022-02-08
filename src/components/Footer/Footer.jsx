@@ -5,17 +5,17 @@ const Footer = () => {
   return (
     <footer>
       <div className="footerCont">
+        <h3>About author</h3>
         <div class="footer-text-container">
-          <div>
+          <div id="footer-image-div">
             {" "}
-            <h3>About author</h3>
             <img
               src="https://res.cloudinary.com/btrearty/image/upload/v1643646515/avatar/IMG_3127-removebg-preview_m2eqzh.png"
               alt=""
             />
           </div>
 
-          <div className="mt-4">
+          <div id="footer-info-div" className="mt-4">
             <p>My name is Barry and I am a graduate of Strive School. </p>
             <p>
               I am a Fullstack developer centered on the MERN stack with a
@@ -30,7 +30,7 @@ const Footer = () => {
               to get in touch. Thank you
             </p>
           </div>
-          <div id="contact-icons">
+          <div id="footer-icons-div">
             <span>
               <a
                 href="https://www.linkedin.com/in/barry-trearty"
