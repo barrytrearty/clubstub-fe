@@ -68,6 +68,12 @@ const Login = ({ history }) => {
     login();
   };
 
+  const handleOauthSubmit = async (e) => {
+    e.preventDefault();
+    const url = `${apiUrl}/users/googleLogin`;
+    window.location.href = url;
+  };
+
   return (
     <div id="create-form">
       <form>
@@ -83,9 +89,11 @@ const Login = ({ history }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button onClick={handleSubmit}>Login </button>
-        <button>
+        {/* <a href={`${apiUrl}/users/googleLogin`} alt="" className="link-button"> */}
+        <button onClick={handleOauthSubmit}>
           <FcGoogle /> Log in with Google
         </button>
+        {/* </a> */}
         <button>
           <BsFacebook /> Log in with Facebook
         </button>

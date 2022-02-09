@@ -131,3 +131,10 @@ select {
   color: black;
   font-weight: 600;
 }
+
+.link-button {
+  width: 100%;
+  background: #677eff;
+  color: #fff;
+  font-weight: 600;
+}
