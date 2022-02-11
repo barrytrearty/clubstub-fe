@@ -161,21 +161,20 @@ const EditMatch = ({ match, location, history }) => {
                 <h2>Tickets remaining: </h2>
                 <div className="match-detail">{matchObj.capacity}</div>
                 <div className="my-4">
-                  <Button
-                    // className="ticket-button"
+                  <button
+                    className="edit-button"
                     onClick={goToEdit}
                     // id="ticketButton"
                   >
                     Edit
-                  </Button>
-                  <Button
-                    // className="ticket-button"
+                  </button>
+                  <button
+                    className="cancel-button"
                     onClick={handleShowDelete}
                     // id="ticketButton"
-                    variant="danger"
                   >
                     Delete
-                  </Button>
+                  </button>
                 </div>
               </Col>
               <Col xs={12} md={6}>

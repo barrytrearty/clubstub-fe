@@ -63,6 +63,21 @@
   font-weight: 600;
 }
 
+.edit-button {
+  background: rgba(0, 0, 0, 0)
+    linear-gradient(rgb(33, 101, 228), rgb(63, 137, 233)) repeat scroll 0% 0%;
+  border: 0px none;
+  padding: 4px;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 0px;
+  cursor: pointer;
+  visibility: visible;
+  user-select: none;
+  color: white;
+  font-weight: 600;
+}
+
 /* #match-details-holder div {
   width: 100%;
   text-align: center;
