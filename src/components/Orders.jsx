@@ -155,7 +155,7 @@ const Orders = ({ match }) => {
                 orders.map((order) => (
                   <div className="event-card">
                     <div>
-                      <Link to={`editMatch/${order.match._id}`}>
+                      <Link to={`match/${order.match._id}`}>
                         <img
                           src={order.match.image}
                           alt=""
@@ -163,7 +163,7 @@ const Orders = ({ match }) => {
                         />
                       </Link>
                     </div>
-                    <Link to={`editMatch/${order.match._id}`}>
+                    <Link to={`match/${order.match._id}`}>
                       <div>
                         <h3 className="username">{order.match.description}</h3>
                         <div>
