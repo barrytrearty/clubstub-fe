@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logUserOut } from "../../redux/actions/actions";
 import { withRouter } from "react-router";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import logo from "../../data/county-crests/ballOdeals.png";
 
 const Navbar1 = ({ history, location, match }) => {
@@ -22,8 +22,11 @@ const Navbar1 = ({ history, location, match }) => {
     history.push("/home");
   };
 
+  const clubNavContainer = useRef();
+
   useEffect(() => {
-    document.getElementById("club-nav-container").style.opacity = 1;
+    clubNavContainer.current.style.opacity = 1;
+    // document.getElementById("club-nav-container").style.opacity = 1;
   }, []);
 
   // useEffect(() => {
@@ -31,7 +34,7 @@ const Navbar1 = ({ history, location, match }) => {
   // }, []);
 
   return (
-    <div id="club-nav-container" className="top-nav">
+    <div id="club-nav-container" ref={clubNavContainer} className="top-nav">
       <Navbar
         collapseOnSelect
         id="club-nav"

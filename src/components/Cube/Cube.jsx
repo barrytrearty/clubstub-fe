@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "swiper/swiper-bundle.css";
 import Swiper from "swiper/swiper-bundle.esm.js";
 import { FormControl, InputGroup, Button } from "react-bootstrap";
@@ -50,13 +50,18 @@ const Cube = ({ history }) => {
   //   backgroundImage: `url(${match.image})`,
   // };
 
+  const firstCube = useRef();
+  const cubeHeading = useRef();
+
   const useSearchBar = () => {
     history.push(`/search?query=${searchInput}`);
   };
 
   useEffect(() => {
-    document.getElementById("leadTextContainerCube").style.opacity = 1;
-    document.getElementById("odHead").style.opacity = 1;
+    // document.getElementById("leadTextContainerCube").style.opacity = 1;
+    // document.getElementById("odHead").style.opacity = 1;
+    firstCube.current.style.opacity = 1;
+    cubeHeading.current.style.opacity = 1;
   }, []);
 
   return (
@@ -69,9 +74,12 @@ const Cube = ({ history }) => {
           }}
         >
           <div className="itemContainerCube">
-            <div id="leadTextContainerCube">
+            <div id="leadTextContainerCube" ref={firstCube}>
               <h1>
-                Welcome to <span id="odHead">O'Deals</span>
+                Welcome to{" "}
+                <span id="odHead" ref={cubeHeading}>
+                  O'Deals
+                </span>
               </h1>
               <div className="mb-3" id="inputGroup">
                 <input
