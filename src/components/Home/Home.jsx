@@ -45,45 +45,45 @@ const Home = () => {
     }
   };
 
-  const getMatchesValue = async () => {
-    try {
-      let response = await fetch(`${apiUrl}/matches/value`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          // Authorization: `Bearer ${token}`,
-        },
-      });
-      let matchesRes = await response.json();
-      console.log(matchesRes);
-      setMatchesValue(matchesRes.slice(0, 5));
-      // setLoading(false);
-      console.log(matches);
-      return matchesRes;
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const getMatchesValue = async () => {
+  //   try {
+  //     let response = await fetch(`${apiUrl}/matches/value`, {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         // Authorization: `Bearer ${token}`,
+  //       },
+  //     });
+  //     let matchesRes = await response.json();
+  //     console.log(matchesRes);
+  //     setMatchesValue(matchesRes.slice(0, 5));
+  //     // setLoading(false);
+  //     console.log(matches);
+  //     return matchesRes;
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  const getMatchesSoon = async () => {
-    try {
-      let response = await fetch(`${apiUrl}/matches/upNext`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          // Authorization: `Bearer ${token}`,
-        },
-      });
-      let matchesRes = await response.json();
-      // console.log(matchesRes);
-      setMatchesSoon(matchesRes.slice(0, 5));
-      // setLoading(false);
-      console.log(matches);
-      return matchesRes;
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const getMatchesSoon = async () => {
+  //   try {
+  //     let response = await fetch(`${apiUrl}/matches/upNext`, {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         // Authorization: `Bearer ${token}`,
+  //       },
+  //     });
+  //     let matchesRes = await response.json();
+  //     // console.log(matchesRes);
+  //     setMatchesSoon(matchesRes.slice(0, 5));
+  //     // setLoading(false);
+  //     console.log(matches);
+  //     return matchesRes;
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const getCounties = async () => {
     try {
@@ -114,8 +114,8 @@ const Home = () => {
     }
     // getProfile();
     getMatches();
-    getMatchesValue();
-    getMatchesSoon();
+    // getMatchesValue();
+    // getMatchesSoon();
     getCounties();
   }, []);
 
@@ -175,7 +175,7 @@ const Home = () => {
           </div>
 
           <div className="crestRow">
-            {counties.slice(0, 16).map((county) => (
+            {counties.slice(0, 32).map((county) => (
               <div className="crestHolder">
                 <Link to={`county/${county.name}`}>
                   <img src={county.crest} alt="" className="crestImage" />
@@ -184,7 +184,7 @@ const Home = () => {
             ))}
           </div>
 
-          <div class="card-section">
+          {/* <div class="card-section">
             <div>
               <h3 className="home-heading">Up Next</h3>
             </div>
@@ -222,9 +222,9 @@ const Home = () => {
                 </Col>
               ))}
             </Row>
-          </div>
+          </div> */}
 
-          <div className="crestRow">
+          {/* <div className="crestRow">
             {counties.slice(16, 32).map((county) => (
               <div className="crestHolder">
                 <Link to={`county/${county.name}`}>
@@ -232,9 +232,9 @@ const Home = () => {
                 </Link>
               </div>
             ))}
-          </div>
+          </div> */}
 
-          <div class="card-section">
+          {/* <div class="card-section">
             <div>
               <h3 className="home-heading">Bang for your Buck</h3>
             </div>
@@ -273,7 +273,7 @@ const Home = () => {
                 </Col>
               ))}
             </Row>
-          </div>
+          </div> */}
 
           {/* <div>
             <h3 className="home-heading">COUNTIES</h3>
